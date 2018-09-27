@@ -34,16 +34,15 @@ SRC_URI_append = " file://${PN}/4.9/config/tes_dnx_cdc.cfg"
 #
 # Add DNX register headers and DRM UAPI definitions for kernel side
 #
-#FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
-#ADDSOURCES = " \
-#	file://interface \
-#	file://drm-dnx/dnx_drm.h \
-#"
+FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
+ADDSOURCES = " \
+	file://interface \
+	file://drm-dnx/dnx_drm.h \
+"
 
 
 SRCREV_interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
-ADDSOURCES = ""
 ADDSOURCES_tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
