@@ -9,7 +9,7 @@ inherit populate_sdk_base populate_slimsdk_base image_ext3_vmdk
 #
 # Add all the wayland stuff.
 #
-IMAGE_INSTALL += " weston"
+IMAGE_INSTALL += " weston-dnx"
 
 
 #
@@ -88,7 +88,7 @@ export IMAGE_BASENAME="tes-davenx-evalkit-image"
 #
 # Add Linux Kernel sources to SDK
 #
-TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev weston"
+TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev weston-dnx"
 
 
 #
