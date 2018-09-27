@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+sharedlibdir=${libdir}
+includedir=${prefix}/include
+
+Name: glesv2
+Description: TES OpenGL 2.0 ES library
+Version: 0.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lGLESv2
+Cflags: -I${includedir}

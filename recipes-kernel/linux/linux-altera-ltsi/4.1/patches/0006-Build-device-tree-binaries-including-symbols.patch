@@ -1,0 +1,25 @@
+From 2b8f86c345931c8d139b5794ec9501423c776695 Mon Sep 17 00:00:00 2001
+From: Christian Thaler <christian.thaler@tes-dst.com>
+Date: Mon, 10 Oct 2016 15:37:51 +0200
+Subject: [PATCH] Build device tree binaries including symbols
+
+---
+ scripts/Makefile.lib | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index 79e8661..37dfcdc 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -284,7 +284,7 @@ $(obj)/%.dtb.S: $(obj)/%.dtb
+ quiet_cmd_dtc = DTC     $@
+ cmd_dtc = mkdir -p $(dir ${dtc-tmp}) ; \
+ 	$(CPP) $(dtc_cpp_flags) -x assembler-with-cpp -o $(dtc-tmp) $< ; \
+-	$(objtree)/scripts/dtc/dtc -O dtb -o $@ -b 0 \
++	$(objtree)/scripts/dtc/dtc -@ -O dtb -o $@ -b 0 \
+ 		-i $(dir $<) $(DTC_FLAGS) \
+ 		-d $(depfile).dtc.tmp $(dtc-tmp) ; \
+ 	cat $(depfile).pre.tmp $(depfile).dtc.tmp > $(depfile)
+-- 
+1.9.1
+

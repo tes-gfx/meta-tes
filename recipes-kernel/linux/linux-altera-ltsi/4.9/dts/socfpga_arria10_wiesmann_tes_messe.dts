@@ -1,0 +1,102 @@
+/*
+ * Copyright (C) 2017 TES Electronic Solutions GmbH. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/dts-v1/;
+#include "socfpga_arria10_wiesmann.dtsi"
+
+&gmac1 {
+  local-mac-address = "[00 00 00 00 00 00]"; // dummy address to support fdt boardsetup command
+};
+
+/{
+	soc{
+		base_fpga_region {
+		
+			ranges = < 0x00000000 0xff200000 0x2000
+				   0x00008000 0xff208000 0x0200 >;
+		
+			tes_cdc_0: lcd_controller@0x00008000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00008000 0x00000200>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 20 4>;
+				
+				clocks = <&pixel_clock>;
+				
+				ports {
+					port@0 {
+						cdc_out_rgb: endpoint {
+							remote-endpoint = <&lvdsenc_in>;
+						};
+					};
+				};
+			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+		
+			pixel_clock: oscillator {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <154000000>;
+			};
+		
+			lvds-encoder {
+				compatible = "lvds-encoder";
+				
+				width-mm = <216>;
+				height-mm = <162>;
+				
+				panel-timing {
+					clock-frequency = <31500000>;
+					hactive = <800>;
+					vactive = <480>;
+					hfront-porch = <64>;
+					hback-porch = <56>;
+					hsync-len = <80>;
+					vback-porch = <14>;
+					vfront-porch = <28>;
+					vsync-len = <3>;
+				
+					hsync-active = <1>;
+					vsync-active = <1>;
+					de-active = <1>;
+					pixelclk-active = <1>;
+				};
+				
+				ports {
+					port@0 {
+						lvdsenc_in: endpoint {
+							remote-endpoint = <&cdc_out_rgb>;
+						};
+					};
+
+					port@1 {
+						lvdsenc_out: endpoint {
+							// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
+							remote-endpoint = <&i2c0>;
+						};
+					};
+				};
+			};
+		
+			tes_dnx_0: gpu@0x00000000 {
+				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
+				reg = <0x00000000 0x00003000>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 19 4>;
+			};
+		};
+	};
+};

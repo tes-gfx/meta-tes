@@ -1,0 +1,29 @@
+# compile with: mkimage -T script -C none -n "bootnfs_flash_mmc" -d bootnfs_flash_mmc.scr bootnfs_flash_mmc.img
+
+setenv serverip 192.168.252.1
+setenv fdtimage devicetree-zImage-socfpga_arria10_wiesmann_tes.dtb
+setenv rbfcoreimage socfpga_arria10_wiesmann_tes.core.rbf
+setenv bootimage zImage
+setenv rootpath 192.168.252.1:/nfs_root,nfsvers=3
+
+setenv fpga 0
+setenv fdtaddr 0x100
+setenv loadaddr 0x10000
+setenv kerneladdr 0x20000
+setenv fpgadata 0x2000000
+setenv u-boot_swstate_reg 0xffd0620c
+setenv u-boot_image_valid 0x49535756
+setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y ip=dhcp root=/dev/nfs nfs nfsroot=${rootpath} rw 3 flash_mmc
+
+tftp ${kerneladdr} ${bootimage}
+tftp ${fdtaddr} ${fdtimage}
+tftp ${fpgadata} ${rbfcoreimage} 
+fpga load ${fpga} ${fpgadata} ${filesize}
+
+run set_initswstate
+fpgabr 1
+run sdramprio
+fdt addr ${fdtaddr}
+fdt boardsetup
+bootz ${kerneladdr} - ${fdtaddr}
+

@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+sharedlibdir=${libdir}
+includedir=${prefix}/include
+
+Name: egl
+Description: TES EGL library
+Version: 0.1
+
+Requires.private: glesv2
+Libs: -L${libdir} -L${sharedlibdir} -lEGL
+Cflags: -I${includedir}

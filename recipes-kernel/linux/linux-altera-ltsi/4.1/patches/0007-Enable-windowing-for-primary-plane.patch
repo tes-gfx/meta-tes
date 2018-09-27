@@ -1,0 +1,114 @@
+diff --git a/drivers/gpu/drm/drm_crtc.c b/drivers/gpu/drm/drm_crtc.c
+index e600a5f..35cd4dc 100644
+--- a/drivers/gpu/drm/drm_crtc.c
++++ b/drivers/gpu/drm/drm_crtc.c
+@@ -2534,9 +2534,76 @@  void drm_crtc_get_hv_timing(const struct drm_display_mode *mode,
+ }
+ EXPORT_SYMBOL(drm_crtc_get_hv_timing);
+ 
++static int check_viewport(int hdisplay,
++			  int vdisplay,
++			  int x,
++			  int y,
++			  bool invert_dimensions,
++			  const struct drm_framebuffer *fb)
++{
++	if (invert_dimensions)
++		swap(hdisplay, vdisplay);
++
++	if (hdisplay > fb->width ||
++	    vdisplay > fb->height ||
++	    x > fb->width - hdisplay ||
++	    y > fb->height - vdisplay) {
++		DRM_DEBUG_KMS("Invalid fb size %ux%u for CRTC viewport %ux%u+%d+%d%s.\n",
++			      fb->width, fb->height, hdisplay, vdisplay, x, y,
++			      invert_dimensions ? " (inverted)" : "");
++		return -ENOSPC;
++	}
++
++	return 0;
++}
++
++/**
++ * drm_plane_check_viewport - Checks that a framebuffer is big enough for the
++ *     plane's viewport
++ * @plane: Plane that framebuffer will be displayed on
++ * @x: x panning
++ * @y: y panning
++ * @fb: framebuffer to check size of
++ *
++ * Atomic drivers (or transitioning drivers that support proper plane state)
++ * may call this function on any plane.  Non-atomic drivers may only call this
++ * for the primary plane while the CRTC is active (we'll assume that the
++ * primary plane covers the entire CRTC in that case).
++ */
++int drm_plane_check_viewport(const struct drm_plane *plane,
++			     int x,
++			     int y,
++			     const struct drm_framebuffer *fb)
++
++{
++	struct drm_crtc *crtc = plane->crtc;
++	int hdisplay, vdisplay;
++
++	if (WARN_ON(plane->state == NULL &&
++		    plane->type != DRM_PLANE_TYPE_PRIMARY))
++		return -EINVAL;
++
++	/*
++	 * Non-atomic drivers may not have valid plane state to look at.  But
++	 * those drivers also don't support windowing of the primary plane, so
++	 * we can fall back to looking at the mode of the owning CRTC.
++	 */
++	if (plane->state) {
++		hdisplay = plane->state->src_w >> 16;
++		vdisplay = plane->state->src_h >> 16;
++	} else if (WARN_ON(!crtc)) {
++		hdisplay = vdisplay = 0;
++	} else {
++		drm_crtc_get_hv_timing(&crtc->mode, &hdisplay, &vdisplay);
++	}
++
++	return check_viewport(hdisplay, vdisplay, x, y, false, fb);
++}
++EXPORT_SYMBOL(drm_plane_check_viewport);
++
+ /**
+  * drm_crtc_check_viewport - Checks that a framebuffer is big enough for the
+- *     CRTC viewport
++ *     CRTC viewport when running in the specified mode
+  * @crtc: CRTC that framebuffer will be displayed on
+  * @x: x panning
+  * @y: y panning
+@@ -2553,20 +2620,8 @@  int drm_crtc_check_viewport(const struct drm_crtc *crtc,
+ 
+ 	drm_crtc_get_hv_timing(mode, &hdisplay, &vdisplay);
+ 
+-	if (crtc->invert_dimensions)
+-		swap(hdisplay, vdisplay);
+-
+-	if (hdisplay > fb->width ||
+-	    vdisplay > fb->height ||
+-	    x > fb->width - hdisplay ||
+-	    y > fb->height - vdisplay) {
+-		DRM_DEBUG_KMS("Invalid fb size %ux%u for CRTC viewport %ux%u+%d+%d%s.\n",
+-			      fb->width, fb->height, hdisplay, vdisplay, x, y,
+-			      crtc->invert_dimensions ? " (inverted)" : "");
+-		return -ENOSPC;
+-	}
+-
+-	return 0;
++	return 0; //check_viewport(hdisplay, vdisplay, x, y,
++	//		      crtc->invert_dimensions, fb);
+ }
+ EXPORT_SYMBOL(drm_crtc_check_viewport);
+ 
+@@ -5181,7 +5236,7 @@  int drm_mode_page_flip_ioctl(struct drm_device *dev,
+ 		goto out;
+ 	}
+ 
+-	ret = drm_crtc_check_viewport(crtc, crtc->x, crtc->y, &crtc->mode, fb);
++	ret = drm_plane_check_viewport(crtc->primary, crtc->x, crtc->y, fb);
+ 	if (ret)
+ 		goto out;
+

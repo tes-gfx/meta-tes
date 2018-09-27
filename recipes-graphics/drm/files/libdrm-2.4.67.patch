@@ -1,0 +1,30 @@
+diff -Naur libdrm-2.4.67/xf86drm.h libdrm-2.4.67_tes/xf86drm.h
+--- libdrm-2.4.67/xf86drm.h	2015-10-23 19:58:02.000000000 +0200
++++ libdrm-2.4.67_tes/xf86drm.h	2016-11-10 17:51:29.842572388 +0100
+@@ -37,7 +37,11 @@
+ #include <stdarg.h>
+ #include <sys/types.h>
+ #include <stdint.h>
++#ifdef COMPILE_LIBDRM
+ #include <drm.h>
++#else
++#include <drm/drm.h>
++#endif
+ 
+ #if defined(__cplusplus)
+ extern "C" {
+diff -Naur libdrm-2.4.67/xf86drmMode.h libdrm-2.4.67_tes/xf86drmMode.h
+--- libdrm-2.4.67/xf86drmMode.h	2015-08-17 16:08:11.000000000 +0200
++++ libdrm-2.4.67_tes/xf86drmMode.h	2016-11-10 17:51:58.466993704 +0100
+@@ -40,7 +40,11 @@
+ extern "C" {
+ #endif
+ 
++#ifdef COMPILE_LIBDRM
+ #include <drm.h>
++#else
++#include <drm/drm.h>
++#endif
+ 
+ /*
+  * This is the interface for modesetting for drm.
