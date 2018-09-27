@@ -1,6 +1,8 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}:"
 
-KERNEL_REPO = "https://github.com/c-thaler/linux-socfpga.git"
+KERNEL_REPO = "git://github.com/c-thaler/linux-socfpga.git"
+
+SRCREV = "e6ee060a6b76d4d61b569561af7c93697e6abba9"
 
 KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_socdk_tes.dtb \
@@ -41,11 +43,12 @@ SRC_URI_append = " file://${PN}/4.9/config/tes_dnx_cdc.cfg"
 
 SRCREV_interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
+ADDSOURCES = ""
 ADDSOURCES_tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
-SRC_URI_append = "${ADDSOURCES}"
+SRC_URI_append = " ${ADDSOURCES}"
 
 
 #
