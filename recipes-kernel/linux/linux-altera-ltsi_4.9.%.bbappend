@@ -1,5 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}:"
 
+KERNEL_REPO = "https://github.com/c-thaler/linux-socfpga.git"
+
 KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_socdk_tes.dtb \
 	socfpga_arria10_wiesmann_tes.dtb \
