@@ -55,7 +55,7 @@ SRC_URI_append = " ${ADDSOURCES}"
 # Copy base device tree into kernel source
 #
 do_compile_prepend() {
-	cp ${WORKDIR}/${PN}/4.1/${MACHINE}/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${PN}/4.9/${MACHINE}/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 }
