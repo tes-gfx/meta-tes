@@ -61,7 +61,7 @@ do_compile_prepend() {
 }
 
 do_compile_prepend_arria10() {
-	cp ${WORKDIR}/${PN}/4.1/${MACHINE}/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${PN}/4.9/${MACHINE}/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 #
