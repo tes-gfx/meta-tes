@@ -21,6 +21,8 @@ inherit autotools pkgconfig useradd distro_features_check
 DEPENDS = "libxkbcommon gdk-pixbuf pixman cairo glib-2.0 jpeg gbm"
 DEPENDS += "wayland wayland-protocols libinput pango wayland-native"
 
+S = "${WORKDIR}/weston-${PV}"
+
 EXTRA_OECONF = "--enable-setuid-install \
                 --disable-rdp-compositor \
                 WAYLAND_PROTOCOLS_SYSROOT_DIR=${RECIPE_SYSROOT} \
@@ -93,7 +95,7 @@ do_install_append() {
 PACKAGES += "${@bb.utils.contains('PACKAGECONFIG', 'xwayland', '${PN}-xwayland', '', d)} \
              libweston-2 ${PN}-examples"
 
-FILES_${PN} = "${bindir}/weston ${bindir}/weston-terminal ${bindir}/weston-info ${bindir}/weston-launch ${bindir}/wcap-decode ${libexecdir} ${libdir}/${BPN}/*.so ${datadir}"
+FILES_${PN} = "${bindir}/weston ${bindir}/weston-terminal ${bindir}/weston-info ${bindir}/weston-launch ${bindir}/wcap-decode ${libexecdir} ${libdir}/weston/*.so ${datadir}"
 
 FILES_libweston-2 = "${libdir}/lib*${SOLIBS} ${libdir}/libweston-2/*.so"
 SUMMARY_libweston-2 = "Helper library for implementing 'wayland window managers'."
