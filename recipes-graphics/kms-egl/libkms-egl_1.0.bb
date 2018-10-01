@@ -18,6 +18,7 @@ S = "${WORKDIR}/kms_egl"
 B = "${WORKDIR}/kms_egl"
 B_tesintern = "${WORKDIR}/kms_egl"
 
+inherit pkgconfig
 
 do_install () {
   install -d ${D}${includedir} 

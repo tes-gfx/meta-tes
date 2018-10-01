@@ -20,6 +20,8 @@ LIC_FILES_CHKSUM = "\
 
 DEPENDS = "libdrm"
 
+inherit pkgconfig
+
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://egl.pc \
