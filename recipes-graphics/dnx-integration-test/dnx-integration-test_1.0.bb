@@ -17,6 +17,8 @@ SRC_URI_tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;protocol=htt
 S = "${WORKDIR}/integration_test"
 srcdir = "${prefix}/src"
 
+inherit pkgconfig
+
 do_install () {
   install -d ${D}${bindir}
   install -m 0755 integration_test ${D}${bindir}
