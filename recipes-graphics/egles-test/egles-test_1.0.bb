@@ -6,6 +6,7 @@ DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev libpng"
 
 RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
 
+inherit pkgconfig
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
