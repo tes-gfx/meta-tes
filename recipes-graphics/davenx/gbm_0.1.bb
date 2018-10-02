@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "\
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = "\
-	file://driver/kernel/linux/gbm \
+	file://gbm \
 "
 
 SRCREV = "${AUTOREV}"
