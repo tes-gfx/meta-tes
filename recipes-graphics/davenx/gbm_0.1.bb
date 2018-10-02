@@ -19,6 +19,7 @@ SRC_URI_tesintern = "\
 
 S = "${WORKDIR}/gbm"
 
+inherit pkgconfig
 
 do_install () {
         install -m 0755 -d ${D}${libdir}
