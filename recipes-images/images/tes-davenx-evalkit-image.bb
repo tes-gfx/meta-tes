@@ -98,6 +98,7 @@ TOOLCHAIN_TARGET_TASK += " \
         exhibdemo-src \
         dnx-integration-test-src \
         hellogl-src \
+        egles-test-src \
 "
 
 

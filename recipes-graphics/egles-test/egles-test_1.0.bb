@@ -30,8 +30,17 @@ S = "${WORKDIR}"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
 
+EXTRA_OEMAKE += "SHADERTOY=n"
 
-do_install () {
+
+do_shadertoy() {
+  rm -f  ${S}/demos/egles_test/src/test_cases/shadertoy*
+  rm -rf ${S}/demos/egles_test/bin/resources/shadertoy
+}
+addtask shadertoy after do_unpack before do_patch
+
+
+do_install() {
   install -d ${D}${datadir}/${PN}
   install -d ${D}${datadir}/${PN}/shader_dumps
   cp -r ${S}/demos/egles_test/bin ${D}${datadir}/${PN}/bin
