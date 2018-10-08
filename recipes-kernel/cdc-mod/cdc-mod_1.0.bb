@@ -4,21 +4,11 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0;md5=80
 
 inherit module
 
-PR = "r0"
-PV_tesintern = "1.0+svnr${SRCPV}"
-
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
-SRC_URI = "\
-        file://kms \
-"
-
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
-	${TES_SVN_PATH_CDC}/linux;module=kms;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD} \
+SRC_URI = "\
+	git://github.com/c-thaler/cdc-kms.git;protocol=https \
 "
 
-S = "${WORKDIR}"
-B = "${WORKDIR}/kms"
-B_tesintern = "${WORKDIR}/kms"
+S = "${WORKDIR}/git"
 
 KERNEL_MODULE_AUTOLOAD += "cdc"
