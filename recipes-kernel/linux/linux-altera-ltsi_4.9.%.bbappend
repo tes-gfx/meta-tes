@@ -10,10 +10,11 @@ KERNEL_DEVICETREE_arria10 = " \
 "
 
 KERNEL_DEVICETREE_stratix10 = " \
-	socfpga_stratix10_socdk_tes.dtb \
+	altera/socfpga_stratix10_socdk_tes.dtb \
 "
 
 DTB_OUTPUT ?= "arch/${ARCH}/boot/dts"
+DTB_OUTPUT_stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 
 #
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
