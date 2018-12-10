@@ -29,7 +29,7 @@ do_install () {
 
 
 FILES_${PN} = " \
-	${libdir}/libkms_egl.so.* \
+	${libdir}/libkms_egl.so* \
 "
 
 FILES_${PN}-dev += " \
