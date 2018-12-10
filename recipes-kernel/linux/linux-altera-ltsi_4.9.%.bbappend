@@ -9,6 +9,10 @@ KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_wiesmann_tes.dtb \
 "
 
+KERNEL_DEVICETREE_stratix10 = " \
+	socfpga_stratix10_socdk_tes.dtb \
+"
+
 DTB_OUTPUT ?= "arch/${ARCH}/boot/dts"
 
 #
@@ -19,6 +23,7 @@ SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann.dtsi"
 SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann_tes.dts"
 SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann_tes_messe.dts"
 
+SRC_URI_append_stratix10 = " file://${PN}/4.9/dts/socfpga_stratix10_socdk_tes.dts"
 
 #
 # Add kernel configuration (e.g. DRM/KMS support, I2C encoder slaves, CMA, ...)
@@ -61,6 +66,10 @@ do_compile_prepend() {
 
 do_compile_prepend_arria10() {
 	cp ${WORKDIR}/${PN}/4.9/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+}
+
+do_compile_prepend_stratix10() {
+	cp ${WORKDIR}/${PN}/4.9/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
 }
 
 #
