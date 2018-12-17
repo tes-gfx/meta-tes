@@ -1,4 +1,4 @@
-SUMMARY = "TES RBF for U-Boot"
+SUMMARY = "TES RBF for U-Boot (Arria 10)"
 DESCRIPTION = "This recipe generates an U-Boot image for the peripheral RBF and \
 	install the core RBF to the boot folder."
 SECTION = "bootloaders"
