@@ -59,6 +59,83 @@
 	};
 
 	soc {
+
+		base_fpga_region {
+
+			ranges = < 0x00000000 0xf9000000 0x8000
+				   0x00008000 0xf9008000 0x0800 >;
+
+			tes_dnx_0: gpu@0x00000000 {
+				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
+				reg = <0x00000000 0x00008000>;
+
+				interrupt-parent = <&intc>;
+				interrupts = <0 19 4>;
+			};
+
+			tes_cdc_0: lcd_controller@0x00008000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00008000 0x00000800>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 20 4>;
+				
+				clocks = <&pixel_clock>;
+				
+				ports {
+					port@0 {
+						cdc_out_rgb: endpoint {
+							remote-endpoint = <&lvdsenc_in>;
+						};
+					};
+				};
+			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+		
+			pixel_clock: oscillator {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <154000000>;
+			};
+		
+			lvds-encoder {
+				compatible = "lvds-encoder";
+				
+				width-mm = <220>;
+				height-mm = <165>;
+				
+				panel-timing {
+					clock-frequency = <154000000>;
+					hactive = <1920>;
+					vactive = <1200>;
+					hfront-porch = <48>;
+					hback-porch = <80>;
+					hsync-len = <32>;
+					vback-porch = <26>;
+					vfront-porch = <3>;
+					vsync-len = <6>;
+				
+					hsync-active = <0>;
+					vsync-active = <0>;
+					de-active = <1>;
+					pixelclk-active = <1>;
+				};
+				
+				ports {
+					port@0 {
+						lvdsenc_in: endpoint {
+							remote-endpoint = <&cdc_out_rgb>;
+						};
+					};
+
+					port@1 {
+						lvdsenc_out: endpoint {
+							// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
+							remote-endpoint = <&i2c0>;
+						};
+					};
+				};
+			};
+		};
+
 		clkmgr@ffd10000 {
 			clocks {
 				osc1 {
