@@ -62,22 +62,22 @@
 
 		base_fpga_region {
 
-			ranges = < 0x00000000 0xf9000000 0x8000
+			ranges = < 0x00000000 0xf9000000 0x3000
 				   0x00008000 0xf9008000 0x0800 >;
 
 			tes_dnx_0: gpu@0x00000000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
-				reg = <0x00000000 0x00008000>;
+				reg = <0x00000000 0x00003000>;
 
 				interrupt-parent = <&intc>;
-				interrupts = <0 19 4>;
+				interrupts = <0 17 4>;
 			};
 
 			tes_cdc_0: lcd_controller@0x00008000 {
 				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
 				reg = <0x00008000 0x00000800>;
 				interrupt-parent = <&intc>;
-				interrupts = <0 20 4>;
+				interrupts = <0 18 4>;
 				
 				clocks = <&pixel_clock>;
 				
