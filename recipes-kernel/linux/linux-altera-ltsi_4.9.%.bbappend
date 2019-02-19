@@ -6,7 +6,7 @@ SRCREV = "e6ee060a6b76d4d61b569561af7c93697e6abba9"
 
 KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_socdk_tes.dtb \
-	socfpga_arria10_wiesmann_tes.dtb \
+	dreamchip_arria10som_tes.dtb \
 "
 
 KERNEL_DEVICETREE_stratix10 = " \
@@ -20,9 +20,8 @@ DTB_OUTPUT_stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
 #
 SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_socdk_tes.dts"
-SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann.dtsi"
-SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann_tes.dts"
-SRC_URI_append_arria10 = " file://${PN}/4.9/dts/socfpga_arria10_wiesmann_tes_messe.dts"
+SRC_URI_append_arria10 = " file://${PN}/4.9/dts/dreamchip_arria10som.dtsi"
+SRC_URI_append_arria10 = " file://${PN}/4.9/dts/dreamchip_arria10som_tes.dts"
 
 SRC_URI_append_stratix10 = " file://${PN}/4.9/dts/socfpga_stratix10_socdk_tes.dts"
 
