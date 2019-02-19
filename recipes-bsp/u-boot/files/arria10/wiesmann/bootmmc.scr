@@ -1,10 +1,9 @@
 # compile with: mkimage -T script -C none -n "bootmmc" -d bootmmc.scr bootmmc.img
 
 setenv serverip 192.168.252.1
-setenv fdtimage devicetree-zImage-socfpga_arria10_wiesmann_tes.dtb
-setenv rbfcoreimage socfpga_arria10_wiesmann_tes.core.rbf
+setenv fdtimage devicetree-zImage-dreamchip_arria10som_tes.dtb
 setenv bootimage zImage
-setenv root /dev/mmcblk0p1
+setenv root /dev/mmcblk0p2
 
 setenv fpga 0
 setenv fdtaddr 0x100
@@ -15,10 +14,8 @@ setenv u-boot_swstate_reg 0xffd0620c
 setenv u-boot_image_valid 0x49535756
 setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
 
-ext4load mmc 0 ${kerneladdr} /boot/${bootimage}
-ext4load mmc 0 ${fdtaddr} /boot/${fdtimage}
-ext4load mmc 0 ${fpgadata} /boot/${rbfcoreimage}
-fpga load ${fpga} ${fpgadata} ${filesize}
+ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
+ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
 mw ${u-boot_swstate_reg} ${u-boot_image_valid}
 fpgabr 1
 mw 0xffd1678c 0x0
