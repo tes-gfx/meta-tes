@@ -4,20 +4,20 @@ LICENSE = "MIT"
 DEPENDS = "davenx"
 
 LIC_FILES_CHKSUM = "\
-        file://../gbm/main/gbm.c;endline=26;md5=b871c7f2f477df29ee4c0ec437b187f7 \
+        file://main/gbm.c;endline=26;md5=b871c7f2f477df29ee4c0ec437b187f7 \
 "
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
-SRC_URI = "\
-	file://gbm \
-"
+#FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+#SRC_URI = "\
+#	file://gbm \
+#"
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/driver/kernel/linux;module=gbm;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/gbm"
+S = "${WORKDIR}/driver/kernel/linux/gbm"
 
 inherit pkgconfig
 
