@@ -11,7 +11,7 @@ DEPENDS_${PN} = "u-boot-mkimage-native"
 
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
-SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/bootmmc.scr"
+SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
 SRC_URI_append = " file://${MACHINE}/socdk/socfpga_arria10_socdk_tes.rbf"
 SRC_URI_append = " file://${MACHINE}/socdk/bootmmc.scr"
 
@@ -21,9 +21,7 @@ S = "${WORKDIR}"
 
 do_compile () {
 	mkimage -A arm -T firmware -C none -O u-boot -a 0 -e 0 -n "RBF" -d ${S}/${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf ${B}/dreamchip_arria10som_tes.periph.rbf.img
-	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc.scr ${B}/bootmmc.img
-	mkimage -T script -C none -n "bootnfs" -d ${S}/${MACHINE}/dreamchip_arria10som/bootnfs.scr ${B}/bootnfs.img
-	mkimage -T script -C none -n "bootnfs_flash_mmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootnfs_flash_mmc.scr ${B}/bootnfs_flash_mmc.img
+	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc.scr ${B}/bootmmc_arria10som.img
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/bootmmc_socdk.img
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
