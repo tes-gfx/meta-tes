@@ -2,8 +2,7 @@ DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TE
 
 
 include tes-davenx-evalkit-base.inc
-include tes-davenx-vm.inc
-inherit populate_sdk_base populate_slimsdk_base image_ext3_vmdk
+inherit populate_sdk_base populate_slimsdk_base
 
 
 #
