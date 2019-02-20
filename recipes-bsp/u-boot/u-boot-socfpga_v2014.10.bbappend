@@ -3,10 +3,10 @@ require u-boot.inc
 DEPENDS += "mkpimage-native"
 
 
-SRCREV = "7d7678a026df93d1a36fa16c6850bd0d9bff93f7"
+SRCREV = "cecfb2ea81430579b99709317b1cd591a5a19f95"
 
 UBOOT_BRANCH = "socfpga_${PV}_arria10_dnx"
-UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot-socfpga"
+UBOOT_REPO_tesintern = "git:///home/fpga/devel/u-boot-socfpga"
 UBOOT_PROT_tesintern = "file"
 UBOOT_REPO = "git://github.com/c-thaler/u-boot-socfpga.git"
 UBOOT_PROT = "https"
@@ -17,7 +17,7 @@ SRC_URI = "\
 
 UBOOT_CONFIG = "arria10-socdk-dnx dreamchip-arria10som-dnx"
 UBOOT_CONFIG[arria10-socdk-dnx] = "socfpga_arria10_dnx_defconfig"
-UBOOT_CONFIG[dreamchip-arria10som-dnx] = "dreamchip_arria10som_defconfig"
+UBOOT_CONFIG[dreamchip-arria10som-dnx] = "dreamchip_arria10som_sdmmc_defconfig"
 
 UBOOT_MKPIMAGE = "u-boot-dtb-${config%_defconfig}.bin.mkpimage"
 
