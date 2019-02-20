@@ -1,0 +1,4 @@
+This dir must contain the RBF configuration files for the FPGA:
+
+dreamchip_arria10som_tes.core.rbf
+dreamchip_arria10som_tes.periph.rbf

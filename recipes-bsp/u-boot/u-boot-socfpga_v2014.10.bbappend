@@ -15,9 +15,9 @@ SRC_URI = "\
         ${UBOOT_REPO};protocol=${UBOOT_PROT};branch=${UBOOT_BRANCH} \
         "
 
-UBOOT_CONFIG = "arria10-socdk-dnx arria10-wiesmann-dnx"
+UBOOT_CONFIG = "arria10-socdk-dnx dreamchip-arria10som-dnx"
 UBOOT_CONFIG[arria10-socdk-dnx] = "socfpga_arria10_dnx_defconfig"
-UBOOT_CONFIG[arria10-wiesmann-dnx] = "wiesmann_dnx_defconfig"
+UBOOT_CONFIG[dreamchip-arria10som-dnx] = "dreamchip_arria10som_defconfig"
 
 UBOOT_MKPIMAGE = "u-boot-dtb-${config%_defconfig}.bin.mkpimage"
 

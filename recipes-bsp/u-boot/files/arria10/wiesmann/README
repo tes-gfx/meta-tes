@@ -1,4 +1,0 @@
-This dir must contain the RBF configuration files for the FPGA:
-
-socfpga_arria10_wiesmann_tes.core.rbf
-socfpga_arria10_wiesmann_tes.periph.rbf
