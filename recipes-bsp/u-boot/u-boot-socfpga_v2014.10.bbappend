@@ -3,7 +3,7 @@ require u-boot.inc
 DEPENDS += "mkpimage-native"
 
 
-SRCREV = "9383a42177a547c8092bfe758dde70a93cb08d7c"
+SRCREV = "1131e1d511f705917b41a2dd6904a24cb13a4b62"
 
 UBOOT_BRANCH = "socfpga_${PV}_arria10_dnx"
 UBOOT_REPO_tesintern = "git:///home/fpga/devel/u-boot-socfpga"
