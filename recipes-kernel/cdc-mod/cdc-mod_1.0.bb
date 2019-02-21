@@ -6,7 +6,7 @@ inherit module
 
 SRCREV = "${AUTOREV}"
 SRC_URI = "\
-	git://github.com/c-thaler/cdc-kms.git;protocol=https \
+	git://github.com/c-thaler/cdc-kms.git;protocol=https;branch=cdc-400 \
 "
 
 S = "${WORKDIR}/git"
