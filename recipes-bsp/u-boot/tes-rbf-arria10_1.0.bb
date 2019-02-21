@@ -21,7 +21,7 @@ S = "${WORKDIR}"
 
 do_compile () {
 	mkimage -A arm -T firmware -C none -O u-boot -a 0 -e 0 -n "RBF" -d ${S}/${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf ${B}/dreamchip_arria10som_tes.periph.rbf.img
-	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc.scr ${B}/bootmmc_arria10som.img
+	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr ${B}/bootmmc_arria10som.img
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/bootmmc_socdk.img
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
