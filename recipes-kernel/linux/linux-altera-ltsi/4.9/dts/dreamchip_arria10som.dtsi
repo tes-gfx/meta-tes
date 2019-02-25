@@ -80,7 +80,7 @@
 };
 
 &usb0 {
-	status = "okay";
+	status = "disabled";
 };
 
 &usb1 {
@@ -92,7 +92,7 @@
 };
 
 &qspi {
-	status = "okay";
+	status = "disabled";
 
 	compatible = "cdns,qspi-nor";
 	is-decoded-cs = <1>;
