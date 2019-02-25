@@ -33,11 +33,11 @@
                         reg = <0xc0000000 0x04000000>;
                 };
 
-//                dnx_reserved: framebuffer@d0000000 {
-//                        compatible = "shared-dma-pool";
-//                        no-map;
-//                        reg = <0xd0000000 0x10000000>;
-//                };
+                dnx_reserved: framebuffer@c4000000 {
+                        compatible = "shared-dma-pool";
+                        no-map;
+                        reg = <0xc4000000 0x04000000>;
+                };
         };
 
 	soc{
@@ -50,7 +50,7 @@
 				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
 				reg = <0x00008000 0x00000200>;
 				interrupt-parent = <&intc>;
-				interrupts = <0 19 4>;
+				interrupts = <0 20 4>;
 				
 				memory-region = <&cdc_reserved>;
 
@@ -111,13 +111,13 @@
 			};
 		
 			tes_dnx_0: gpu@0x00000000 {
-				status = "disabled";
-
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
 				reg = <0x00000000 0x00003000>;
 				
+				memory-region = <&dnx_reserved>;
+
 				interrupt-parent = <&intc>;
-				interrupts = <0 20 4>;
+				interrupts = <0 19 4>;
 			};
 		};
 	};
