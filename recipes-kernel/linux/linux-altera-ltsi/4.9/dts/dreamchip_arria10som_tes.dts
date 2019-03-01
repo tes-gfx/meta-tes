@@ -21,6 +21,21 @@
   local-mac-address = "[00 00 00 00 00 00]"; // dummy address to support fdt boardsetup command
 };
 
+&i2c0 {
+        status = "okay";        /* embeddedsw.dts.params.status type STRING */
+	emptyfifo_hold_master = <1>;	/* embeddedsw.dts.params.emptyfifo_hold_master type NUMBER */
+        speed-mode = <0>;       /* appended from boardinfo */
+        clock-frequency = <100000>;     /* appended from boardinfo */
+        i2c-sda-falling-time-ns = <6000>;       /* appended from boardinfo */
+        i2c-scl-falling-time-ns = <6000>;       /* appended from boardinfo */
+};
+
+&i2c1 {
+        status = "okay";
+	emptyfifo_hold_master = <1>;	/* embeddedsw.dts.params.emptyfifo_hold_master type NUMBER */
+};
+
+
 /{
         reserved-memory {
                 #address-cells = <1>;

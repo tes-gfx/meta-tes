@@ -17,6 +17,8 @@ setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115
 
 run core_rbf_prog
 
+at24mac
+
 setenv fpgabr_priv mw.l 0xFFD13500 0x1;mw.l 0xFFD13504 0x1;mw.l 0xFFD11004 0xffffffff;mw.l 0xFFD0502C 0x3C
 ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
 ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
