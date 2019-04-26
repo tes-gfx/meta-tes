@@ -51,6 +51,24 @@
 		reg = <0 0 0 0>;
 	};
 
+	reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		cdc_reserved: framebuffer@c0000000 {
+			compatible = "shared-dma-pool";
+			no-map;
+		        reg = <0x0 0xc0000000 0x0 0x04000000>;
+		};
+
+		dnx_reserved: framebuffer@c4000000 {
+			compatible = "shared-dma-pool";
+			no-map;
+		        reg = <0x0 0xc4000000 0x0 0x04000000>;
+		};
+	};
+
 	ref_033v: 033-v-ref {
 		compatible = "regulator-fixed";
 		regulator-name = "0.33V";
@@ -62,15 +80,17 @@
 
 		base_fpga_region {
 
-			ranges = < 0x00000000 0xf9000000 0x3000
+			ranges = < 0x00000000 0xf9000000 0x5000
 				   0x00008000 0xf9008000 0x0800 >;
 
 			tes_dnx_0: gpu@0x00000000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
-				reg = <0x00000000 0x00003000>;
+				reg = <0x00000000 0x00005000>;
 
 				interrupt-parent = <&intc>;
 				interrupts = <0 17 4>;
+
+				memory-region = <&dnx_reserved>;
 			};
 
 			tes_cdc_0: lcd_controller@0x00008000 {
@@ -80,6 +100,8 @@
 				interrupts = <0 18 4>;
 				
 				clocks = <&pixel_clock>;
+
+				memory-region = <&cdc_reserved>;
 				
 				ports {
 					port@0 {
@@ -109,11 +131,11 @@
 					hfront-porch = <110>;
 					hback-porch = <220>;
 					hsync-len = <40>;
-					vback-porch = <5>;
-					vfront-porch = <20>;
+					vback-porch = <20>;
+					vfront-porch = <5>;
 					vsync-len = <5>;
-					hsync-active = <0>;
-					vsync-active = <0>;
+					hsync-active = <1>;
+					vsync-active = <1>;
 					de-active = <1>;
 					pixelclk-active = <1>;
 				};
@@ -194,8 +216,6 @@
 &i2c0 {
 	status = "okay";
 	clock-frequency = <100000>;
-	i2c-sda-falling-time-ns = <890>;  /* hcnt */
-	i2c-sdl-falling-time-ns = <890>;  /* lcnt */
 };
 
 &i2c1 {
