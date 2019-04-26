@@ -15,7 +15,7 @@ LIC_FILES_CHKSUM = "\
 	file://../nxasm/docs/LICENSE.txt;md5=dccd4a0fb4baa9ea80d0bcfd93c4ef7e \
 	file://../driver/kernel/linux/drm-dnx/LICENSE;md5=b3cff5eb85b2d0681a59405204a0a831 \
 	file://../driver/user/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
-	file://../glslang/glslang/MachineIndependent/ShaderLang.cpp;endline=35;md5=67bf0a40552becaa55981bb08f8d9726 \
+	file://../glslang/LICENSE.txt;md5=918e668376010a04448a312fb37ae69b \
 "
 
 DEPENDS = "libdrm"
