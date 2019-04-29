@@ -37,6 +37,7 @@ DEVICETREE=${DEPLOYDIR}/Image-socfpga_stratix10_${BOARD}_tes.dtb
 KERNELIMAGE=${DEPLOYDIR}/Image
 SYSROOT=${DEPLOYDIR}/tes-davenx-evalkit-image-stratix10.ext3
 FPGABITFILE=${DEPLOYDIR}/socfpga_stratix10_${BOARD}_tes.rbf
+UBOOTSCRIPT=${DEPLOYDIR}/u-boot.scr
 
 EXT_FREE_BLOCKS=$(expr 128 \* 1024 \* 1024 \/ 512)
 EXT_SIZE_BLOCKS=$(expr $(stat -Lc%s ${SYSROOT}) \/ 512 \+ ${EXT_FREE_BLOCKS})
@@ -72,11 +73,6 @@ PART_EXT_START=${TEMPVAL[1]}
 PART_EXT_SIZE=${TEMPVAL[3]}
 
 
-# Installing preloader
-echo "Installing preloader..."
-dd conv=notrunc if=${UBOOTIMAGE} of=${IMAGE} seek=2048
-
-
 # Creating file for FAT partition
 echo "Creating FAT partition..."
 FATIMG=tmp_${RANDOM}
@@ -87,8 +83,10 @@ mkfs.vfat ${FATIMG}
 # Populating FAT partition
 echo "Populating FAT partition..."
 mcopy -i ${FATIMG} ${KERNELIMAGE} ::Image
-mcopy -i ${FATIMG} ${DEVICETREE} ::Image-socfpga_stratix10_${BOARD}_tes.dtb
+mcopy -i ${FATIMG} ${DEVICETREE} ::socfpga_stratix10_${BOARD}.dtb
 mcopy -i ${FATIMG} ${FPGABITFILE} ::socfpga_stratix10_${BOARD}_tes.rbf
+mcopy -i ${FATIMG} ${UBOOTIMAGE} ::u-boot-dtb.img
+mcopy -i ${FATIMG} ${UBOOTSCRIPT} ::u-boot.scr
 
 
 # Wrtiting partitions to image file
