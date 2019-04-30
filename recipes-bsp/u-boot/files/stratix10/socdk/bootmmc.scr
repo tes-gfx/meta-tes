@@ -1,0 +1,20 @@
+# compile with: mkimage -T script -C none -n "bootmmc" -d bootmmc.scr bootmmc.img
+
+setenv fdtimage Image-socfpga_stratix10_socdk_tes.dtb
+setenv bootimage Image
+setenv root /dev/mmcblk0p2
+
+#add 0x2000 to load the kernel behind this script
+setenv kerneladdr 0x2002000
+setenv fdtaddr 0x8000000
+
+#load binary blobs of kernel and device tree
+ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
+ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
+
+#enable bridges
+bridge enable; mw f8024050 92; mw f8020228 3fffffff; mw f8020204 2; mw ffd24800 ffffffff;
+
+#boot kernel
+setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
+booti ${kerneladdr} - ${fdtaddr}
