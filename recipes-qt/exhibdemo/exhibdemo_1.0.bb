@@ -9,15 +9,15 @@ PV_tesintern = "1.0+svnr${SRCPV}"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = "\
-	file://ExhibDemo \
+	file://demos/qt/ExhibDemo \
 "
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-        ${TES_SVN_PATH}/demos/qt;module=ExhibDemo;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_SVN_PATH}/demos/qt;module=ExhibDemo;subdir=demos/qt;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
         "
 
-S = "${WORKDIR}/ExhibDemo"
+S = "${WORKDIR}/demos/qt/ExhibDemo"
 srcdir = "${prefix}/src"
 
 DEPENDS = "qtdeclarative"

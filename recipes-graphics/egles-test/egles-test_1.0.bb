@@ -10,8 +10,8 @@ inherit pkgconfig
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://egles_test;subdir=demos/ \
-	file://kms_helper;subdir=tools/ \
+	file://tools/egles_test \
+	file://tools/kms_helper \
 	file://build \
 	file://bagl \
 	file://gles \

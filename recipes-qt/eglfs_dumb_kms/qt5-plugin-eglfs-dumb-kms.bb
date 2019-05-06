@@ -12,8 +12,8 @@ DEPENDS = "qtbase"
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://qt.sh \
-	file://eglfs_dumb_kms;subdir=qt/ \
-	file://kms_helper;subdir=tools/ \
+	file://qt/eglfs_dumb_kms \
+	file://tools/kms_helper \
 "
 
 SRCREV = "${AUTOREV}"
