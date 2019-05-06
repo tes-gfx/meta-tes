@@ -11,17 +11,17 @@ PR = "r0"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://mkpimage \
+	file://tools/mkpimage \
 "
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/tools;module=mkpimage;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/tools;module=mkpimage;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 
-S = "${WORKDIR}/mkpimage"
-B = "${WORKDIR}/mkpimage"
+S = "${WORKDIR}/tools/mkpimage"
+B = "${WORKDIR}/tools/mkpimage"
 
 
 do_install () {

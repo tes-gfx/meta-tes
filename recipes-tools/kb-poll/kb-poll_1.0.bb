@@ -6,17 +6,17 @@ LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=9f04cb94394d96c310de03ac8328449
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://kb_poll \
+	file://tools/kb_poll \
 "
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/tools;module=kb_poll;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/tools;module=kb_poll;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 
-S = "${WORKDIR}/kb_poll"
-B = "${WORKDIR}/kb_poll"
+S = "${WORKDIR}/tools/kb_poll"
+B = "${WORKDIR}/tools/kb_poll"
 
 
 do_install () {

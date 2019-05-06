@@ -7,18 +7,18 @@ DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://hellogl \	
+	file://demos/hellogl \	
 "
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/demos;module=hellogl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/demos;module=hellogl;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 
-S = "${WORKDIR}/hellogl"
+S = "${WORKDIR}/demos/hellogl"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/hellogl"
+B = "${WORKDIR}/demos/hellogl"
 
 
 do_install () {

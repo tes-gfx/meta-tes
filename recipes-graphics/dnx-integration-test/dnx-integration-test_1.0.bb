@@ -9,12 +9,12 @@ PR = "r0"
 PV = "1.0"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
-SRC_URI =  "file://integration_test"
+SRC_URI =  "file://demos/integration_test"
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}"
+SRC_URI_tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}"
 
-S = "${WORKDIR}/integration_test"
+S = "${WORKDIR}/demos/integration_test"
 srcdir = "${prefix}/src"
 
 inherit pkgconfig

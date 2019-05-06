@@ -11,17 +11,17 @@ PR = "r0"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://devmem2 \
+	file://tools/devmem2 \
 "
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/tools;module=devmem2;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/tools;module=devmem2;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 
-S = "${WORKDIR}/devmem2"
-B = "${WORKDIR}/devmem2"
+S = "${WORKDIR}/tools/devmem2"
+B = "${WORKDIR}/tools/devmem2"
 
 
 do_install () {
