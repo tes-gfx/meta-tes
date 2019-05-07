@@ -1,6 +1,6 @@
 require u-boot.inc
 
-SRCREV = "e712eb8ba531b2f45b5c092cecffbd858e238df2"
+SRCREV_stratix10 = "e712eb8ba531b2f45b5c092cecffbd858e238df2"
 
 UBOOT_BRANCH = "socfpga_v2017.09_dnx"
 UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot-socfpga"
