@@ -4,6 +4,8 @@ KERNEL_REPO = "git://github.com/c-thaler/linux-socfpga.git"
 
 SRCREV = "e6ee060a6b76d4d61b569561af7c93697e6abba9"
 
+KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
+
 KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_socdk_tes.dtb \
 	dreamchip_arria10som_tes.dtb \
