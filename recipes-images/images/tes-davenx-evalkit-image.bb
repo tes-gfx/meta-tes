@@ -88,7 +88,7 @@ export IMAGE_BASENAME="tes-davenx-evalkit-image"
 # Add Linux Kernel sources to SDK
 #
 TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev weston-dnx"
-
+TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
 #
 # Add TES sources to SDK
