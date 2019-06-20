@@ -13,7 +13,7 @@ setenv kerneladdr 0x20000
 setenv fpgadata 0x2000000
 setenv u-boot_swstate_reg 0xffd0620c
 setenv u-boot_image_valid 0x49535756
-setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
+setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y vmalloc=768M root=${root} rootwait rw ${runlevel}
 
 run core_rbf_prog
 
