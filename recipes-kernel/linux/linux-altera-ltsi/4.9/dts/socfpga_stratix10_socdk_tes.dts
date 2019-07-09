@@ -79,7 +79,7 @@
 
 			tes_dnx_0: gpu@0x00000000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
-				reg = <0x00000000 0x00005000>;
+				reg = <0x00000000 0x00006000>;
 
 				interrupt-parent = <&intc>;
 				interrupts = <0 17 4>;
