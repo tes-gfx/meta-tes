@@ -4,6 +4,8 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0;md5=80
 
 inherit module
 
+PV = "1.0+git${SRCPV}"
+
 SRCREV = "${AUTOREV}"
 SRC_URI = "\
 	git://github.com/c-thaler/cdc-kms.git;protocol=https;branch=cdc-400 \
