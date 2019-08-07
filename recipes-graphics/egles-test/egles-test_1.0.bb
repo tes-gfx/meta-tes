@@ -4,6 +4,8 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev libpng"
 
+PV_tesintern = "1.0+svnr${SRCPV}"
+
 RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
 
 inherit pkgconfig
@@ -17,13 +19,20 @@ SRC_URI = " \
 	file://gles \
 "
 
+SRCREV_FORMAT = "test_bagl_gles_build_tools"
+SRCREV_test   = "${AUTOREV}"
+SRCREV_bagl   = "${AUTOREV}"
+SRCREV_gles   = "${AUTOREV}"
+SRCREV_build  = "${AUTOREV}"
+SRCREV_tools  = "${AUTOREV}"
+
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-	${TES_SVN_PATH};module=gles;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
+	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
+	${TES_SVN_PATH};module=gles;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
+	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
+	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}"
