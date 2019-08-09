@@ -6,7 +6,7 @@ DEPENDS += "mkpimage-native"
 SRCREV = "4634a6977dad609c208760543ee417f1f2faa674"
 
 UBOOT_BRANCH = "socfpga_${PV}_arria10_dnx"
-UBOOT_REPO_tesintern = "git:///home/fpga/devel/u-boot-socfpga"
+UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot-socfpga"
 UBOOT_PROT_tesintern = "file"
 UBOOT_REPO = "git://github.com/c-thaler/u-boot-socfpga.git"
 UBOOT_PROT = "https"
