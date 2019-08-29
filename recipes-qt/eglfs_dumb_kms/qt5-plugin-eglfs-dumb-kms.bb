@@ -16,11 +16,14 @@ SRC_URI = "\
 	file://tools/kms_helper \
 "
 
-SRCREV = "${AUTOREV}"
+SRCREV_FORMAT = "plugin_helper"
+SRCREV_plugin = "${AUTOREV}"
+SRCREV_helper = "${AUTOREV}"
+
 SRC_URI_tesintern = "\
 	file://qt.sh \
-	${TES_SVN_PATH}/qt;module=eglfs_dumb_kms;path_spec=./qt/eglfs_dumb_kms;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_SVN_PATH}/qt;module=eglfs_dumb_kms;path_spec=./qt/eglfs_dumb_kms;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=plugin \
+	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=helper \
 "
 
 S = "${WORKDIR}/qt/eglfs_dumb_kms"
