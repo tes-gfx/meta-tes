@@ -2,7 +2,7 @@ inherit meta
 
 
 SLIMSDK_RDEPENDS = "${SLIMSDK_INSTALL}"
-SLIMSDK_DEPENDS = "virtual/fakeroot-native pixz-native"
+SLIMSDK_DEPENDS = "virtual/fakeroot-native xz-native"
 
 SLIMSDK_DIR = "${WORKDIR}/slimsdk"
 SLIMSDK_OUTPUT = "${SLIMSDK_DIR}/image"
@@ -126,7 +126,7 @@ fakeroot tar_slimsdk() {
 	# Package it up
 	mkdir -p ${SLIMSDK_DEPLOY}
 	cd ${SLIMSDK_OUTPUT}/${SDKPATH}
-	tar ${SLIMSDK_TAROPTS} -cf - . | pixz > ${SLIMSDK_DEPLOY}/${SLIMSDK_OUTPUTNAME}.tar.xz
+	tar ${SLIMSDK_TAROPTS} -cf - . | xz -T > ${SLIMSDK_DEPLOY}/${SLIMSDK_OUTPUTNAME}.tar.xz
 }
 
 
