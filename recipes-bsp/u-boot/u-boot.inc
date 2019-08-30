@@ -1,11 +1,15 @@
-SRCREV = "7d7678a026df93d1a36fa16c6850bd0d9bff93f7"
-
-UBOOT_BRANCH = "socfpga_${PV}_arria10_dnx"
-UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot-socfpga"
+UBOOT_BRANCH = "master"
+UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot"
 UBOOT_PROT_tesintern = "file"
-UBOOT_REPO = "git://github.com/c-thaler/u-boot-socfpga.git"
+UBOOT_REPO = "git://github.com/c-thaler/u-boot.git"
 UBOOT_PROT = "https"
+
+PV_append = "+git${SRCPV}"
 
 SRC_URI = "\
         ${UBOOT_REPO};protocol=${UBOOT_PROT};branch=${UBOOT_BRANCH} \
         "
+
+S = "${WORKDIR}/git"
+
+RPROVIDES_${PN} += "u-boot"

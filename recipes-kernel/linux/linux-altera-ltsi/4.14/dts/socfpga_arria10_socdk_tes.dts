@@ -1,0 +1,139 @@
+/*
+ * Copyright (C) 2015 Altera Corporation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/dts-v1/;
+#include "socfpga_arria10_socdk.dtsi"
+
+/{
+	memory@0 {
+		name = "memory";
+		device_type = "memory";
+		reg = <0x0        0x40000000>; /* 1GB */
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		gfx_reserved: framebuffer@c0000000 {
+			compatible = "shared-dma-pool";
+			no-map;
+		        reg = <0xc0000000 0x20000000>;
+		};
+	};
+
+	soc{
+		base_fpga_region {
+		
+			ranges = < 0x00000000 0xff200000 0x2000
+				   0x00008000 0xff208000 0x0200 >;
+		
+			tes_cdc_0: lcd_controller@0x00008000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00008000 0x00000200>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 20 4>;
+				
+				clocks = <&pixel_clock>;
+
+				memory-region = <&gfx_reserved>;
+				
+				ports {
+					port@0 {
+						cdc_out_rgb: endpoint {
+							remote-endpoint = <&lvdsenc_in>;
+						};
+					};
+				};
+			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+		
+			pixel_clock: oscillator {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <154000000>;
+			};
+		
+			lvds-encoder {
+				compatible = "lvds-encoder";
+				
+				width-mm = <220>;
+				height-mm = <165>;
+				
+				panel-timing {
+					clock-frequency = <154000000>;
+					hactive = <1920>;
+					vactive = <1200>;
+					hfront-porch = <48>;
+					hback-porch = <80>;
+					hsync-len = <32>;
+					vback-porch = <26>;
+					vfront-porch = <3>;
+					vsync-len = <6>;
+				
+					hsync-active = <0>;
+					vsync-active = <0>;
+					de-active = <1>;
+					pixelclk-active = <1>;
+				};
+				
+				ports {
+					port@0 {
+						lvdsenc_in: endpoint {
+							remote-endpoint = <&cdc_out_rgb>;
+						};
+					};
+
+					port@1 {
+						lvdsenc_out: endpoint {
+							// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
+							remote-endpoint = <&i2c0>;
+						};
+					};
+				};
+			};
+		
+			tes_dnx_0: gpu@0x00000000 {
+				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
+				reg = <0x00000000 0x00006000>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 19 4>;
+
+				memory-region = <&gfx_reserved>;
+			};
+		};
+	};
+};
+
+&mmc {
+	status = "okay";
+	num-slots = <1>;
+	cap-sd-highspeed;
+	broken-cd;
+	bus-width = <4>;
+	altr,dw-mshc-ciu-div = <3>;
+	altr,dw-mshc-sdr-timing = <0 3>;
+	pwr-en = <0>;
+
+	clock-freq-min-max = <400000 25000000>;
+	supports-highspeed;
+
+	slot0: slot@0 {
+		reg = <0>;
+		bus-width = <4>;
+	};	
+};
