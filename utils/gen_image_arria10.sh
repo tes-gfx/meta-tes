@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "TES DaveNX image generator"
-echo "Copyright (C) 2017 - 2018 TES Electronic Solutions GmbH"
+echo "Copyright (C) 2017 - 2019 TES Electronic Solutions GmbH"
 echo "This program is free software; you can redistribute it and/or modify"
 echo "it under the terms of the GNU General Public License as published by"
 echo "the Free Software Foundation; either version 2 of the License, or"
@@ -32,11 +32,10 @@ IMAGE=tes-davenx-cdc-eval.img
 FAT_SIZE_BLOCKS=$(expr 128 \* 1024 \* 1024 \/ 512)
 SIZE_BLOCKS=$(expr 4096 \+ ${FAT_SIZE_BLOCKS})
 
-UBOOTIMAGE=${DEPLOYDIR}/u-boot-dtb-socfpga_arria10_dnx.bin.mkpimage
-DEVICETREE=${DEPLOYDIR}/zImage-socfpga_arria10_${BOARD}_tes.dtb
-KERNELIMAGE=${DEPLOYDIR}/zImage
+SPLIMAGE=${DEPLOYDIR}/u-boot-with-spl.sfp
+UBOOTIMAGE=${DEPLOYDIR}/u-boot-dtb.img
+UBOOTITB=${DEPLOYDIR}/fit_spl_socdk.itb
 SYSROOT=${DEPLOYDIR}/tes-davenx-evalkit-image-arria10.ext3
-FPGABITFILE=${DEPLOYDIR}/socfpga_arria10_${BOARD}_tes.rbf
 
 EXT_FREE_BLOCKS=$(expr 128 \* 1024 \* 1024 \/ 512)
 EXT_SIZE_BLOCKS=$(expr $(stat -Lc%s ${SYSROOT}) \/ 512 \+ ${EXT_FREE_BLOCKS})
@@ -52,7 +51,7 @@ echo "Generating partition table..."
 ( \
 	echo "o"; \
 	echo "n"; echo "p"; echo "3"; \
-		echo "2048"; echo "4095"; \
+		echo "2048"; echo "6143"; \
 	echo "n"; echo "p"; echo "1"; \
 		echo ""; echo "+128M"; \
 	echo "n"; echo "p"; echo "2"; \
@@ -74,7 +73,7 @@ PART_EXT_SIZE=${TEMPVAL[3]}
 
 # Installing preloader
 echo "Installing preloader..."
-dd conv=notrunc if=${UBOOTIMAGE} of=${IMAGE} seek=2048
+dd conv=notrunc if=${SPLIMAGE} of=${IMAGE} seek=2048
 
 
 # Creating file for FAT partition
@@ -86,9 +85,8 @@ mkfs.vfat ${FATIMG}
 
 # Populating FAT partition
 echo "Populating FAT partition..."
-mcopy -i ${FATIMG} ${KERNELIMAGE} ::zImage
-mcopy -i ${FATIMG} ${DEVICETREE} ::zImage-socfpga_arria10_${BOARD}_tes.dtb
-mcopy -i ${FATIMG} ${FPGABITFILE} ::socfpga_arria10_${BOARD}_tes.rbf
+mcopy -i ${FATIMG} ${UBOOTIMAGE} ::u-boot.img
+mcopy -i ${FATIMG} ${UBOOTITB} ::fit_spl_fpga.itb
 
 
 # Wrtiting partitions to image file

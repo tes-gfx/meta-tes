@@ -6,16 +6,17 @@
 #
 # Adding TES CDC KMS and DNX driver
 #
-IMAGE_INSTALL += "cdc-mod dnx-mod fsl-rc-local"
-IMAGE_INSTALL_append_arria10 = " tes-rbf-arria10"
-IMAGE_INSTALL_append_stratix10 = " tes-rbf-stratix10"
+#IMAGE_INSTALL += "cdc-mod dnx-mod fsl-rc-local"
+IMAGE_INSTALL += "fsl-rc-local haveged"
+IMAGE_INSTALL_append_arria10 = " tes-itb-arria10"
+IMAGE_INSTALL_append_stratix10 = " tes-itb-stratix10"
 MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 
 
 #
-# Adding the firmware files (Device tree)
+# Adding the kernel image and firmware files (Device tree)
 #
-IMAGE_INSTALL += "kernel-devicetree"
+IMAGE_INSTALL += "kernel kernel-devicetree"
 
 
 #

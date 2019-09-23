@@ -1,4 +1,4 @@
-KERNEL_SRC := $(SDKTARGETSYSROOT)/usr/src/kernel
+#KERNEL_SRC := $(SDKTARGETSYSROOT)/usr/src/kernel
 
 .PHONY:
 all : dreamchip_arria10som_tes.dtb
