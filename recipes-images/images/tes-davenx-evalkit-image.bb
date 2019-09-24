@@ -6,12 +6,6 @@ inherit populate_sdk_base populate_slimsdk_base
 
 
 #
-# Add all the wayland stuff.
-#
-#IMAGE_INSTALL += " weston-dnx"
-
-
-#
 # Qt dependencies
 # Packages that enable simple and easy development of Qt
 # applications: automatic download to target, debugging on
@@ -87,7 +81,6 @@ export IMAGE_BASENAME="tes-davenx-evalkit-image"
 #
 # Add Linux Kernel sources to SDK
 #
-#TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev weston-dnx"
 TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev"
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
