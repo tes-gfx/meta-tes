@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "${AUTOREV}"
+SRCREV = "81cc1710bb50b8a00e6d5995166cf2b8d3129ff2"
 SRC_URI = "\
 	git://github.com/c-thaler/cdc-kms.git;protocol=https;branch=${KERNEL_VERSION}-cdc500 \
 "
