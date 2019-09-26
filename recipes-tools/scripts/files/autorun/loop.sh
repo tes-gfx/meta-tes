@@ -4,13 +4,6 @@
 # This script requires the gpio_poll tool.
 
 declare -a DEMOARR=(
-	"/usr/share/exhibdemo/ExhibDemo"
-	"/usr/share/qt5/examples/quick/demos/clocks/clocks"
-	"/usr/share/qt5/examples/quickcontrols/extras/dashboard/dashboard"
-	"/usr/share/qt5/examples/quickcontrols/extras/flat/flat"
-	"/usr/share/qt5/examples/quickcontrols/extras/gallery/gallery"
-	"/usr/share/qt5/examples/quickcontrols/controls/calendar/calendar"
-	"/usr/share/qt5/examples/quickcontrols2/gallery/gallery"
 	"/usr/share/egles-test/bin/egles_test v l x1 24"
 	"/usr/share/egles-test/bin/egles_test v l x1 98"
 	"/usr/share/egles-test/bin/egles_test v l x1 103"
