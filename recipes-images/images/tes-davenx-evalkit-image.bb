@@ -11,7 +11,7 @@ inherit populate_sdk_base populate_slimsdk_base
 # applications: automatic download to target, debugging on
 # target, ...
 #
-IMAGE_INSTALL += " pkgconfig gdbserver openssh-sftp-server gdb tes-flash-mmc"
+IMAGE_INSTALL += " pkgconfig gdbserver openssh-sftp-server gdb"
 
 
 #
