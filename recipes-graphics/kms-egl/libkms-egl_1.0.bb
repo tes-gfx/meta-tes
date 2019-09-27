@@ -1,22 +1,17 @@
 DESCRIPTION = "Library to create an object of the TES native window type needed to initialize EGL"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://kms_egl.h;endline=20;md5=9f04cb94394d96c310de03ac83284493"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=1155026ea94fa1196103afa557260a1e"
+
 DEPENDS = "libdrm libegl-tes-dev"
 PROVIDES_append = "${PN}-dev"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
-SRC_URI =  "file://kms_egl"
+PV = "1.0+gitr${SRCPV}"
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern =  " \
-	${TES_SVN_PATH_CDC}/linux;module=kms_egl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD} \
-"
+SRC_URI =  "git://github.com/c-thaler/libkms-egl.git;protocol=https"
 
-
-S = "${WORKDIR}/kms_egl"
-B = "${WORKDIR}/kms_egl"
-B_tesintern = "${WORKDIR}/kms_egl"
+S = "${WORKDIR}/git"
 
 inherit pkgconfig
 
@@ -26,7 +21,6 @@ do_install () {
   install -d ${D}${libdir} 
   oe_soinstall ${S}/libkms_egl.so.*.* ${D}${libdir}
 }
-
 
 FILES_${PN} = " \
 	${libdir}/libkms_egl.so* \
