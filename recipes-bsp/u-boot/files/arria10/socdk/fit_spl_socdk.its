@@ -12,7 +12,7 @@
 
 	images {
 		fpga-periph-1 {
-			description = "FPGA peripheral bitstream";
+			description = "FPGA full bitstream";
 			data = /incbin/("socfpga_arria10_socdk_tes.rbf");
 			type = "fpga";
 			arch = "arm";
@@ -23,7 +23,7 @@
 	configurations {
 		default = "config-1";
 		config-1 {
-			description = "Boot with FPGA early IO release config";
+			description = "Boot with full config";
 			fpga = "fpga-periph-1";
 		};
 	};
