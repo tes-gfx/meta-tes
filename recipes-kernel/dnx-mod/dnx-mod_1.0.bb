@@ -1,6 +1,7 @@
 DESCRIPTION = "DRM driver for TES' D/AVE NX GPU."
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://driver/kernel/linux/module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
+LIC_FILES_CHKSUM = "file://module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
+LIC_FILES_CHKSUM_tesintern = "file://driver/kernel/linux/module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
 
 inherit module
 
