@@ -18,7 +18,7 @@ SRC_URI = "\
 
 # Checkout whole driver since we need the directory structure for the interface includes
 SRC_URI_tesintern = "\
-	git://github.com/c-thaler/dnx-mod.git;branch=${KERNEL_VERSION};protocol=https;destsuffix=driver/kernel/linux/module/;name=module \
+	git://github.com/c-thaler/dnx-mod.git;branch=4.14.73-ltsi-altera;protocol=https;destsuffix=driver/kernel/linux/module/;name=module \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
 "
 
