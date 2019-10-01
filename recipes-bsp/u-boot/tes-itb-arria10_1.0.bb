@@ -22,7 +22,7 @@ S = "${WORKDIR}"
 
 do_compile () {
 	echo PWD = $(pwd)
-	mkimage -E -p 400 -f ${MACHINE}/socdk/fit_spl_socdk.its fit_spl_socdk.itb
+	mkimage -E -p 400 -f ${MACHINE}/socdk/fit_spl_socdk.its ${UBOOT_ITB}
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr ${B}/bootmmc_arria10som.img
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/bootmmc_socdk.img
 }
