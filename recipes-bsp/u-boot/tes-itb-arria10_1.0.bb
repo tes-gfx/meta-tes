@@ -7,6 +7,7 @@ PR = "r0"
 
 DEPENDS_${PN} = "u-boot-mkimage-native dtc-native"
 
+FILESEXTRAPATHS_prepend := "${TES_BIN}/u-boot:"
 
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
