@@ -83,8 +83,6 @@
 
 				interrupt-parent = <&intc>;
 				interrupts = <0 17 4>;
-
-				memory-region = <&dnx_reserved>;
 			};
 
 			tes_cdc_0: lcd_controller@0x00008000 {
@@ -94,8 +92,6 @@
 				interrupts = <0 18 4>;
 				
 				clocks = <&pixel_clock>;
-
-				memory-region = <&dnx_reserved>;
 				
 				ports {
 					port@0 {
