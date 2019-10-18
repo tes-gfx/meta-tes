@@ -1,5 +1,5 @@
 .PHONY:
-all : fit_spl_socdk.itb
+all : fit_spl_arria10som.itb
 
 %.itb : %.its
 	mkimage -E -p 400 -f $< $@
