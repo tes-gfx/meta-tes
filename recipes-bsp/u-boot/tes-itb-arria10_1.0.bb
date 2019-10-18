@@ -12,6 +12,7 @@ FILESEXTRAPATHS_prepend := "${TES_BIN}/u-boot:"
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
 SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
+SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
 SRC_URI_append = " file://${MACHINE}/socdk/fit_spl_socdk.its"
 SRC_URI_append = " file://${MACHINE}/socdk/socfpga_arria10_socdk_tes.rbf"
 SRC_URI_append = " file://${MACHINE}/socdk/bootmmc.scr"
@@ -22,7 +23,8 @@ S = "${WORKDIR}"
 
 do_compile () {
 	echo PWD = $(pwd)
-	mkimage -E -p 400 -f ${MACHINE}/socdk/fit_spl_socdk.its ${UBOOT_ITB}
+	mkimage -E -p 400 -f ${MACHINE}/socdk/fit_spl_socdk.its fit_spl_socdk.itb
+	mkimage -E -p 400 -f ${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its fit_spl_arria10_som.itb
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr ${B}/bootmmc_arria10som.img
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/bootmmc_socdk.img
 }
