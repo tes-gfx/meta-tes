@@ -39,12 +39,11 @@ S = "${WORKDIR}"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
 
-EXTRA_OEMAKE += "SHADERTOY=n"
-
-
 do_shadertoy() {
   rm -f  ${S}/demos/egles_test/src/test_cases/shadertoy*
   rm -rf ${S}/demos/egles_test/bin/resources/shadertoy
+  rm -rf ${S}/demos/egles_test/src/test_cases/tes_render_sample
+  rm -rf ${S}/demos/egles_test/bin/resources/textures/tes_render_sample
 }
 addtask shadertoy after do_unpack before do_patch
 
