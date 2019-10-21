@@ -6,7 +6,7 @@
 declare -a DEMOARR=(
 	"/usr/share/egles-test/bin/egles_test v l x1 24"
 	"/usr/share/egles-test/bin/egles_test v l x1 98"
-	"/usr/share/egles-test/bin/egles_test v l x1 103"
+	"/usr/share/egles-test/bin/egles_test v l x1 110"
 )
 
 DEMOLEN=${#DEMOARR[@]}
