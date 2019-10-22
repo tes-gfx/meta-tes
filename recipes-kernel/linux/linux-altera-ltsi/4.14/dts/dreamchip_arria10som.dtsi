@@ -21,7 +21,7 @@
 	compatible = "altr,socfpga-arria10", "altr,socfpga";
 
 	aliases {
-		ethernet1 = &gmac1;
+		ethernet0 = &gmac1;
 		serial0 = &uart1;
 	};
 
