@@ -22,11 +22,3 @@ UBOOT_CONFIG[dreamchip-arria10som-dnx] = "dreamchip_arria10som_sdmmc_defconfig"
 UBOOT_MKPIMAGE = "u-boot-dtb-${config%_defconfig}.bin.mkpimage"
 
 S = "${WORKDIR}/git"
-
-do_deploy_append() {
-	for config in ${UBOOT_MACHINE}; do
-        	mkpimage -v 1 ${B}/${config}/${UBOOT_BINARY} -o ${B}/${config}/${UBOOT_MKPIMAGE}
-	        install ${B}/${config}/${UBOOT_MKPIMAGE} ${DEPLOYDIR}
-	done
-}
-
