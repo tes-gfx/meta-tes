@@ -12,8 +12,41 @@ setenv fdtaddr 0x8000000
 ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
 ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
 
-#enable bridges
-bridge enable; mw f8024050 92; mw f8020228 3fffffff; mw f8020204 2; mw ffd24800 ffffffff;
+#allow unprivileged access to all peripherals
+mw ffd24800 ffffffff;
+
+#configure the SDRAM L3 interconnect F2SDRAM0 firewall region0 registers 
+mw.l 0xF8020210 0x00000000 
+mw.l 0xF8020214 0x00000000 
+mw.l 0xF8020218 0x3FFFFFFF 
+mw.l 0xF802021C 0x00000000 
+
+#enable the SDRAM L3 interconnect F2SDRAM0 firewall region0 
+mw.l 0xF8020204 0x00000001 
+
+#configure the SDRAM L3 interconnect F2SDRAM1 firewall region0 registers 
+mw.l 0xF8020310 0x00000000 
+mw.l 0xF8020314 0x00000000 
+mw.l 0xF8020318 0x3FFFFFFF 
+mw.l 0xF802031C 0x00000000 
+
+#cnable the SDRAM L3 interconnect F2SDRAM1 firewall region0 
+mw.l 0xF8020304 0x00000001
+
+#configure the SDRAM L3 interconnect F2SDRAM2 firewall region0 registers 
+mw.l 0xF8020410 0x00000000 
+mw.l 0xF8020414 0x00000000 
+mw.l 0xF8020418 0x3FFFFFFF 
+mw.l 0xF802041C 0x00000000 
+
+#enable the SDRAM L3 interconnect F2SDRAM2 firewall region0 
+mw.l 0xF8020404 0x00000001 
+
+#enable the F2SDRAM[02] in the DDR scheduler sideband manager 
+mw.l 0xF8024050 0x00000092 
+
+#release the 3xF2S, F2H, H2F and LWH2F bridges from reset 
+bridge enable;
 
 #boot kernel
 setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
