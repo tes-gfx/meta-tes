@@ -49,5 +49,5 @@ mw.l 0xF8024050 0x00000092
 bridge enable;
 
 #boot kernel
-setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
+setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 cma=512M break=y root=${root} rootwait rw ${runlevel}
 booti ${kerneladdr} - ${fdtaddr}
