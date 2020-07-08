@@ -1,6 +1,6 @@
 # compile with: mkimage -T script -C none -n "bootmmc" -d bootmmc.scr bootmmc.img
 
-setenv fdtimage devicetree-Image-socfpga_stratix10_socdk_tes.dtb
+setenv fdtimage socfpga_stratix10_socdk_tes.dtb
 setenv bootimage Image
 setenv root /dev/mmcblk0p2
 

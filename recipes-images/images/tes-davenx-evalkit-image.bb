@@ -2,7 +2,6 @@ DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TE
 
 
 include tes-davenx-evalkit-base.inc
-inherit populate_sdk_base populate_slimsdk_base
 
 
 #
@@ -30,12 +29,12 @@ IMAGE_INSTALL += " \
 #
 # Add the TES tutorials and tests
 #
-IMAGE_INSTALL += " \
-	dnx-integration-test \
-	hellogl \
-	egles-test \
-	tes-autorun \
-"
+#IMAGE_INSTALL += " \
+#	dnx-integration-test \
+#	hellogl \
+#	egles-test \
+#	tes-autorun \
+#"
 
 
 #
@@ -87,16 +86,16 @@ TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 #
 # Add TES sources to SDK
 #
-TOOLCHAIN_TARGET_TASK += " \
-        dnx-integration-test-src \
-        hellogl-src \
-        egles-test-src \
-"
+#TOOLCHAIN_TARGET_TASK += " \
+#        dnx-integration-test-src \
+#        hellogl-src \
+#        egles-test-src \
+#"
 
 
 #
 # Contents of slim SDK (SDK for OpenGL only development)
 #
-SLIMSDK_INSTALL = "\
-	hellogl \
-"
+#SLIMSDK_INSTALL = "\
+#	hellogl \
+#"

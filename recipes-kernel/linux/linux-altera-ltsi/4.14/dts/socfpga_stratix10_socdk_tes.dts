@@ -21,6 +21,9 @@
 
 	aliases {
 		serial0 = &uart0;
+                ethernet0 = &gmac0;
+                ethernet1 = &gmac1;
+                ethernet2 = &gmac2;
 	};
 
 	chosen {
@@ -147,11 +150,9 @@
 			};
 		};
 
-		clkmgr@ffd10000 {
-			clocks {
-				osc1 {
-					clock-frequency = <25000000>;
-				};
+		clocks {
+			osc1 {
+				clock-frequency = <25000000>;
 			};
 		};
 	};
@@ -162,28 +163,33 @@
 };
 
 &gmac0 {
-	phy-mode = "rgmii";
-	phy-addr = <0xffffffff>; /* probe for phy addr */
+        status = "okay";
+        phy-mode = "rgmii";
+        phy-handle = <&phy0>;
 
-	/*
-	 * All skews are offset since hardware skew values for the ksz9031
-	 * range from a negative skew to a positive skew.
-	 * See the micrel-ksz90x1.txt Documentation file for details.
-	 */
-	txd0-skew-ps = <0>; /* -420ps */
-	txd1-skew-ps = <0>; /* -420ps */
-	txd2-skew-ps = <0>; /* -420ps */
-	txd3-skew-ps = <0>; /* -420ps */
-	rxd0-skew-ps = <420>; /* 0ps */
-	rxd1-skew-ps = <420>; /* 0ps */
-	rxd2-skew-ps = <420>; /* 0ps */
-	rxd3-skew-ps = <420>; /* 0ps */
-	txen-skew-ps = <0>; /* -420ps */
-	txc-skew-ps = <900>; /* 0ps */
-	rxdv-skew-ps = <420>; /* 0ps */
-	rxc-skew-ps = <1680>; /* 780ps */
-	max-frame-size = <3800>;
-	status = "okay";
+        max-frame-size = <9000>;
+
+        mdio0 {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                compatible = "snps,dwmac-mdio";
+                phy0: ethernet-phy@0 {
+                        reg = <4>;
+
+                        txd0-skew-ps = <0>; /* -420ps */
+                        txd1-skew-ps = <0>; /* -420ps */
+                        txd2-skew-ps = <0>; /* -420ps */
+                        txd3-skew-ps = <0>; /* -420ps */
+                        rxd0-skew-ps = <420>; /* 0ps */
+                        rxd1-skew-ps = <420>; /* 0ps */
+                        rxd2-skew-ps = <420>; /* 0ps */
+                        rxd3-skew-ps = <420>; /* 0ps */
+                        txen-skew-ps = <0>; /* -420ps */
+                        txc-skew-ps = <900>; /* 0ps */
+                        rxdv-skew-ps = <420>; /* 0ps */
+                        rxc-skew-ps = <1680>; /* 780ps */
+                };
+        };
 };
 
 &mmc {
@@ -201,6 +207,10 @@
 &usb0 {
 	status = "okay";
 	disable-over-current;
+};
+
+&watchdog0 {
+	status = "okay";
 };
 
 &i2c0 {
@@ -261,17 +271,13 @@
 
 			qspi_boot: partition@0 {
 				label = "Boot and fpga data";
-				reg = <0x0 0x4000000>;
+				reg = <0x0 0x034B0000>;
 			};
 
 			qspi_rootfs: partition@4000000 {
 				label = "Root Filesystem - JFFS2";
-				reg = <0x4000000 0x4000000>;
+				reg = <0x034B0000 0x0EB50000>;
 			};
 		};
 	};
-};
-
-&watchdog0 {
-	status = "okay";
 };

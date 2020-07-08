@@ -5,7 +5,7 @@ LICENSE = "CLOSED"
 PR = "r0"
 
 
-DEPENDS = "u-boot-mkimage-native dtc-native"
+DEPENDS = "u-boot-tools-native dtc-native"
 
 FILESEXTRAPATHS_prepend := "${TES_BIN}/u-boot:"
 
