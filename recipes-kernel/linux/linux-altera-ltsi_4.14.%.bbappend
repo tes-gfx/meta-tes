@@ -1,10 +1,12 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}:"
 
-KERNEL_REPO = "git://github.com/c-thaler/linux-socfpga.git"
+KERNEL_PROT = "file"
+KERNEL_REPO = "git:///home/christian/yocto/linux-socfpga"
+#KERNEL_REPO = "git://github.com/c-thaler/linux-socfpga.git"
 
-SRCREV = "d6b8a5d4b162e7b67f73fc1cd69d8c69c895d787"
+SRCREV = "78cbce0ccbde7be002b398037659538a4fd0a3e3"
 
-KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
+#KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
 
 KERNEL_DEVICETREE_arria10 = " \
 	socfpga_arria10_socdk_tes.dtb \

@@ -4,7 +4,6 @@ COMPATIBLE_MACHINE = "[arria10]"
 
 
 include tes-davenx-base.inc
-include tes-qt-base.inc
 
 
 #

@@ -10,4 +10,4 @@ UBOOT_CONFIG = "arria10-socdk dreamchip-arria10som"
 UBOOT_CONFIG[arria10-socdk] = "socfpga_arria10_defconfig"
 UBOOT_CONFIG[dreamchip-arria10som] = "dreamchip_arria10som_defconfig"
 
-DEPENDS += "bc-native bison-native u-boot-mkimage-native"
+DEPENDS += "bc-native bison-native"

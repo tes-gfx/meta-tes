@@ -1,0 +1,7 @@
+# short-description: Create an SD card image for the Arria 10 SoC TES EvalKit.
+# long-description: Create an SD card image for the Arria 10 SoC TES EvalKit.
+# Boot files are located in the first vfat partition and u-Boot is located in
+# the third partition.
+
+part --source bootimg-partition --ondisk mmcblk --fstype=vfat --label boot --active --align 1024 --size 50M
+#part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4 --size 1024
