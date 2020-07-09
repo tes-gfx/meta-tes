@@ -31,8 +31,8 @@ do_install () {
 # the project as a start for evaluation.
 # Sources, resources and project file have to be added to the package.
 #
-PACKAGES += "${PN}-src"
-FILES_${PN}-src += "\
+PACKAGES += "${PN}-devsrc"
+FILES_${PN}-devsrc += "\
 	${srcdir}/${PN} \
 "
-RDEPENDS_${PN}-src += "${PN}"
+RDEPENDS_${PN}-devsrc += "${PN}"

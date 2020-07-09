@@ -29,12 +29,12 @@ IMAGE_INSTALL += " \
 #
 # Add the TES tutorials and tests
 #
-#IMAGE_INSTALL += " \
-#	dnx-integration-test \
-#	hellogl \
-#	egles-test \
-#	tes-autorun \
-#"
+#	dnx-integration-test
+IMAGE_INSTALL += " \
+	hellogl \
+	egles-test \
+	tes-autorun \
+"
 
 
 #
@@ -86,16 +86,8 @@ TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 #
 # Add TES sources to SDK
 #
-#TOOLCHAIN_TARGET_TASK += " \
-#        dnx-integration-test-src \
-#        hellogl-src \
-#        egles-test-src \
-#"
-
-
-#
-# Contents of slim SDK (SDK for OpenGL only development)
-#
-#SLIMSDK_INSTALL = "\
-#	hellogl \
-#"
+TOOLCHAIN_TARGET_TASK += " \
+        dnx-integration-test-devsrc \
+        hellogl-devsrc \
+        egles-test-devsrc \
+"
