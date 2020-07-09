@@ -17,14 +17,16 @@ SRC_URI = " \
 	file://build \
 	file://bagl \
 	file://gles \
+	file://driver \
 "
 
-SRCREV_FORMAT = "test_bagl_gles_build_tools"
-SRCREV_test   = "${AUTOREV}"
-SRCREV_bagl   = "${AUTOREV}"
-SRCREV_gles   = "${AUTOREV}"
-SRCREV_build  = "${AUTOREV}"
-SRCREV_tools  = "${AUTOREV}"
+SRCREV_FORMAT  = "test_bagl_gles_build_driver_tools"
+SRCREV_test    = "${AUTOREV}"
+SRCREV_bagl    = "${AUTOREV}"
+SRCREV_gles    = "${AUTOREV}"
+SRCREV_build   = "${AUTOREV}"
+SRCREV_driver  = "${AUTOREV}"
+SRCREV_tools   = "${AUTOREV}"
 
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
@@ -32,12 +34,15 @@ SRC_URI_tesintern = "\
 	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
 	${TES_SVN_PATH};module=gles;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
 	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
+	${TES_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
 	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
+
+EXTRA_OEMAKE += "GLES_USE_NXVC=0"
 
 do_shadertoy() {
   rm -f  ${S}/demos/egles_test/src/test_cases/shadertoy*
@@ -59,6 +64,7 @@ do_install() {
   cp -r ${S}/build ${D}${srcdir}/${PN}/
   cp -r ${S}/bagl ${D}${srcdir}/${PN}/
   cp -r ${S}/gles ${D}${srcdir}/${PN}/
+  cp -r ${S}/driver ${D}${srcdir}/${PN}/
   cp -r ${S}/tools ${D}${srcdir}/${PN}/
 #  install -m 0644 ${S}/main.c ${D}${srcdir}/${PN}/
 }
@@ -69,8 +75,9 @@ do_install() {
 # the project as a start for evaluation.
 # Sources, resources and project file have to be added to the package.
 #
-PACKAGES += "${PN}-src"
-FILES_${PN}-src += "\
+RDEPENDS_${PN}-devsrc = "${PN}"
+FILES_${PN}-devsrc += "\
 	${srcdir}/${PN} \
 "
-RDEPENDS_${PN}-src = "${PN}"
+INSANE_SKIP_${PN}-devsrc = "file-rdeps"
+PACKAGES += " ${PN}-devsrc"
