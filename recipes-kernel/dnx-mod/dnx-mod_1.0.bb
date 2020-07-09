@@ -8,7 +8,7 @@ inherit module
 PV_tesintern = "1.0+git+svnr${SRCPV}"
 
 SRCREV_FORMAT    = "module_interface"
-SRCREV_module    = "bb9922f54210682328136dcfd5c7372e7e81b1fa"
+SRCREV_module    = "acf27c37a48b1addd803c839717107bc33b2b718"
 SRCREV_interface = "${AUTOREV}"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}/driver/kernel/linux:"
