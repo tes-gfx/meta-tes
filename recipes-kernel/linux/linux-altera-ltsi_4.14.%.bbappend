@@ -2,7 +2,7 @@ FILESEXTRAPATHS_prepend := "${THISDIR}:"
 
 KERNEL_PROT = "file"
 KERNEL_REPO = "git:///home/christian/yocto/linux-socfpga"
-#KERNEL_REPO = "git://github.com/c-thaler/linux-socfpga.git"
+#KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
 
 SRCREV = "78cbce0ccbde7be002b398037659538a4fd0a3e3"
 
