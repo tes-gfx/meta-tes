@@ -86,8 +86,8 @@ TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 #
 # Add TES sources to SDK
 #
+#        dnx-integration-test-devsrc
 TOOLCHAIN_TARGET_TASK += " \
-        dnx-integration-test-devsrc \
         hellogl-devsrc \
         egles-test-devsrc \
 "
