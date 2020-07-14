@@ -56,7 +56,7 @@ do_compile_prepend() {
 }
 
 do_compile_prepend_cyclone5() {
-	cp ${WORKDIR}/${PN}/4.14/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${PN}/4.14/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_compile_prepend_arria10() {

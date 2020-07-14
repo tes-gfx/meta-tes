@@ -50,6 +50,37 @@
 			linux,default-trigger = "heartbeat";
 		};
 	};
+
+	soc{
+		base_fpga_region {
+			ranges = <0 0xff200000 0x100000>;
+
+			tes_cdc_0: lcd_controller@0x00000000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00000000 0x00000200>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 43 4>;
+				
+				clocks = <&tes_muxclk>;
+				
+				ports {
+					port@0 {
+						cdc_out_rgb: endpoint {
+							remote-endpoint = <&adv7513_in>;
+						};
+					};
+				};
+			}; //end lcd_controller@0x00000000 (tes_cdc_0)
+
+			tes_muxclk: muxclk@0x00000200 {
+				#clock-cells = <0>;
+				compatible = "tes,muxclk";
+				reg = <0x00000200 0x00000008>;
+				
+				clock-frequency = <108000000 65000000 40000000 25175000>;
+			};
+		};
+	};
 };
 
 &gmac1 {
@@ -94,6 +125,43 @@
 
 		interrupt-parent = <&portc>;
 		interrupts = <3 2>;
+	};
+};
+
+&i2c2 {
+	status = "okay";
+	clock-frequency = <100000>;
+
+	hdmi@39 {
+		compatible = "adi,adv7513";
+		reg = <0x39>;
+		interrupt-parent = <&portb>;
+		//interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
+		
+		adi,input-depth = <8>;
+		adi,input-colorspace = "rgb";
+		adi,input-clock = "1x";
+		adi,input-style = <1>;
+		
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+		
+			port@0 {
+				reg = <0>;
+				adv7513_in: endpoint {
+					remote-endpoint = <&cdc_out_rgb>;
+				};
+			};
+		
+			port@1 {
+				reg = <1>;
+				adv7513_out: endpoint {
+					// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
+					remote-endpoint = <&i2c0>;
+				};
+			};
+		};
 	};
 };
 
