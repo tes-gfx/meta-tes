@@ -4,11 +4,14 @@ include tes-base.inc
 
 IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
 
-IMAGE_INSTALL += " pkgconfig gdbserver openssh-sftp-server gdb"
+# Add TES kernel modules
+IMAGE_INSTALL += "cdc-mod"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 
 #
 # Add very handy development tools
 #
+IMAGE_INSTALL += " pkgconfig gdbserver openssh-sftp-server gdb"
 IMAGE_INSTALL += " \
 	valgrind \
 	devmem2 \
