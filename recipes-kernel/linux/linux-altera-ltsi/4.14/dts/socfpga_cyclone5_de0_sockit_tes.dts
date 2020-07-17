@@ -52,16 +52,28 @@
 	};
 
 	soc{
-		base_fpga_region {
-			ranges = <0 0xff200000 0x100000>;
+		base-fpga-region {
+			ranges = <0x00000000 0xff200000 0x004000
+				  0x00004000 0xff204000 0x002000
+				  0x00006000 0xff206000 0x000200
+				  0x00006200 0xff206200 0x000100
+				  0x00006300 0xff206300 0x000100>;
 
-			tes_cdc_0: lcd_controller@0x00000000 {
-				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
-				reg = <0x00000000 0x00000200>;
-				interrupt-parent = <&intc>;
-				interrupts = <0 43 4>;
+			tes_dhd_0: gpu@0 {
+				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
+				reg = <0x00000000 0x00004000>;
 				
-				clocks = <&tes_muxclk>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 41 4>;
+			};
+
+			tes_cdc_0: lcd_controller@4000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00004000 0x00002000>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 40 4>;
+				
+				clocks = <&pixel_pll>;
 				
 				ports {
 					port@0 {
@@ -72,12 +84,45 @@
 				};
 			}; //end lcd_controller@0x00000000 (tes_cdc_0)
 
-			tes_muxclk: muxclk@0x00000200 {
-				#clock-cells = <0>;
-				compatible = "tes,muxclk";
-				reg = <0x00000200 0x00000008>;
+
+			tes_warp_0: video@6000 {
+				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
+				reg = <0x00006000 0x00000200>;
 				
-				clock-frequency = <108000000 65000000 40000000 25175000>;
+				interrupt-parent = <&intc>;
+				interrupts = <0 43 4>;
+			};
+
+			tes_d2d_0: gpu@6200 {
+				compatible = "tes,tes_d2d-1.0", "tes,d2d-1.0";
+				reg = <0x00006200 0x00000100>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 42 4>;
+			};
+
+			pixel_pll: pll@6300 {
+				#clock-cells = <0>;
+				compatible = "altr,pll-18.0";
+				reg = <0x00006300 0x00000100>;
+				
+				clock-frequency = <108000000>;
+			};
+		};
+	};
+
+	pixel_ref: oscillator {
+		compatible = "fixed-clock";
+		#clock-cells = <0>;
+		clock-frequency = <50000000>;
+	};
+
+	hdmi0: connector {
+		compatible = "hdmi-connector";
+		type = "a";
+		port {
+			hdmi_connector_in: endpoint {
+				remote-endpoint = <&adv7513_out>;
 			};
 		};
 	};
@@ -130,12 +175,12 @@
 
 &i2c2 {
 	status = "okay";
-	clock-frequency = <100000>;
+	speed-mode = <0>;
 
 	hdmi@39 {
 		compatible = "adi,adv7513";
 		reg = <0x39>;
-		interrupt-parent = <&portb>;
+		//interrupt-parent = <&portb>;
 		//interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
 		
 		adi,input-depth = <8>;
@@ -157,8 +202,7 @@
 			port@1 {
 				reg = <1>;
 				adv7513_out: endpoint {
-					// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
-					remote-endpoint = <&i2c0>;
+					remote-endpoint = <&hdmi_connector_in>;
 				};
 			};
 		};
