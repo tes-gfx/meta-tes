@@ -6,6 +6,7 @@ IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
 IMAGE_INSTALL += "cdc-mod"
+IMAGE_INSTALL_cyclone5 += "intel-fpga-pll-mod"
 MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 
 #
