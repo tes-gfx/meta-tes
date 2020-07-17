@@ -74,6 +74,8 @@
 				interrupts = <0 40 4>;
 				
 				clocks = <&pixel_pll>;
+
+				max-clock-frequency = <108000000>;
 				
 				ports {
 					port@0 {
