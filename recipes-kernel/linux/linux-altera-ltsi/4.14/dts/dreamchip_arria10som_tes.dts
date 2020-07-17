@@ -109,13 +109,6 @@
 							remote-endpoint = <&cdc_out_rgb>;
 						};
 					};
-
-					port@1 {
-						lvdsenc_out: endpoint {
-							// currently, we do not use the connector node, therefore we just insert i2c0 as a placeholder
-							remote-endpoint = <&i2c0>;
-						};
-					};
 				};
 			};
 		
