@@ -6,9 +6,9 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "81cc1710bb50b8a00e6d5995166cf2b8d3129ff2"
+SRCREV = "24e6f44e124f2b52c42f88cae41dc3f9a8ddb6d7"
 SRC_URI = "\
-	git://github.com/tes-gfx/cdc-kms.git;protocol=https;branch=4.14.73-ltsi-altera-cdc500 \
+	git://github.com/tes-gfx/cdc-kms.git;protocol=https;branch=cdc500-4.14.130-ltsi \
 "
 
 S = "${WORKDIR}/git"
