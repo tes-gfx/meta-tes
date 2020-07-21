@@ -56,8 +56,7 @@
 			ranges = <0x00000000 0xff200000 0x004000
 				  0x00004000 0xff204000 0x002000
 				  0x00006000 0xff206000 0x000200
-				  0x00006200 0xff206200 0x000100
-				  0x00006300 0xff206300 0x000100>;
+				  0x00006200 0xff206200 0x000100>;
 
 			tes_dhd_0: gpu@0 {
 				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
@@ -73,7 +72,7 @@
 				interrupt-parent = <&intc>;
 				interrupts = <0 40 4>;
 				
-				clocks = <&pixel_pll>;
+				clocks = <&pixel_clock>;
 
 				max-clock-frequency = <108000000>;
 				
@@ -103,20 +102,12 @@
 				interrupts = <0 42 4>;
 			};
 
-			pixel_pll: pll@6300 {
+			pixel_clock: oscillator {
+				compatible = "fixed-clock";
 				#clock-cells = <0>;
-				compatible = "altr,pll-18.0";
-				reg = <0x00006300 0x00000100>;
-				
-				clock-frequency = <108000000>;
+				clock-frequency = <40000000>;
 			};
 		};
-	};
-
-	pixel_ref: oscillator {
-		compatible = "fixed-clock";
-		#clock-cells = <0>;
-		clock-frequency = <50000000>;
 	};
 
 	hdmi0: connector {
