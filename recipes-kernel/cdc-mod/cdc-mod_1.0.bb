@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "24e6f44e124f2b52c42f88cae41dc3f9a8ddb6d7"
+SRCREV = "65bf5168cc53fe7b53f7dca0fb18bb7276fbf456"
 SRC_URI = "\
 	git://github.com/tes-gfx/cdc-kms.git;protocol=https;branch=cdc500-4.14.130-ltsi \
 "
