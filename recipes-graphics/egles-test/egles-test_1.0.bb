@@ -43,8 +43,15 @@ srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
 
 EXTRA_OEMAKE += "GLES_USE_NXVC=0"
+EXTRA_OEMAKE_append_tesclosed = " CFG=${MACHINE}"
 
-do_shadertoy() {
+python do_shadertoy() {
+    if "tesclosed" not in d.getVar("OVERRIDES"):
+         bb.warn("Removing closed source code. Use tesclosed override to include closed source code.")
+         bb.build.exec_func('remove_closed_source', d) 
+}
+
+remove_closed_source() {
   rm -f  ${S}/demos/egles_test/src/test_cases/shadertoy*
   rm -rf ${S}/demos/egles_test/bin/resources/shadertoy
   rm -rf ${S}/demos/egles_test/src/test_cases/tes_render_sample
