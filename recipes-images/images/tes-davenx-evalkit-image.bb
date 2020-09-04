@@ -33,6 +33,7 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL += " \
 	hellogl \
 	egles-test \
+	flight-demo \
 	tes-autorun \
 "
 
