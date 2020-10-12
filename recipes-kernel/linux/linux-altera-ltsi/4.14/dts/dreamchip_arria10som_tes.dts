@@ -53,10 +53,14 @@
 		base_fpga_region {
 		
 			ranges = < 0x00000000 0xff200000 0x2000
-				   0x00008000 0xff208000 0x0200 >;
+				   0x00008000 0xff208000 0x0900 >;
 		
 			tes_cdc_0: lcd_controller@8000 {
 				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+                		#address-cells = <1>;
+                		#size-cells = <1>;
+				ranges;
+
 				reg = <0x00008000 0x00000200>;
 				interrupt-parent = <&intc>;
 				interrupts = <0 20 4>;
@@ -72,7 +76,13 @@
 						};
 					};
 				};
+
+				tes_deswizzle_0: video-codec@8800 {
+					compatible = "tes,dswz";
+					reg = <0x00008800 0x00000100>;
+				};
 			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+
 		
 			pixel_clock: oscillator {
 				compatible = "fixed-clock";
