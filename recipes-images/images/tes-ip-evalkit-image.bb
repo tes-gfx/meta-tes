@@ -5,8 +5,8 @@ include tes-base.inc
 IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
-IMAGE_INSTALL += "cdc-mod"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
+IMAGE_INSTALL += "cdc-mod d2d-mod"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc kernel-module-d2d"
 
 #
 # Add very handy development tools
@@ -19,6 +19,14 @@ IMAGE_INSTALL += " \
 	e2fsprogs-resize2fs \
 	sshfs-fuse \
 	rsync \
+"
+
+#
+# Add the TES tutorials and tests
+#
+#	dnx-integration-test
+IMAGE_INSTALL += " \
+	smartwatch-demo \
 "
 
 #
@@ -61,6 +69,10 @@ export IMAGE_BASENAME="tes-ip-evalkit-image"
 #
 # Add Linux Kernel sources to SDK
 #
-TOOLCHAIN_TARGET_TASK += "kernel-devsrc libdrm-dev"
+TOOLCHAIN_TARGET_TASK += " \
+	kernel-devsrc \
+	libdrm-dev \
+	smartwatch-demo-devsrc \
+"
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
