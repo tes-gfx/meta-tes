@@ -4,10 +4,14 @@ LICENSE = "CLOSED"
 
 DEPENDS = "libdrm"
 
-PV = "1.0+svnr${SRCPV}"
-
-SRCREV = "${AUTOREV}"
+PV = "1.0"
 SRC_URI =  " \
+	file://software/display_interface \
+"
+
+PV_tesintern = "1.0+svnr${SRCPV}"
+SRCREV_tesintern = "${AUTOREV}"
+SRC_URI_tesintern =  " \
 	${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
