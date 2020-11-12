@@ -11,7 +11,7 @@ PR = "r0"
 
 FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://tools/devmem2 \
+	file://devmem2;subdir=tools \
 "
 
 SRCREV = "${AUTOREV}"
