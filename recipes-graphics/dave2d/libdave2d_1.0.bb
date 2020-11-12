@@ -4,9 +4,11 @@ LICENSE = "CLOSED"
 
 DEPENDS = "libdave2d-l1"
 
+FILESEXTRAPATHS_prepend := "${TES_SRC}/software:"
+
 PV = "1.0"
 SRC_URI =  " \
-	file://software/driver \
+	file://driver \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"

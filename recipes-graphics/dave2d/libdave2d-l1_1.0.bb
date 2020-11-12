@@ -4,9 +4,11 @@ LICENSE = "CLOSED"
 
 DEPENDS = "libdi"
 
+FILESEXTRAPATHS_prepend := "${TES_SRC}/software:"
+
 PV = "1.0"
 SRC_URI =  " \
-	file://software;module=driver_l1 \
+	file://driver_l1 \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"

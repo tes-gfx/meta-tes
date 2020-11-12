@@ -31,7 +31,7 @@ SRC_URI_append = " file://${PN}/4.14/config/tes_dnx_cdc.cfg"
 # Add DNX register headers and DRM UAPI definitions for kernel side
 #
 FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
-ADDSOURCES = " \
+ADDSOURCES_davenx = " \
 	file://interface \
 	file://drm-dnx/dnx_drm.h \
 "
@@ -39,17 +39,19 @@ ADDSOURCES = " \
 
 SRCREV_interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
-ADDSOURCES_tesintern = "\
+ADDSOURCES_davenx_tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
+
+ADDSOURCES = ""
 SRC_URI_append = " ${ADDSOURCES}"
 
 
 #
 # Copy base device tree into kernel source
 #
-do_compile_prepend() {
+do_compile_prepend_davenx() {
 	cp ${WORKDIR}/${PN}/4.14/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
@@ -70,7 +72,7 @@ do_compile_prepend_stratix10() {
 #
 # Copy required header files into kernel staging directory (required for building module)
 #
-do_install_append() {
+do_install_append_davenx() {
 	install -m 0644 ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 	install -m 0644 ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 }

@@ -1,11 +1,15 @@
 DESCRIPTION = "D/AVE 2D SmartWatch Demo"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
-DEPENDS = "libdave2d"
+DEPENDS = "libdave2d libdrm"
+
+inherit pkgconfig
+
+FILESEXTRAPATHS_prepend := "${TES_SRC}/software:"
 
 PV = "1.0"
 SRC_URI = " \
-	file://demos/smartwatch \	
+	file://smartwatch \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"

@@ -4,9 +4,11 @@ LICENSE = "CLOSED"
 
 DEPENDS = "libdrm"
 
+FILESEXTRAPATHS_prepend := "${TES_SRC}/software:"
+
 PV = "1.0"
 SRC_URI =  " \
-	file://software/display_interface \
+	file://display_interface \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"
