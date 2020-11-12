@@ -84,6 +84,8 @@
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
 				reg = <0x00000000 0x00006000>;
 
+				memory-region = <&dnx_reserved>;
+
 				interrupt-parent = <&intc>;
 				interrupts = <0 17 4>;
 			};
@@ -94,6 +96,8 @@
 				interrupt-parent = <&intc>;
 				interrupts = <0 18 4>;
 				
+				memory-region = <&dnx_reserved>;
+
 				clocks = <&pixel_clock>;
 				
 				ports {
