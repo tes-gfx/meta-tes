@@ -14,7 +14,10 @@ DTB_OUTPUT_stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 #
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
 #
-SRC_URI_append_cyclone5 = " file://${PN}/4.14/dts/socfpga_cyclone5_de0_sockit_tes.dts"
+SRC_URI_append_cyclone5 = " \
+	file://${PN}/4.14/dts/socfpga_cyclone5_de0_sockit_tes.dts \
+	file://${PN}/4.14/dts/socfpga_cyclone5_de0_sockit_tes_lcd.dts \
+"
 
 SRC_URI_append_arria10 = " file://${PN}/4.14/dts/socfpga_arria10_socdk_tes.dts"
 SRC_URI_append_arria10 = " file://${PN}/4.14/dts/dreamchip_arria10som.dtsi"
@@ -36,7 +39,6 @@ ADDSOURCES_davenx = " \
 	file://drm-dnx/dnx_drm.h \
 "
 
-
 SRCREV_interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
 ADDSOURCES_davenx_tesintern = "\
@@ -46,7 +48,6 @@ ADDSOURCES_davenx_tesintern = "\
 
 ADDSOURCES = ""
 SRC_URI_append = " ${ADDSOURCES}"
-
 
 #
 # Copy base device tree into kernel source
