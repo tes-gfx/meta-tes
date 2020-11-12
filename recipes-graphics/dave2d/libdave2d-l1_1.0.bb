@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 DEPENDS = "libdi"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}/software:"
+FILESEXTRAPATHS_prepend := "${TES_D2D_SRC_PATH}/software:"
 
 PV = "1.0"
 SRC_URI =  " \
