@@ -7,3 +7,9 @@ all : fit_spl_arria10som.itb
 .PHONY:
 clean:
 	rm *.itb
+
+.PHONY:
+deploy: all
+	ssh root@$(BOARD_IP) 'mount /dev/mmcblk0p1 /mnt/'
+	scp fit_spl_arria10som.itb root@$(BOARD_IP):/mnt/
+	ssh root@$(BOARD_IP) 'umount /mnt/'
