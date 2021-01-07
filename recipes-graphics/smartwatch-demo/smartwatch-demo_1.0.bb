@@ -18,20 +18,21 @@ SRC_URI_tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=smartwatch;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/smartwatch"
+S = "${WORKDIR}/smartwatch/build/linux/"
 srcdir = "${prefix}/src"
 
 do_install () {
   install -d ${D}${datadir}/${PN}
   install -m 0755 smartwatch ${D}${datadir}/${PN}/
-  cp -R --no-dereference --preserve=mode,links -v gfx ${D}${datadir}/${PN}/gfx
-  install -d ${D}${srcdir}/${PN}  
-  install -m 0644 ${S}/src/*.c ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/src/linux/*.c ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/src/*.h ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/src/README.md ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/build/linux/Makefile ${D}${srcdir}/${PN}/
-  cp -R --no-dereference --preserve=mode,links -v gfx ${D}${srcdir}/${PN}/gfx
+  cp -R --no-dereference --preserve=mode,links -v ${S}../../gfx ${D}${datadir}/${PN}/gfx
+  install -d ${D}${srcdir}/${PN}/src/linux
+  install -d ${D}${srcdir}/${PN}/build/linux
+  install -m 0644 ${S}../../src/*.c ${D}${srcdir}/${PN}/src
+  install -m 0644 ${S}../../src/*.h ${D}${srcdir}/${PN}/src
+  install -m 0644 ${S}../../src/linux/*.c ${D}${srcdir}/${PN}/src/linux
+  install -m 0644 ${S}../../README.md ${D}${srcdir}/${PN}
+  install -m 0644 ${S}../../build/linux/Makefile ${D}${srcdir}/${PN}/build/linux
+  cp -R --no-dereference --preserve=mode,links -v ${S}../../gfx ${D}${srcdir}/${PN}/gfx
 }
 
 #
