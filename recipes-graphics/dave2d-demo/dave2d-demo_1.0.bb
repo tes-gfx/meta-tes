@@ -15,7 +15,7 @@ SRC_URI = " \
 PV_tesintern = "1.0+svnr${SRCPV}"
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_D2D_SVN_PATH}/software/demo;module=dave2d-demo;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_D2D_SVN_PATH}/software;module=demo;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 S = "${WORKDIR}/demo/build/linux/"
