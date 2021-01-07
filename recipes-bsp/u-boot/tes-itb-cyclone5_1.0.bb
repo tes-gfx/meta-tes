@@ -6,13 +6,11 @@ PR = "r0"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 
-FILESEXTRAPATHS_prepend := "${TES_BIN}/u-boot:${TES_D2D_SRC_PATH}/hardware/work/quartus/dave2/socfpga_cyclone5_de0_nano_tes:"
+FILESEXTRAPATHS_prepend := "${YOCTOROOT}/repos/meta-tes/recipes-bsp/u-boot/files:"
 
 SRC_URI_append = " \
 	file://${MACHINE}/de0_nano/socfpga_cyclone5_de0_nano_tes.rbf \
-	file://socfpga_cyclone5_de0_nano_tes_lcd.rbf;subdir=${MACHINE}/de0_nano \
 	file://${MACHINE}/de0_nano/bootmmc.scr \
-	file://${MACHINE}/de0_nano/bootmmc_lcd.scr \
 "
 
 S = "${WORKDIR}"
