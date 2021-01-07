@@ -15,7 +15,7 @@ SRC_URI = " \
 PV_tesintern = "1.0+svnr${SRCPV}"
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
-	${TES_D2D_SVN_PATH}/tutorial/software/code;module=smartwatch;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_D2D_SVN_PATH}/software;module=smartwatch;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 S = "${WORKDIR}/smartwatch"
@@ -26,10 +26,11 @@ do_install () {
   install -m 0755 smartwatch ${D}${datadir}/${PN}/
   cp -R --no-dereference --preserve=mode,links -v gfx ${D}${datadir}/${PN}/gfx
   install -d ${D}${srcdir}/${PN}  
-  install -m 0644 ${S}/*.c ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/*.h ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/README.md ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/Makefile ${D}${srcdir}/${PN}/
+  install -m 0644 ${S}/src/*.c ${D}${srcdir}/${PN}/
+  install -m 0644 ${S}/src/linux/*.c ${D}${srcdir}/${PN}/
+  install -m 0644 ${S}/src/*.h ${D}${srcdir}/${PN}/
+  install -m 0644 ${S}/src/README.md ${D}${srcdir}/${PN}/
+  install -m 0644 ${S}/build/linux/Makefile ${D}${srcdir}/${PN}/
   cp -R --no-dereference --preserve=mode,links -v gfx ${D}${srcdir}/${PN}/gfx
 }
 
