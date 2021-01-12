@@ -18,7 +18,6 @@ S = "${WORKDIR}"
 do_compile () {
 	echo PWD = $(pwd)
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/de0_nano/bootmmc.scr ${B}/bootmmc_de0.img
-	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/de0_nano/bootmmc_lcd.scr ${B}/bootmmc_de0_lcd.img
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
 
