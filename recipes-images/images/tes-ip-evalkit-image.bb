@@ -28,6 +28,7 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL += " \
 	smartwatch-demo \
 	dave2d-demo\
+	drivertest\
 "
 
 #
