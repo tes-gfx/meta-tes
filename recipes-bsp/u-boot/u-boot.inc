@@ -8,8 +8,6 @@ LICENSE = "GPLv2+"
 PV_append = "+git${SRCPV}"
 
 UBOOT_BRANCH = "master"
-UBOOT_REPO_tesintern = "git:///home/christian/yocto/u-boot-socfpga"
-UBOOT_PROT_tesintern = "file"
 UBOOT_REPO = "git://github.com/tes-gfx/u-boot-socfpga.git"
 UBOOT_PROT = "https"
 

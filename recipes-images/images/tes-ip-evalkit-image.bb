@@ -27,6 +27,8 @@ IMAGE_INSTALL += " \
 #	dnx-integration-test
 IMAGE_INSTALL += " \
 	smartwatch-demo \
+	dave2d-demo\
+	drivertest\
 "
 
 #
