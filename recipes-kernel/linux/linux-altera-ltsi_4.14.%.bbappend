@@ -34,39 +34,58 @@ SRC_URI_append = " file://${PN}/4.14/config/tes_dnx_cdc.cfg"
 # Add DNX register headers and DRM UAPI definitions for kernel side
 #
 FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
-ADDSOURCES_davenx = " \
+ADDSOURCES = ""
+ADDSOURCES_tesdavenx = " \
 	file://interface \
 	file://drm-dnx/dnx_drm.h \
 "
 
 SRCREV_interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
-ADDSOURCES_davenx_tesintern = "\
+ADDSOURCES_tesdavenx_tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-ADDSOURCES = ""
 SRC_URI_append = " ${ADDSOURCES}"
 
 #
 # Copy base device tree into kernel source
 #
-do_compile_prepend_davenx() {
+python do_copy() {
+    if "tesdavenx" in d.getVar("OVERRIDES"):
+        bb.note("copying DaveNX specific files")
+        bb.build.exec_func("do_copy_dnx", d)
+
+    if "cyclone5" in d.getVar("OVERRIDES"):
+        bb.note("copying Cyclone5 specific files")
+        bb.build.exec_func("do_copy_c5", d)
+
+    if "arria10" in d.getVar("OVERRIDES"):
+        bb.note("copying Arria10 specific files")
+        bb.build.exec_func("do_copy_a10", d)
+
+    if "stratix10" in d.getVar("OVERRIDES"):
+        bb.note("copying Stratix10 specific files")
+        bb.build.exec_func("do_copy_s10", d)
+}
+addtask copy after do_configure before do_compile
+
+do_copy_dnx() {
 	cp ${WORKDIR}/${PN}/4.14/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 }
 
-do_compile_prepend_cyclone5() {
+do_copy_c5() {
 	cp ${WORKDIR}/${PN}/4.14/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
-do_compile_prepend_arria10() {
+do_copy_a10() {
 	cp ${WORKDIR}/${PN}/4.14/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
-do_compile_prepend_stratix10() {
+do_copy_s10() {
 	cp ${WORKDIR}/${PN}/4.14/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
 }
 
