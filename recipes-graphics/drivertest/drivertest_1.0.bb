@@ -1,4 +1,4 @@
-DESCRIPTION = "D/AVE 2D Demo"
+DESCRIPTION = "D/AVE 2D Drivertest"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
 DEPENDS = "libdave2d libdrm"
