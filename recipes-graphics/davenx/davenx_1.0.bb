@@ -66,8 +66,7 @@ S = "${WORKDIR}/build"
 S_tesintern = "${WORKDIR}/build"
 
 # Prevent DNX module from being built
-EXTRA_OEMAKE           += "NOMODULE=1 YOCTO_BUILD=1 BUILD=release"
-EXTRA_OEMAKE_tesintern += "NOMODULE=1 YOCTO_BUILD=1 BUILD=debug"
+EXTRA_OEMAKE           += "NOMODULE=1 YOCTO_BUILD=1 BUILD=release GLES_USE_NXVC=0"
 
 DEPENDS_liblges2-tes = "libdrm-dnx-dev"
 
