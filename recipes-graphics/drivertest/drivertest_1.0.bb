@@ -13,7 +13,7 @@ SRC_URI = " \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"
-SRCREV = "${AUTOREV}"
+SRCREV = "2469"
 SRC_URI_tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=drivertest;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
