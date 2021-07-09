@@ -129,7 +129,6 @@ do_install () {
 	install -m 0644 ${S}/../gles/inc/EGL/* ${D}${includedir}/EGL
 	install -m 0644 ${S}/../gles/inc/KHR/* ${D}${includedir}/KHR
 	install -m 0644 ${S}/../driver/kernel/linux/drm-dnx/dnx_drm*h ${D}${includedir}
-	install -m 0644 ${S}/../interface/src/nx_*.h ${D}${includedir}
 	install -m 0644 ${S}/../display/inc/* ${D}${includedir}
 }
 
