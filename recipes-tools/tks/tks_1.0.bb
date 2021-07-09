@@ -15,18 +15,18 @@ SRC_URI_tesintern = "\
 	${TES_SVN_PATH}/tools;module=tks;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S_arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-02Sep2020"
-B_arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-02Sep2020"
+S_arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
+B_arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
 
-S_stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-02Sep2020"
-B_stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-02Sep2020"
+S_stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
+B_stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
 
 do_unpack_tarball () {
   cd ${WORKDIR}
-  tar xf ./tools/tks/tks-bin-aarch64-poky-linux-stratix10-02Sep2020.tar.gz
-  mkdir -p tks-bin-arm-poky-linux-gnueabi-arria10-02Sep2020
-  cd tks-bin-arm-poky-linux-gnueabi-arria10-02Sep2020
-  tar xf ../tools/tks/tks-bin-arm-poky-linux-gnueabi-arria10-02Sep2020.tar.gz
+  tar xf ./tools/tks/tks-bin-aarch64-poky-linux-stratix10-17Mar2021.tar.gz
+  mkdir -p tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021
+  cd tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021
+  tar xf ../tools/tks/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021.tar.gz
 }
 do_unpack[postfuncs] += "do_unpack_tarball"
 

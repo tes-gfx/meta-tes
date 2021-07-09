@@ -20,8 +20,9 @@ SRC_URI = " \
 	file://driver \
 "
 
-SRCREV_FORMAT  = "test_bagl_gles_build_driver_tools"
+SRCREV_FORMAT  = "test_display_bagl_gles_build_driver_tools"
 SRCREV_test    = "${AUTOREV}"
+SRCREV_display = "${AUTOREV}"
 SRCREV_bagl    = "${AUTOREV}"
 SRCREV_gles    = "${AUTOREV}"
 SRCREV_build   = "${AUTOREV}"
@@ -31,6 +32,7 @@ SRCREV_tools   = "${AUTOREV}"
 SRCREV = "${AUTOREV}"
 SRC_URI_tesintern = "\
 	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
+	${TES_SVN_PATH};module=display;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
 	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
 	${TES_SVN_PATH};module=gles;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
 	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
