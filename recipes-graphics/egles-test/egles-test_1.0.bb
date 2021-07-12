@@ -18,6 +18,7 @@ SRC_URI = " \
 	file://bagl \
 	file://gles \
 	file://driver \
+	file://display \
 "
 
 SRCREV_FORMAT  = "test_display_bagl_gles_build_driver_tools"
