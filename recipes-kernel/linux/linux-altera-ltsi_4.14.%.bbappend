@@ -36,7 +36,7 @@ FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
 ADDSOURCES = ""
 ADDSOURCES_tesdavenx = " \
 	file://interface \
-	file://drm-dnx/dnx_drm.h \
+	file://drm-dnx \
 "
 
 SRCREV_interface = "${AUTOREV}"
