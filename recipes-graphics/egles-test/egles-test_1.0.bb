@@ -78,26 +78,5 @@ do_install() {
   install -d ${D}${datadir}/${PN}/shader_dumps
   cp -r ${S}/demos/egles_test/bin ${D}${datadir}/${PN}/bin
   install -m 0755 ${B}/egles_test ${D}${datadir}/${PN}/bin
-  install -d ${D}${srcdir}/${PN}
-  cp -r ${S}/demos ${D}${srcdir}/${PN}/
-  find ${D}${srcdir}/${PN} \( -iname "*.o" -o -iname "*.d" -o -iname "*.a" \) -delete
-  cp -r ${S}/build ${D}${srcdir}/${PN}/
-  cp -r ${S}/bagl ${D}${srcdir}/${PN}/
-  cp -r ${S}/gles ${D}${srcdir}/${PN}/
-  cp -r ${S}/driver ${D}${srcdir}/${PN}/
-  cp -r ${S}/tools ${D}${srcdir}/${PN}/
-#  install -m 0644 ${S}/main.c ${D}${srcdir}/${PN}/
 }
 
-
-#
-# Add a src package for the project, enabling the user to modify and build
-# the project as a start for evaluation.
-# Sources, resources and project file have to be added to the package.
-#
-RDEPENDS_${PN}-devsrc = "${PN}"
-FILES_${PN}-devsrc += "\
-	${srcdir}/${PN} \
-"
-INSANE_SKIP_${PN}-devsrc = "file-rdeps"
-PACKAGES += " ${PN}-devsrc"
