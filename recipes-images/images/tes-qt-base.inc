@@ -10,6 +10,7 @@
 IMAGE_INSTALL += " \
 	qtbase \
 	qtbase-examples \
+	qt5-plugin-eglfs-dumb-kms \
 	qtdeclarative \
 	qtdeclarative-dev \
 	qtdeclarative-tools \
@@ -19,7 +20,6 @@ IMAGE_INSTALL += " \
 	qtgraphicaleffects \
 	qtlocation \
 "
-#	qt5-plugin-eglfs-dumb-kms 
 
 #
 # Add the TES Qt demo
