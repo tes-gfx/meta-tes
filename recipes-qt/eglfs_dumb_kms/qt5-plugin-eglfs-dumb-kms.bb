@@ -29,3 +29,19 @@ SRC_URI_tesintern = "\
 S = "${WORKDIR}/qt/eglfs_dumb_kms"
 
 inherit qmake5
+
+#
+# Add script to set dumb KMS plugin as default eglfs device integration
+#
+do_install_append() {
+	install -d ${D}${sysconfdir}/profile.d/
+	install -m 0755 ${WORKDIR}/qt.sh ${D}${sysconfdir}/profile.d/
+}
+
+
+FILES_${PN} += "\
+	${OE_QMAKE_PATH_PLUGINS}/egldeviceintegrations/libqeglfsdumbkms.so \
+	qt.sh \
+"
+FILES_${PN}-dbg += "${OE_QMAKE_PATH_PLUGINS}/egldeviceintegrations/.debug/"
+FILES_${PN}-dev += "${OE_QMAKE_PATH_LIBS}/cmake/*"
