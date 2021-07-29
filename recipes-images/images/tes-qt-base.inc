@@ -15,7 +15,6 @@ IMAGE_INSTALL += " \
     qtdeclarative-tools \
     qtquickcontrols \
     qtquickcontrols2 \
-    qtdoc-examples \
     qtgraphicaleffects \
     qtlocation \
 "
