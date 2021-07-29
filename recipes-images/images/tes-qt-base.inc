@@ -37,6 +37,10 @@ IMAGE_INSTALL += " \
 #       quitindicators \
 #       qtsmarthome \
 #"
+IMAGE_INSTALL += " \
+    qt5ledscreen \
+    qt5nmapcarousedemo \
+"
 
 #
 # Add some fonts for Qt
