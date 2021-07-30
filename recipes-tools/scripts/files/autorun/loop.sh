@@ -7,7 +7,7 @@ declare -a DEMOARR=(
 	"/usr/share/egles-test/bin/egles_test v l x1 24"
 	"/usr/share/egles-test/bin/egles_test v l x1 98"
 	"/usr/share/egles-test/bin/egles_test v l x1 110"
-	"/usr/share/examples/demos/clocks"
+	"/usr/share/examples/demos/clocks/clocks"
 )
 
 DEMOLEN=${#DEMOARR[@]}
