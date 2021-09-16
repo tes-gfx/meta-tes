@@ -5,8 +5,8 @@ include tes-base.inc
 IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
-IMAGE_INSTALL += "cdc-mod d2d-mod"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc kernel-module-d2d"
+IMAGE_INSTALL += "cdc-mod d2d-mod warp-mod"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc kernel-module-d2d kernel-module-warp"
 
 #
 # Add very handy development tools
