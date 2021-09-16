@@ -64,6 +64,8 @@
 				
 				interrupt-parent = <&intc>;
 				interrupts = <0 41 4>;
+				
+				vidmem = <0xc0000000 0x10000000>;
 			};
 
 			tes_cdc_0: lcd_controller@4000 {
@@ -87,7 +89,7 @@
 
 
 			tes_warp_0: video@6000 {
-				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
+				compatible = "tes,tes_warp-1.0", "tes,warp-1.0";
 				reg = <0x00006000 0x00000200>;
 				
 				interrupt-parent = <&intc>;
