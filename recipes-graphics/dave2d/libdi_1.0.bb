@@ -12,7 +12,7 @@ SRC_URI =  " \
 "
 
 PV_tesintern = "1.0+svnr${SRCPV}"
-SRCREV_tesintern = "18767"
+SRCREV_tesintern = "${AUTOREV}"
 SRC_URI_tesintern =  " \
 	${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
