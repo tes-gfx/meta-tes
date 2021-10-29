@@ -29,6 +29,7 @@ IMAGE_INSTALL += " \
 	smartwatch-demo \
 	dave2d-demo\
 	guiliani-demo\
+	warping-demo\
 "
 
 #
