@@ -2,7 +2,7 @@ require u-boot.inc
 
 LIC_FILES_CHKSUM = "file://Licenses/README;md5=30503fd321432fc713238f582193b78e"
 
-SRCREV = "87d74eb50db1ca740cbdb406fba5bea344dfb46e"
+SRCREV = "a52700c69b7bcd9edd05f8fc10c92698358b76ab"
 
 UBOOT_BRANCH = "socfpga_v2019.10_dnx"
 
