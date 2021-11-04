@@ -3,9 +3,10 @@ FILESEXTRAPATHS_prepend := "${THISDIR}:"
 KERNEL_PROT = "git"
 KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
 
-SRCREV = "78cbce0ccbde7be002b398037659538a4fd0a3e3"
+SRCREV = "904a98c86e351c9a4fe4fd3d45fc566a89e06e96"
 
 #KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
+KBRANCH_append = "-drm"
 
 DTB_OUTPUT ?= "arch/${ARCH}/boot/dts"
 DTB_OUTPUT_stratix10 ?= "arch/${ARCH}/boot/dts/altera"
@@ -92,7 +93,7 @@ do_copy_s10() {
 #
 # Copy required header files into kernel staging directory (required for building module)
 #
-do_install_append_davenx() {
+do_install_append_tesdavenx() {
 	install -m 0644 ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 	install -m 0644 ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 }
