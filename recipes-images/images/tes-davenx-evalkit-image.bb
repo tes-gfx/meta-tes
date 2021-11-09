@@ -45,6 +45,13 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 	libdrm-tests \
 "
 
+#
+# TES internal development settings, scripts, etc.
+#
+IMAGE_INSTALL_append_tesdevel = " \
+    tes-boardinfo \
+"
+
 
 #
 # Add debugging and developer utilities
