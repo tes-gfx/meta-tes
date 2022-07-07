@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 RDEPENDS_${PN} = "tks"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://demos/flight_demo \
 "

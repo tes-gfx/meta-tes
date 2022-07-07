@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1155026ea94fa1196103afa557260a1e"
 
 DEPENDS = "libdrm libegl-tes-dev"
-PROVIDES_append = "${PN}-dev"
+PROVIDES:append = "${PN}-dev"
 
 PV = "1.0+gitr${SRCPV}"
 

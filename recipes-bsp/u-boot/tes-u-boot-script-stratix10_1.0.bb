@@ -9,7 +9,7 @@ PR = "r0"
 DEPENDS = "u-boot-tools-native"
 
 
-SRC_URI_append = " file://${MACHINE}/socdk/bootmmc.scr"
+SRC_URI:append = " file://${MACHINE}/socdk/bootmmc.scr"
 
 S = "${WORKDIR}"
 

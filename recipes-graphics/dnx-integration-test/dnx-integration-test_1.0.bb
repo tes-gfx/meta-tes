@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://integration_test.c;endline=20;md5=94748e61e7b69bb10cd
 PR = "r0"
 PV = "1.0"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI =  "file://demos/integration_test"
 
 SRCREV = "${AUTOREV}"

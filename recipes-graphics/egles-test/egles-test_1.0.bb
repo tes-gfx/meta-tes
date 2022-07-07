@@ -10,7 +10,7 @@ RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
 
 inherit pkgconfig
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://demos/egles_test \
 	file://tools/kms_helper \
@@ -46,8 +46,8 @@ srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
 
 EXTRA_OEMAKE += "GLES_USE_NXVC=0"
-EXTRA_OEMAKE_append_tesclosed = " CFG=${MACHINE} SHADERTOY=1"
-EXTRA_OEMAKE_append_tesmms = " CFG=${MACHINE} SHADERTOY=0"
+EXTRA_OEMAKE:append:tesclosed = " CFG=${MACHINE} SHADERTOY=1"
+EXTRA_OEMAKE:append:tesmms = " CFG=${MACHINE} SHADERTOY=0"
 
 python do_shadertoy() {
     if "tesclosed" not in d.getVar("OVERRIDES"):

@@ -5,7 +5,7 @@ DEPENDS = "libdave2d libdrm"
 
 inherit pkgconfig
 
-FILESEXTRAPATHS_prepend := "${TES_D2D_SRC_PATH}/software:"
+FILESEXTRAPATHS:prepend := "${TES_D2D_SRC_PATH}/software:"
 
 PV = "1.0"
 SRC_URI = " \

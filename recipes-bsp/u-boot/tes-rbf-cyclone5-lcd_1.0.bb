@@ -6,9 +6,9 @@ PR = "r0"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 
-FILESEXTRAPATHS_prepend := "${TES_D2D_SRC_PATH}/hardware/work/quartus/dave2/socfpga_cyclone5_de0_nano_tes:"
+FILESEXTRAPATHS:prepend := "${TES_D2D_SRC_PATH}/hardware/work/quartus/dave2/socfpga_cyclone5_de0_nano_tes:"
 
-SRC_URI_append = " \
+SRC_URI:append = " \
 	file://socfpga_cyclone5_de0_nano_tes_lcd.rbf;subdir=${MACHINE}/de0_nano \
 	file://${MACHINE}/de0_nano/bootmmc_lcd.scr \
 "

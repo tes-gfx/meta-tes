@@ -48,7 +48,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 #
 # TES internal development settings, scripts, etc.
 #
-IMAGE_INSTALL_append_tesdevel = " \
+IMAGE_INSTALL:append:tesdevel = " \
     tes-boardinfo \
 "
 

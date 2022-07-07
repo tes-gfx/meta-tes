@@ -7,15 +7,15 @@ PR = "r0"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 
-FILESEXTRAPATHS_prepend := "${TES_BIN}/u-boot:"
+FILESEXTRAPATHS:prepend := "${TES_BIN}/u-boot:"
 
-SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
-SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
-SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
-SRC_URI_append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
-SRC_URI_append = " file://${MACHINE}/socdk/fit_spl_socdk.its"
-SRC_URI_append = " file://${MACHINE}/socdk/socfpga_arria10_socdk_tes.rbf"
-SRC_URI_append = " file://${MACHINE}/socdk/bootmmc.scr"
+SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
+SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
+SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
+SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
+SRC_URI:append = " file://${MACHINE}/socdk/fit_spl_socdk.its"
+SRC_URI:append = " file://${MACHINE}/socdk/socfpga_arria10_socdk_tes.rbf"
+SRC_URI:append = " file://${MACHINE}/socdk/bootmmc.scr"
 
 
 S = "${WORKDIR}"

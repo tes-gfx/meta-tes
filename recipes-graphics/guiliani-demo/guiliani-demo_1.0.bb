@@ -5,7 +5,7 @@ DEPENDS = "libdave2d libdrm"
 
 inherit pkgconfig
 
-FILESEXTRAPATHS_prepend := "${YOCTOROOT}/repos/meta-tes/recipes-graphics/guiliani-demo/files:"
+FILESEXTRAPATHS:prepend := "${YOCTOROOT}/repos/meta-tes/recipes-graphics/guiliani-demo/files:"
 
 PV = "1.0"
 SRC_URI = " \

@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425
 
 DEPENDS = "virtual/libgles2 virtual/egl zlib libpng gnutls"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://tools/tks \
 "

@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=9f04cb94394d96c310de03ac83284493"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://tools/kb_poll \
 "

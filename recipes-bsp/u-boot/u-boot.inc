@@ -5,7 +5,7 @@ SECTION = "bootloaders"
 
 LICENSE = "GPLv2+"
 
-PV_append = "+git${SRCPV}"
+PV:append = "+git${SRCPV}"
 
 UBOOT_BRANCH = "master"
 UBOOT_REPO = "git://github.com/tes-gfx/u-boot-socfpga.git"

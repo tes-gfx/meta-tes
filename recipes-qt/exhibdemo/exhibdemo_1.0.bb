@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=17726452d08c75d63fde4c6045f2d0d1"
 
 PV_tesintern = "1.0+svnr${SRCPV}"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://demos/qt/ExhibDemo \
 "
@@ -47,7 +47,7 @@ do_install() {
 # Sources, resources and project file have to be added to the package.
 #
 PACKAGES += "${PN}-devsrc"
-FILES_${PN}-devsrc_append = "\
+FILES_${PN}-devsrc:append = "\
     ${srcdir}/${PN}/* \
 "
 RDEPENDS_${PN}-devsrc += "${PN}"

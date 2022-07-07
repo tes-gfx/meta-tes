@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=9f04cb94394d96c310de03ac8328449
 DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://demos/hellogl \	
 "

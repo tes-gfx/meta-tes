@@ -1,8 +1,8 @@
 require recipes-extended/images/core-image-full-cmdline.bb
 
 IMAGE_INSTALL += "haveged"
-IMAGE_INSTALL_append_arria10 = " tes-itb-arria10"
-IMAGE_INSTALL_append_stratix10 = " tes-u-boot-script-stratix10"
+IMAGE_INSTALL:append:arria10 = " tes-itb-arria10"
+IMAGE_INSTALL:append:stratix10 = " tes-u-boot-script-stratix10"
 
 #
 # Adding the kernel image and firmware files (Device tree)

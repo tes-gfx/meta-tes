@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}:"
 
 KERNEL_PROT = "git"
 KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
@@ -6,48 +6,48 @@ KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
 SRCREV = "904a98c86e351c9a4fe4fd3d45fc566a89e06e96"
 
 #KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
-KBRANCH_append = "-drm"
+KBRANCH:append = "-drm"
 
 DTB_OUTPUT ?= "arch/${ARCH}/boot/dts"
-DTB_OUTPUT_stratix10 ?= "arch/${ARCH}/boot/dts/altera"
+DTB_OUTPUT:stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 
 #
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
 #
-SRC_URI_append_cyclone5 = " \
+SRC_URI:append:cyclone5 = " \
 	file://${PN}/4.14/dts/socfpga_cyclone5_de0_sockit_tes.dts \
 	file://${PN}/4.14/dts/socfpga_cyclone5_de0_sockit_tes_lcd.dts \
 "
 
-SRC_URI_append_arria10 = " file://${PN}/4.14/dts/socfpga_arria10_socdk_tes.dts"
-SRC_URI_append_arria10 = " file://${PN}/4.14/dts/dreamchip_arria10som.dtsi"
-SRC_URI_append_arria10 = " file://${PN}/4.14/dts/dreamchip_arria10som_tes.dts"
+SRC_URI:append:arria10 = " file://${PN}/4.14/dts/socfpga_arria10_socdk_tes.dts"
+SRC_URI:append:arria10 = " file://${PN}/4.14/dts/dreamchip_arria10som.dtsi"
+SRC_URI:append:arria10 = " file://${PN}/4.14/dts/dreamchip_arria10som_tes.dts"
 
-SRC_URI_append_stratix10 = " file://${PN}/4.14/dts/socfpga_stratix10_socdk_tes.dts"
+SRC_URI:append:stratix10 = " file://${PN}/4.14/dts/socfpga_stratix10_socdk_tes.dts"
 
 #
 # Add kernel configuration (e.g. DRM/KMS support, I2C encoder slaves, CMA, ...)
 #
-SRC_URI_append = " file://${PN}/4.14/config/tes_dnx_cdc.cfg"
+SRC_URI:append = " file://${PN}/4.14/config/tes_dnx_cdc.cfg"
 
 #
 # Add DNX register headers and DRM UAPI definitions for kernel side
 #
-FILESEXTRAPATHS_prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:${TES_SRC}/driver/kernel/linux:"
 ADDSOURCES = ""
-ADDSOURCES_tesdavenx = " \
+ADDSOURCES:tesdavenx = " \
 	file://interface \
 	file://drm-dnx \
 "
 
-SRCREV_interface = "${AUTOREV}"
+SRCREV:interface = "${AUTOREV}"
 #SRCREV_FORMAT = "default_dnx-rinterface"
-ADDSOURCES_tesdavenx_tesintern = "\
+ADDSOURCES:tesdavenx:tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-SRC_URI_append = " ${ADDSOURCES}"
+SRC_URI:append = " ${ADDSOURCES}"
 
 #
 # Copy base device tree into kernel source
@@ -93,7 +93,7 @@ do_copy_s10() {
 #
 # Copy required header files into kernel staging directory (required for building module)
 #
-do_install_append_tesdavenx() {
+do_install:append:tesdavenx() {
 	install -m 0644 ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 	install -m 0644 ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 }

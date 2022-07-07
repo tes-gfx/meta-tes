@@ -26,7 +26,7 @@ DEPENDS = "libdrm"
 
 inherit pkgconfig
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://egl.pc \
 	file://glesv2.pc \

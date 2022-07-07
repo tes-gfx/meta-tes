@@ -2,7 +2,7 @@ DESCRIPTION = "An image for easy evaluation of the TES IP Cores, including a ful
 
 include tes-base.inc
 
-IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
+IMAGE_INSTALL:append:cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
 IMAGE_INSTALL += "cdc-mod d2d-mod warp-mod"

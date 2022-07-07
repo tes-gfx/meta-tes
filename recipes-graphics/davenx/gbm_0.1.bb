@@ -9,7 +9,7 @@ LIC_FILES_CHKSUM = "\
         file://main/gbm.c;endline=26;md5=b871c7f2f477df29ee4c0ec437b187f7 \
 "
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://gbm;subdir=driver/kernel/linux \
 "

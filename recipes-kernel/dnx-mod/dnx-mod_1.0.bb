@@ -11,7 +11,7 @@ SRCREV_FORMAT    = "module_interface"
 SRCREV_module    = "acf27c37a48b1addd803c839717107bc33b2b718"
 SRCREV_interface = "${AUTOREV}"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}/driver/kernel/linux:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}/driver/kernel/linux:"
 SRC_URI = "\
         file://module \
 "

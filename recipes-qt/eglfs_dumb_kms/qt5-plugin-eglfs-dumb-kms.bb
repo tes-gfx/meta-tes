@@ -9,7 +9,7 @@ PR = "r0"
 
 DEPENDS = "qtbase libdrm"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://qt.sh \
 	file://qt/eglfs_dumb_kms \
