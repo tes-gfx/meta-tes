@@ -15,20 +15,20 @@ DTB_OUTPUT:stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
 #
 SRC_URI:append:cyclone5 = " \
-	file://${PN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes.dts \
-	file://${PN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes_lcd.dts \
+	file://${BPN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes.dts \
+	file://${BPN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes_lcd.dts \
 "
 
-SRC_URI:append:arria10 = " file://${PN}/5.4/dts/socfpga_arria10_socdk_tes.dts"
-SRC_URI:append:arria10 = " file://${PN}/5.4/dts/dreamchip_arria10som.dtsi"
-SRC_URI:append:arria10 = " file://${PN}/5.4/dts/dreamchip_arria10som_tes.dts"
+SRC_URI:append:arria10 = " file://${BPN}/5.4/dts/socfpga_arria10_socdk_tes.dts"
+SRC_URI:append:arria10 = " file://${BPN}/5.4/dts/dreamchip_arria10som.dtsi"
+SRC_URI:append:arria10 = " file://${BPN}/5.4/dts/dreamchip_arria10som_tes.dts"
 
-SRC_URI:append:stratix10 = " file://${PN}/5.4/dts/socfpga_stratix10_socdk_tes.dts"
+SRC_URI:append:stratix10 = " file://${BPN}/5.4/dts/socfpga_stratix10_socdk_tes.dts"
 
 #
 # Add kernel configuration (e.g. DRM/KMS support, I2C encoder slaves, CMA, ...)
 #
-SRC_URI:append = " file://${PN}/5.4/config/tes_dnx_cdc.cfg"
+SRC_URI:append = " file://${BPN}/5.4/config/tes_dnx_cdc.cfg"
 
 #
 # Add DNX register headers and DRM UAPI definitions for kernel side
@@ -72,22 +72,22 @@ python do_copy() {
 addtask copy after do_configure before do_compile
 
 do_copy_dnx() {
-	cp ${WORKDIR}/${PN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${BPN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 }
 
 do_copy_c5() {
-	cp ${WORKDIR}/${PN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${BPN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_copy_a10() {
-	cp ${WORKDIR}/${PN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
-	cp ${WORKDIR}/${PN}/5.4/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${BPN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${BPN}/5.4/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_copy_s10() {
-	cp ${WORKDIR}/${PN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
+	cp ${WORKDIR}/${BPN}/5.4/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
 }
 
 #
