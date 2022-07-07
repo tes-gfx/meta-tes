@@ -33,7 +33,7 @@ inherit qmake5
 #
 # Add script to set dumb KMS plugin as default eglfs device integration
 #
-do_install_append() {
+do_install:append() {
 	install -d ${D}${sysconfdir}/profile.d/
 	install -m 0755 ${WORKDIR}/qt.sh ${D}${sysconfdir}/profile.d/
 }
