@@ -4,7 +4,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev libpng"
 
-PV_tesintern = "1.0+svnr${SRCPV}"
+PV:tesintern = "1.0+svnr${SRCPV}"
 
 RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
 
@@ -31,7 +31,7 @@ SRCREV_driver  = "${AUTOREV}"
 SRCREV_tools   = "${AUTOREV}"
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
 	${TES_SVN_PATH};module=display;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
 	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \

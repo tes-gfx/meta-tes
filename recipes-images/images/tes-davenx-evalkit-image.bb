@@ -57,14 +57,14 @@ IMAGE_INSTALL:append:tesdevel = " \
 # Add debugging and developer utilities
 #
 EXTRA_IMAGE_FEATURES += "debug-tweaks"
-EXTRA_IMAGE_FEATURES_tesdebug += "tools-profile dbg-pkgs"
-PACKAGE_DEBUG_SPLIT_STYLE_tesdebug = "debug-file-directory"
+EXTRA_IMAGE_FEATURES:tesdebug += "tools-profile dbg-pkgs"
+PACKAGE_DEBUG_SPLIT_STYLE:tesdebug = "debug-file-directory"
 
 
 #
 # Inhibit striping (to enable readable profiling tool outputs)
 #
-INHIBIT_PACKAGE_STRIP_tesdebug = "1"
+INHIBIT_PACKAGE_STRIP:tesdebug = "1"
 
 
 #

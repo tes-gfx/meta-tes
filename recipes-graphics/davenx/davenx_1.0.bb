@@ -4,7 +4,7 @@ DESCRIPTION = "\
 	development. \
 "
 
-PV_tesintern = "1.0+svnr${SRCPV}"
+PV:tesintern = "1.0+svnr${SRCPV}"
 
 PROVIDES = "virtual/libgles2 virtual/egl libdrm-dnx-dev libegl-tes-dev libdisplay-dnx-dev"
 LICENSE = "MIT & BSD"
@@ -54,7 +54,7 @@ SRCREV_build     = "${AUTOREV}"
 SRCREV_interface = "${AUTOREV}"
 SRCREV_tools     = "${AUTOREV}"
 
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	file://egl.pc \
 	file://glesv2.pc \
 	${TES_SVN_PATH};module=display;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
@@ -71,7 +71,7 @@ SRC_URI_tesintern = "\
 "
 
 S = "${WORKDIR}/build"
-S_tesintern = "${WORKDIR}/build"
+S:tesintern = "${WORKDIR}/build"
 
 # Prevent DNX module from being built
 EXTRA_OEMAKE += "NOMODULE=1 YOCTO_BUILD=1 BUILD=release GLES_USE_NXVC=0"
@@ -99,11 +99,11 @@ PACKAGES =+ "\
 	libdisplay-dnx-dev \
 "
 
-do_compile_prepend () {
+do_compile:prepend () {
 	install -m 0755 -d ${D}${includedir}
 }
 
-do_unpack_append_tesintern () {
+do_unpack:append:tesintern () {
     S = d.getVar('S', True)
     os.system("cp " + S + "/../tools/svnver/davenx_svnver.* " + S + "/../driver/user/src/")
     os.system("cp " + S + "/../tools/svnver/gles_svnver.* " + S + "/../gles/src/")

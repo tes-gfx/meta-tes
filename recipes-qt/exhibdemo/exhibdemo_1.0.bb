@@ -5,7 +5,7 @@ DESCRIPTION = "The TES exhibition demo that can be used as an initial applicatio
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=17726452d08c75d63fde4c6045f2d0d1"
 
-PV_tesintern = "1.0+svnr${SRCPV}"
+PV:tesintern = "1.0+svnr${SRCPV}"
 
 FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
@@ -13,7 +13,7 @@ SRC_URI = "\
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
         ${TES_SVN_PATH}/demos/qt;module=ExhibDemo;subdir=demos/qt;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
         "
 

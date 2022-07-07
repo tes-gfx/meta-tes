@@ -1,11 +1,11 @@
 DESCRIPTION = "DRM driver for TES' D/AVE NX GPU."
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
-LIC_FILES_CHKSUM_tesintern = "file://driver/kernel/linux/module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
+LIC_FILES_CHKSUM:tesintern = "file://driver/kernel/linux/module/LICENSE;md5=801f80980d171dd6425610833a22dbe6"
 
 inherit module
 
-PV_tesintern = "1.0+git+svnr${SRCPV}"
+PV:tesintern = "1.0+git+svnr${SRCPV}"
 
 SRCREV_FORMAT    = "module_interface"
 SRCREV_module    = "acf27c37a48b1addd803c839717107bc33b2b718"
@@ -17,13 +17,13 @@ SRC_URI = "\
 "
 
 # Checkout whole driver since we need the directory structure for the interface includes
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	git://github.com/tes-gfx/dnx-mod.git;branch=4.14.73-ltsi-altera;protocol=https;destsuffix=driver/kernel/linux/module/;name=module \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
 "
 
 S = "${WORKDIR}"
 B = "${WORKDIR}/module"
-B_tesintern = "${WORKDIR}/driver/kernel/linux/module"
+B:tesintern = "${WORKDIR}/driver/kernel/linux/module"
 
 KERNEL_MODULE_AUTOLOAD += "dnx"

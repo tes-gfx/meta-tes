@@ -8,10 +8,10 @@ include tes-qt-base.inc
 
 
 #
-# Use linux-altera-ltsi 4.14 kernel
+# Use linux-altera-ltsi 5.4 kernel
 #
-PREFERRED_PROVIDER_virtual/kernel = "linux-altera-ltsi"
-PREFERRED_VERSION_linux-altera-ltsi = "4.14%"
+PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
+PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
 
 
 #
