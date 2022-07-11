@@ -18,4 +18,4 @@ do_install() {
     install -m 644 ${WORKDIR}/environment.d-kernel-devsrc.sh ${D}${SDKPATHNATIVE}/environment-setup.d/kernel-devsrc.sh
 }
 
-FILES_${PN} = "${SDKPATHNATIVE}"
+FILES:${PN} = "${SDKPATHNATIVE}"

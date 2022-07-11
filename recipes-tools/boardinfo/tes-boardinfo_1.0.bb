@@ -17,6 +17,6 @@ do_install () {
 	install -m 0755 boardinfo.sh ${D}${sysconfdir}/profile.d/boardinfo.sh
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
     ${sysconfdir}/profile.d/boardinfo.sh \
 "

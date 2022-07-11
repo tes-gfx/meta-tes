@@ -47,7 +47,7 @@ do_install() {
 # Sources, resources and project file have to be added to the package.
 #
 PACKAGES += "${PN}-devsrc"
-FILES_${PN}-devsrc:append = "\
+FILES:${PN}-devsrc:append = "\
     ${srcdir}/${PN}/* \
 "
 RDEPENDS_${PN}-devsrc += "${PN}"

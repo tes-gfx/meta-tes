@@ -33,7 +33,7 @@ do_deploy() {
 }
 addtask deploy after do_install before do_build
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	boot/*.rbf \
 	boot/boot*.scr \
 	boot/boot*.img \

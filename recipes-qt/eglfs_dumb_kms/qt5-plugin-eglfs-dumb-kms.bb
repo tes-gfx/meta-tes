@@ -39,9 +39,9 @@ do_install:append() {
 }
 
 
-FILES_${PN} += "\
+FILES:${PN} += "\
 	${OE_QMAKE_PATH_PLUGINS}/egldeviceintegrations/libqeglfsdumbkms.so \
 	qt.sh \
 "
-FILES_${PN}-dbg += "${OE_QMAKE_PATH_PLUGINS}/egldeviceintegrations/.debug/"
-FILES_${PN}-dev += "${OE_QMAKE_PATH_LIBS}/cmake/*"
+FILES:${PN}-dbg += "${OE_QMAKE_PATH_PLUGINS}/egldeviceintegrations/.debug/"
+FILES:${PN}-dev += "${OE_QMAKE_PATH_LIBS}/cmake/*"

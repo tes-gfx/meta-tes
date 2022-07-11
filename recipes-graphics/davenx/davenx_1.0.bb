@@ -133,28 +133,28 @@ do_install () {
 }
 
 
-FILES_libegl-tes = "${libdir}/libEGL.so.*"
-FILES_libgles2-tes = "${libdir}/libGLESv2.so.*"
-FILES_libdrm-dnx = "${libdir}/libdrm_dnx.so.*"
-FILES_libdisplay-dnx = "${libdir}/libdisplay.so.*"
-FILES_libegl-tes-dev = "\
+FILES:libegl-tes = "${libdir}/libEGL.so.*"
+FILES:libgles2-tes = "${libdir}/libGLESv2.so.*"
+FILES:libdrm-dnx = "${libdir}/libdrm_dnx.so.*"
+FILES:libdisplay-dnx = "${libdir}/libdisplay.so.*"
+FILES:libegl-tes-dev = "\
 	${includedir}/EGL \
 	${includedir}/KHR \
 	${libdir}/pkgconfig/egl.pc \
 	${libdir}/libEGL.so \
 "
-FILES_libgles2-tes-dev = "\
+FILES:libgles2-tes-dev = "\
 	${includedir}/GLES2 \
 	${includedir}/GLES3 \
 	${libdir}/pkgconfig/glesv2.pc \
 	${libdir}/libGLESv2.so \
 "
-FILES_libdrm-dnx-dev = "\
+FILES:libdrm-dnx-dev = "\
 	${includedir}/dnx_drm*h \
 	${includedir}/nx_*.h \
 	${libdir}/libdrm_dnx.so \
 "
-FILES_libdisplay-dnx-dev = "\
+FILES:libdisplay-dnx-dev = "\
 	${includedir}/display.h \
 	${libdir}/libdisplay.so \
 "

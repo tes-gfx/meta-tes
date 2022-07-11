@@ -33,6 +33,6 @@ do_install () {
   cp -r * ${D}
 }
 
-FILES_${PN} = "${prefix}/*"
+FILES:${PN} = "${prefix}/*"
 
 INSANE_SKIP_${PN} = "already-stripped"

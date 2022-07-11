@@ -23,7 +23,7 @@ do_install () {
 }
 
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 home/root/autorun \
 ${sysconfdir}/rc5.d/S99tes_autorun \
 "

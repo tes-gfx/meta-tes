@@ -22,10 +22,10 @@ do_install () {
   oe_soinstall ${S}/libkms_egl.so.*.* ${D}${libdir}
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	${libdir}/libkms_egl.so* \
 "
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
 	${includedir}/kms_egl.h \
 "
