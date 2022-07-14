@@ -79,3 +79,4 @@ TOOLCHAIN_TARGET_TASK += " \
 "
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
+WKS_FILE = "sdimage-tes-cyclone5-de0-nano.wks"

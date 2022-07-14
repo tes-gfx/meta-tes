@@ -24,7 +24,7 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
 PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
 
 #
-# only generate tar.gz rootfs images
+# Generate an SD card image with wic
 #
-IMAGE_FSTYPES = "tar.gz ext3"
+IMAGE_FSTYPES = "wic"
 
