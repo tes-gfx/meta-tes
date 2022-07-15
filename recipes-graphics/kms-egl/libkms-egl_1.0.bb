@@ -9,7 +9,7 @@ PROVIDES:append = "${PN}-dev"
 PV = "1.0+gitr${SRCPV}"
 
 SRCREV = "${AUTOREV}"
-SRC_URI =  "git://github.com/tes-gfx/libkms-egl.git;protocol=https"
+SRC_URI =  "git://github.com/tes-gfx/libkms-egl.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 

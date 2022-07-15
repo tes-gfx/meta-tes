@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=demo;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/demo/build/linux/"
+S = "${WORKDIR}/demo/build/linux"
 
 do_install () {
   install -d ${D}${datadir}/${PN}
