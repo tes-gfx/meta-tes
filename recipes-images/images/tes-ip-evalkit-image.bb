@@ -5,8 +5,8 @@ include tes-base.inc
 IMAGE_INSTALL:append:cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
-#IMAGE_INSTALL += "cdc-mod d2d-mod warp-mod"
-#MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc kernel-module-d2d kernel-module-warp"
+IMAGE_INSTALL += "d2d-mod warp-mod"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-d2d kernel-module-warp"
 
 #
 # Add very handy development tools
@@ -24,7 +24,6 @@ IMAGE_INSTALL += " \
 #
 # Add the TES tutorials and tests
 #
-#	dnx-integration-test
 IMAGE_INSTALL += " \
 	smartwatch-demo \
 	dave2d-demo\
