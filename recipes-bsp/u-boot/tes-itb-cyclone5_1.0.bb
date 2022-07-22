@@ -9,15 +9,15 @@ DEPENDS = "u-boot-tools-native dtc-native"
 FILESEXTRAPATHS:prepend := "${YOCTOROOT}/repos/meta-tes/recipes-bsp/u-boot/files:"
 
 SRC_URI:append = " \
-	file://${MACHINE}/de0_nano/socfpga_cyclone5_de0_nano_tes.rbf \
-	file://${MACHINE}/de0_nano/bootmmc.scr \
+	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_tes.rbf \
+	file://${MACHINE}/de10_nano/bootmmc.scr \
 "
 
 S = "${WORKDIR}"
 
 do_compile () {
 	echo PWD = $(pwd)
-	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/de0_nano/bootmmc.scr ${B}/bootmmc_de0.img
+	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/de10_nano/bootmmc.scr ${B}/bootmmc_de10.img
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
 
@@ -29,7 +29,7 @@ do_install () {
 inherit deploy
 do_deploy() {
 	install -m 0755 ${B}/*.img ${DEPLOYDIR}
-	install -m 0755 ${S}/${MACHINE}/de0_nano/*.rbf ${DEPLOYDIR}
+	install -m 0755 ${S}/${MACHINE}/de10_nano/*.rbf ${DEPLOYDIR}
 }
 addtask deploy after do_install before do_build
 

@@ -1,6 +1,6 @@
 # compile with: mkimage -T script -C none -n "bootmmc" -d bootmmc_lcd.scr bootmmc.img
 
-setenv fdtimage socfpga_cyclone5_de0_sockit_tes_lcd.dtb
+setenv fdtimage socfpga_cyclone5_de10_sockit_tes_lcd.dtb
 setenv bootimage zImage
 setenv root /dev/mmcblk0p3
 
@@ -11,7 +11,7 @@ setenv u-boot_image_valid 0x49535756
 setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y vmalloc=512M root=${root} rootwait rw ${runlevel}
 
 # configure FPGA
-fatload mmc 0:1 ${kerneladdr} socfpga_cyclone5_de0_nano_tes.rbf
+fatload mmc 0:1 ${kerneladdr} socfpga_cyclone5_de10_nano_tes.rbf
 fpga load 0 ${kerneladdr} ${filesize}
 
 # load kernel and DT

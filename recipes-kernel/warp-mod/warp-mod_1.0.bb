@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "3c4f128cdec4836e5fd01168ae7997445c7f70bb"
+SRCREV = "d674f7a4889232c2ef3154f04023539b987b446b"
 SRC_URI = "\
         git://github.com/tes-gfx/warp-mod-prelim.git;branch=5.4.124-lts;protocol=https \
 "

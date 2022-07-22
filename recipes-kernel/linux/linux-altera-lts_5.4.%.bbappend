@@ -15,8 +15,8 @@ DTB_OUTPUT:stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 # Add base device tree and overlay for our design (enable FPGA2SDRAM bridge)
 #
 SRC_URI:append:cyclone5 = " \
-	file://${BPN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes.dts \
-	file://${BPN}/5.4/dts/socfpga_cyclone5_de0_sockit_tes_lcd.dts \
+	file://${BPN}/5.4/dts/socfpga_cyclone5_de10_sockit_tes.dts \
+	file://${BPN}/5.4/dts/socfpga_cyclone5_de10_sockit_tes_lcd.dts \
 "
 
 SRC_URI:append:arria10 = " file://${BPN}/5.4/dts/socfpga_arria10_socdk_tes.dts"

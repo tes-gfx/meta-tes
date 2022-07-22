@@ -16,5 +16,9 @@ SRC_URI = "\
 	"
 
 S = "${WORKDIR}/git"
+B = "${WORKDIR}/build"
 
 RPROVIDES_${PN} += "u-boot" 
+
+UBOOT_CONFIG[cyclone5-de0] = "socfpga_de0_nano_soc_tes_defconfig"
+UBOOT_CONFIG[cyclone5-de10] = "socfpga_de10_nano_evalkit_defconfig"

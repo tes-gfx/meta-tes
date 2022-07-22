@@ -5,8 +5,8 @@ include tes-base.inc
 IMAGE_INSTALL:append:cyclone5 = " tes-itb-cyclone5"
 
 # Add TES kernel modules
-IMAGE_INSTALL += "d2d-mod warp-mod"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-d2d kernel-module-warp"
+IMAGE_INSTALL += "d2d-mod warp-mod cdc-mod-prelim"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-d2d kernel-module-warp kernel-module-cdc"
 
 #
 # Add very handy development tools
@@ -78,4 +78,4 @@ TOOLCHAIN_TARGET_TASK += " \
 "
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
-WKS_FILE = "sdimage-tes-cyclone5-de0-nano.wks"
+WKS_FILE = "sdimage-tes-cyclone5-de10-nano.wks"
