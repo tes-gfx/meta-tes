@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "0aee6b8f390dfbb067c0f4d14da0e98f2aee5184"
+SRCREV = "0ff361c214ac0fe2fb2825a6f1517e48dacc862e"
 SRC_URI = "\
         git://github.com/tes-gfx/cdc-mod-prelim.git;branch=5.4.124-lts;protocol=https \
 "
