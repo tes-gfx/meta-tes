@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "3e537d4770c3794a1bd06429cc401d000e29efbb"
+SRCREV = "288accb2d7584b394ca23c3513582eb6d400bc7c"
 SRC_URI = "\
         git://github.com/tes-gfx/gman-mod.git;branch=5.4.124-lts;protocol=https \
 "
