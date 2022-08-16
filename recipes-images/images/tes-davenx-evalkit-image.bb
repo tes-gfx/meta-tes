@@ -79,6 +79,7 @@ IMAGE_ROOTFS_SIZE = "2097152"
 
 export IMAGE_BASENAME="tes-davenx-evalkit-image"
 
+WKS_FILE = "sdimage-tes-stratix10-socdk.wks"
 
 ###############################################################################
 # SDK section

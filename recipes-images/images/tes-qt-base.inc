@@ -9,7 +9,6 @@
 #
 IMAGE_INSTALL += " \
     qtbase \
-    qt5-plugin-eglfs-dumb-kms \
     qtdeclarative \
     qtdeclarative-dev \
     qtdeclarative-tools \
@@ -18,6 +17,8 @@ IMAGE_INSTALL += " \
     qtgraphicaleffects \
     qtlocation \
 "
+# The plugin is once again broken. Comment out for now.
+#    qt5-plugin-eglfs-dumb-kms 
 
 #
 # Add Qt5 demos (skip them for now, they're triggering lots of errors)
@@ -64,7 +65,6 @@ IMAGE_INSTALL += "\
 #
 IMAGE_INSTALL += " \
     exhibdemo \
-    qtdoc-examples-good \
 "
 
 TOOLCHAIN_TARGET_TASK += " \

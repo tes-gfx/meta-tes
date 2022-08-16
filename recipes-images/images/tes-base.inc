@@ -26,5 +26,5 @@ PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
 #
 # Generate an SD card image with wic
 #
-IMAGE_FSTYPES = "wic"
+IMAGE_FSTYPES = "wic.xz"
 

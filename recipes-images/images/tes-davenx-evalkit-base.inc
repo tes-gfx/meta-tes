@@ -13,8 +13,3 @@ include tes-qt-base.inc
 PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
 PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
 
-
-#
-# only generate tar.gz rootfs images
-#
-IMAGE_FSTYPES = "tar.gz ext3"
