@@ -7,7 +7,7 @@ DESCRIPTION = "\
 PV:tesintern = "1.0+svnr${SRCPV}"
 
 PROVIDES = "virtual/libgles2 virtual/egl libdrm-dnx-dev libegl-tes-dev libdisplay-dnx-dev"
-LICENSE = "MIT & BSD"
+LICENSE = "MIT & BSD-3-Clause"
 LICENSE_libdrm-dnx = "MIT"
 LICENSE_libdrm-dnx-dev = "MIT"
 LICENSE_libdisplay-dnx-dev = "MIT"
