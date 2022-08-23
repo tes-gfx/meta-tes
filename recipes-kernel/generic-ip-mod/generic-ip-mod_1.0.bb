@@ -6,7 +6,7 @@ inherit module
 
 PV = "1.0+gitr${SRCPV}"
 
-SRCREV = "c174e3e19d6af7205bfc15816df70df8d004de95"
+SRCREV = "fe91dedc7b303245643aef1a5fc024b546307771"
 SRC_URI = "\
         git://github.com/tes-gfx/generic-ip-mod.git;branch=5.4.124-lts;protocol=https \
 "
