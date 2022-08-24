@@ -55,8 +55,7 @@
 		base-fpga-region {
 			ranges = <0x00000000 0xff200000 0x004000
 				  0x00004000 0xff204000 0x002000
-				  0x00006000 0xff206000 0x000200
-				  0x00006200 0xff206200 0x000100>;
+				  0x00006000 0xff206000 0x000200>;
 
 			tes_dhd_0: gpu@0 {
 				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
@@ -64,8 +63,6 @@
 				
 				interrupt-parent = <&intc>;
 				interrupts = <0 41 4>;
-				
-				vidmem = <0xc0000000 0x10000000>;
 			};
 
 			tes_cdc_0: lcd_controller@4000 {
@@ -94,14 +91,6 @@
 				
 				interrupt-parent = <&intc>;
 				interrupts = <0 43 4>;
-			};
-
-			tes_d2d_0: gpu@6200 {
-				compatible = "tes,tes_d2d-1.0", "tes,d2d-1.0";
-				reg = <0x00006200 0x00000100>;
-				
-				interrupt-parent = <&intc>;
-				interrupts = <0 42 4>;
 			};
 
 			pixel_clock: oscillator {
