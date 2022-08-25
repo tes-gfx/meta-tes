@@ -29,7 +29,7 @@ do_install () {
 inherit deploy
 do_deploy() {
 	install -m 0755 ${B}/*.img ${DEPLOYDIR}
-	install -m 0755 ${S}/${MACHINE}/de10_nano/*.rbf ${DEPLOYDIR}/socfpga_cyclone5_de10_nano_tes.rbf
+	install -m 0755 ${S}/${MACHINE}/de10_nano/*.rbf ${DEPLOYDIR}/socfpga_cyclone5_de10_nano_d2d.rbf
 }
 addtask deploy after do_install before do_build
 

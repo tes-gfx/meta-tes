@@ -9,7 +9,7 @@ DEPENDS = "u-boot-tools-native dtc-native"
 FILESEXTRAPATHS:prepend := "${YOCTOROOT}/repos/meta-tes/recipes-bsp/u-boot/files:"
 
 SRC_URI:append = " \
-	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_tes.rbf \
+	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_d2d.rbf \
 	file://${MACHINE}/de10_nano/bootmmc.scr \
 "
 

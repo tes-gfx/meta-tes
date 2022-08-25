@@ -12,7 +12,7 @@ setenv u-boot_image_valid 0x49535756
 setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y vmalloc=512M root=${root} rootwait rw ${runlevel}
 
 # configure FPGA
-fatload mmc 0:1 ${kerneladdr} socfpga_cyclone5_de10_nano_tes.rbf
+fatload mmc 0:1 ${kerneladdr} socfpga_cyclone5_de10_nano_d2d.rbf
 fpga load 0 ${kerneladdr} ${filesize}
 
 # load kernel and DT
