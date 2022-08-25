@@ -1,5 +1,5 @@
-SUMMARY = "TES ITB for U-Boot (Cyclone 5)"
-DESCRIPTION = "This recipe generates an U-Boot ITB image for the peripheral RBF."
+SUMMARY = "TES RBF for U-Boot (Cyclone 5)"
+DESCRIPTION = "This recipe copies the RBF files for DHD and D2D evalkit."
 SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
@@ -10,6 +10,7 @@ FILESEXTRAPATHS:prepend := "${YOCTOROOT}/repos/meta-tes/recipes-bsp/u-boot/files
 
 SRC_URI:append = " \
 	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_d2d.rbf \
+	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_dhd.rbf \
 	file://${MACHINE}/de10_nano/bootmmc.scr \
 "
 

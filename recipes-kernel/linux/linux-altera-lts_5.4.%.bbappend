@@ -16,6 +16,7 @@ DTB_OUTPUT:stratix10 ?= "arch/${ARCH}/boot/dts/altera"
 #
 SRC_URI:append:cyclone5 = " \
 	file://${BPN}/5.4/dts/socfpga_cyclone5_de10_sockit_d2d.dts \
+	file://${BPN}/5.4/dts/socfpga_cyclone5_de10_sockit_dhd.dts \
 	file://${BPN}/5.4/dts/socfpga_cyclone5_de10_sockit_tes_lcd.dts \
 "
 
