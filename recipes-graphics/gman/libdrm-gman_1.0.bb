@@ -14,14 +14,20 @@ RDEPENDS_${PN} = "libdrm"
 
 inherit pkgconfig
 
-PV = "1.0+gitr${SRCPV}"
+PV = "1.0+git+svnr${SRCPV}"
 
-SRCREV = "46e60c3f887d83a094dab2d30154e181ba7f461f"
+SRCREV_FORMAT = "gman_di"
+SRCREV_gman = "${AUTOREV}"
+SRCREV_di = "${AUTOREV}"
+
 SRC_URI = "\
-	git://github.com/tes-gfx/drm-gman.git;branch=master;protocol=https \
+	git://github.com/tes-gfx/drm-gman.git;branch=master;protocol=https;name=gman \
+        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 S = "${WORKDIR}/git"
+
+export DI_PATH := "${WORKDIR}/display_interface"
 
 do_install () {
   install -d ${D}${includedir}
