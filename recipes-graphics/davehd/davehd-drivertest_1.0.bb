@@ -3,8 +3,6 @@ HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
 DEPENDS = "libdavehd libdrm libdi libcdc libdrm-gman"
 
-inherit pkgconfig
-
 FILESEXTRAPATHS:prepend := "${TES_DHD_SRC_PATH}:"
 
 PV = "1.0"

@@ -24,6 +24,15 @@ inherit pkgconfig
 do_install () {
   install -d ${D}${includedir} 
   install -m 0644 ${S}/../../inc/*.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_types.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_registerfile.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_registerfile_custom.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_registermap.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_registermap_custom.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/davehd_settings.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/platform/davehd_platform.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/platform/davehd_settings_linux_genip.h ${D}${includedir}
+  install -m 0644 ${S}/../../../config/platform/davehd_device_data_size_default.h ${D}${includedir}
   install -d ${D}${libdir} 
   install ${S}/libdavehd.a ${D}${libdir}
 }
