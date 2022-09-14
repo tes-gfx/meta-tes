@@ -22,13 +22,21 @@ IMAGE_INSTALL += " \
 "
 
 #
-# Add the TES tutorials and tests
+# Add Dave2D stuff
 #
-IMAGE_INSTALL += " \
+IMAGE_INSTALL:dave2d += " \
 	smartwatch-demo \
 	dave2d-demo\
 	guiliani-demo\
 	warping-demo\
+"
+
+#
+# Add DaveHD stuff
+#
+IMAGE_INSTALL:davehd += " \
+    davehd-openvg-demos \
+    davehd-drivertest \
 "
 
 #
@@ -75,8 +83,12 @@ TOOLCHAIN_TARGET_TASK += " \
 	kernel-devsrc \
 	libdrm-dev \
 	libdrm-gman-dev \
+"
+
+TOOLCHAIN_TARGET_TASK:dave2d += "\
 	smartwatch-demo-devsrc \
 "
+
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
 WKS_FILE = "sdimage-tes-cyclone5-de10-nano.wks"
