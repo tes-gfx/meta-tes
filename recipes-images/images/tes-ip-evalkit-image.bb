@@ -37,6 +37,7 @@ IMAGE_INSTALL:dave2d += " \
 IMAGE_INSTALL:davehd += " \
     davehd-openvg-demos \
     davehd-drivertest \
+    davehd-tutorial \
 "
 
 #
@@ -87,6 +88,10 @@ TOOLCHAIN_TARGET_TASK += " \
 
 TOOLCHAIN_TARGET_TASK:dave2d += "\
 	smartwatch-demo-devsrc \
+"
+
+TOOLCHAIN_TARGET_TASK:davehd += "\
+	davehd-tutorial-devsrc \
 "
 
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
