@@ -34,7 +34,7 @@ IMAGE_INSTALL:append:dave2d = " \
 #
 # Add DaveHD stuff
 #
-IMAGE_INSTALL:append:davehd += " \
+IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
@@ -90,7 +90,7 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 	smartwatch-demo-devsrc \
 "
 
-TOOLCHAIN_TARGET_TASK:append:davehd += "\
+TOOLCHAIN_TARGET_TASK:append:davehd = "\
 	davehd-tutorial-devsrc \
 "
 
