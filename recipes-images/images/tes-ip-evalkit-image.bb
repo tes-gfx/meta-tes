@@ -24,7 +24,7 @@ IMAGE_INSTALL += " \
 #
 # Add Dave2D stuff
 #
-IMAGE_INSTALL:dave2d += " \
+IMAGE_INSTALL:append:dave2d = " \
 	smartwatch-demo \
 	dave2d-demo\
 	guiliani-demo\
@@ -34,7 +34,7 @@ IMAGE_INSTALL:dave2d += " \
 #
 # Add DaveHD stuff
 #
-IMAGE_INSTALL:davehd += " \
+IMAGE_INSTALL:append:davehd += " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
@@ -51,7 +51,7 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 # Add debugging and developer utilities
 #
 EXTRA_IMAGE_FEATURES += "debug-tweaks"
-EXTRA_IMAGE_FEATURES:tesdebug += "tools-profile dbg-pkgs"
+EXTRA_IMAGE_FEATURES:append:tesdebug = " tools-profile dbg-pkgs"
 PACKAGE_DEBUG_SPLIT_STYLE:tesdebug = "debug-file-directory"
 
 #
@@ -86,11 +86,11 @@ TOOLCHAIN_TARGET_TASK += " \
 	libdrm-gman-dev \
 "
 
-TOOLCHAIN_TARGET_TASK:dave2d += "\
+TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 	smartwatch-demo-devsrc \
 "
 
-TOOLCHAIN_TARGET_TASK:davehd += "\
+TOOLCHAIN_TARGET_TASK:append:davehd += "\
 	davehd-tutorial-devsrc \
 "
 
