@@ -23,8 +23,13 @@ inherit pkgconfig
 
 do_install () {
   install -d ${D}${includedir}/linux 
-  install -m 0644 ${S}/../../include/*.h ${D}${includedir}
+  install -m 0644 ${S}/../../include/cdc.h ${D}${includedir}
+  install -m 0644 ${S}/../../include/cdc_config.h ${D}${includedir}
   install -m 0644 ${S}/../../include/linux/cdc_linux.h ${D}${includedir}/linux
   install -d ${D}${libdir} 
   install ${S}/libcdc.a ${D}${libdir}
 }
+
+# We only have a static lib here, so the main package will be empty.
+# But there are still dependencies on it. Therefore, we keep it as an empty package.
+ALLOW_EMPTY:${PN} = "1"

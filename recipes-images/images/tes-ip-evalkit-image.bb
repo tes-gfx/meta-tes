@@ -84,6 +84,10 @@ TOOLCHAIN_TARGET_TASK += " \
 	kernel-devsrc \
 	libdrm-dev \
 	libdrm-gman-dev \
+	libcdc-dev \
+	libcdc-staticdev \
+	libdavehd-dev \
+	libdavehd-staticdev \
 "
 
 TOOLCHAIN_TARGET_TASK:append:dave2d = "\
