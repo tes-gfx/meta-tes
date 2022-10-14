@@ -25,11 +25,11 @@ IMAGE_INSTALL += " \
 # Add Dave2D stuff
 #
 IMAGE_INSTALL:append:dave2d = " \
-	smartwatch-demo \
-	dave2d-demo\
-	guiliani-demo\
-	warping-demo\
+	dave2d-demo \
 "
+#	smartwatch-demo
+#	guiliani-demo
+#	warping-demo
 
 #
 # Add DaveHD stuff
@@ -38,6 +38,7 @@ IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
+    davehd-performance \
 "
 
 #
@@ -88,6 +89,10 @@ TOOLCHAIN_TARGET_TASK += " \
 	libcdc-staticdev \
 	libdavehd-dev \
 	libdavehd-staticdev \
+	libdi-dev \
+	libdi-staticdev \
+	davehd-openvg-dev \
+	davehd-openvg-staticdev \
 "
 
 TOOLCHAIN_TARGET_TASK:append:dave2d = "\
@@ -95,7 +100,8 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 "
 
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
-	davehd-tutorial-devsrc \
+        davehd-cdc-tutorial-devsrc \
+        davehd-drivertest-devsrc \
 "
 
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"

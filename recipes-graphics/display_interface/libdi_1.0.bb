@@ -31,4 +31,4 @@ do_install () {
   install ${S}/libdi.a ${D}${libdir}
 }
 
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"

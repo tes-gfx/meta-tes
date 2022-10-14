@@ -47,3 +47,7 @@ do_install () {
   install ${S}/egl/build/linux/libEGL.a ${D}${libdir}
   install ${S}/openvg1.1/build/linux/libOpenVG.a ${D}${libdir}
 }
+
+# We only have a static lib here, so the main package will be empty.
+# But there are still dependencies on it. Therefore, we keep it as an empty package.
+ALLOW_EMPTY:${PN} = "1"

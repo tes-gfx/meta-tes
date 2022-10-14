@@ -2,7 +2,7 @@ DESCRIPTION = "D/AVE HD OpenVG demos"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
 
-DEPENDS += "libdi libdavehd libcdc libdrm-gman davehd-openvg"
+DEPENDS += "libdi libdavehd libcdc libdrm-gman davehd-openvg ncurses"
 
 PV = "1.0"
 
