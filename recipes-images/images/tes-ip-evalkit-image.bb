@@ -25,7 +25,8 @@ IMAGE_INSTALL += " \
 # Add Dave2D stuff
 #
 IMAGE_INSTALL:append:dave2d = " \
-	dave2d-demo \
+        dave2d-demo \
+        dave2d-drivertest \
 "
 #	smartwatch-demo
 #	guiliani-demo
