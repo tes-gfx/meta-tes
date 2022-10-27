@@ -6,6 +6,8 @@ PR = "r0"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 
+BB_STRICT_CHECKSUM = "ignore"
+
 FILESEXTRAPATHS:prepend := "${YOCTOROOT}/repos/meta-tes/recipes-bsp/u-boot/files:"
 
 SRC_URI:append = " \
@@ -13,11 +15,11 @@ SRC_URI:append = " \
 "
 
 SRC_URI:append:dave2d = " \
-	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_d2d.rbf \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/de10nano/dave2d/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_d2d.rbf \
 "
 
 SRC_URI:append:davehd = " \
-	file://${MACHINE}/de10_nano/socfpga_cyclone5_de10_nano_dhd.rbf \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/de10nano/davehd/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_dhd.rbf \
 "
 
 S = "${WORKDIR}"
@@ -36,7 +38,7 @@ do_install () {
 inherit deploy
 do_deploy() {
 	install -m 0755 ${B}/*.img ${DEPLOYDIR}
-	install -m 0755 ${S}/${MACHINE}/de10_nano/*.rbf ${DEPLOYDIR}
+	install -m 0755 ${S}/*.rbf ${DEPLOYDIR}
 }
 addtask deploy after do_install before do_build
 
