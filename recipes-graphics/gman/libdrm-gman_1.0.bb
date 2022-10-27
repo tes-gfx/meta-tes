@@ -25,7 +25,13 @@ SRC_URI = "\
         ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
+SRC_URI:tesintern = "\
+	${TES_TOOLS_SVN_PATH};module=drm-gman;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+"
+
 S = "${WORKDIR}/git"
+S:tesintern = "${WORKDIR}/drm-gman"
 
 export DI_PATH := "${WORKDIR}/display_interface"
 
