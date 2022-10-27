@@ -14,11 +14,11 @@ SRC_URI:append = " \
 	file://${MACHINE}/de10_nano/bootmmc.scr \
 "
 
-SRC_URI:append:dave2d = " \
+SRC_URI:append:tesintern:dave2d = " \
 	http://build-linux/jenkins_artifacts/ip_cores/evalkit/de10nano/dave2d/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_d2d.rbf \
 "
 
-SRC_URI:append:davehd = " \
+SRC_URI:append:tesintern:davehd = " \
 	http://build-linux/jenkins_artifacts/ip_cores/evalkit/de10nano/davehd/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_dhd.rbf \
 "
 
