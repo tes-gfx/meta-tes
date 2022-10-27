@@ -15,6 +15,7 @@ RDEPENDS_${PN} = "libdrm"
 inherit pkgconfig
 
 PV = "1.0+git+svnr${SRCPV}"
+PV:tesintern = "1.0+svnr${SRCPV}"
 
 SRCREV_FORMAT = "gman_di"
 SRCREV_gman = "${AUTOREV}"

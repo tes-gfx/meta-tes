@@ -7,6 +7,7 @@ PROVIDES += "${PN}-uapi"
 inherit module
 
 PV = "1.0+gitr${SRCPV}"
+PV:tesintern = "1.0+svnr${SRCPV}"
 
 SRCREV = "${AUTOREV}"
 SRC_URI = "\
