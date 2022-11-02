@@ -96,11 +96,11 @@ TOOLCHAIN_TARGET_TASK += " \
 	davehd-openvg-staticdev \
 "
 
-TOOLCHAIN_TARGET_TASK:append:dave2d = "\
+TOOLCHAIN_TARGET_TASK:append = "\
 	smartwatch-demo-devsrc \
 "
 
-TOOLCHAIN_TARGET_TASK:append:davehd = "\
+TOOLCHAIN_TARGET_TASK:append = "\
         davehd-cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
 "
