@@ -88,6 +88,10 @@ TOOLCHAIN_TARGET_TASK += " \
 	libdrm-gman-dev \
 	libcdc-dev \
 	libcdc-staticdev \
+	libdave2d-dev \
+	libdave2d-staticdev \
+	libdave2d-l1-dev \
+	libdave2d-l1-staticdev \
 	libdavehd-dev \
 	libdavehd-staticdev \
 	libdi-dev \
