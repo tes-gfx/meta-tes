@@ -89,7 +89,6 @@ TOOLCHAIN_TARGET_TASK += " \
 	libcdc-dev \
 	libcdc-staticdev \
 	libdave2d-dev \
-	libdave2d-staticdev \
 	libdave2d-l1-dev \
 	libdave2d-l1-staticdev \
 	libdavehd-dev \
@@ -102,6 +101,7 @@ TOOLCHAIN_TARGET_TASK += " \
 
 TOOLCHAIN_TARGET_TASK:append = "\
 	smartwatch-demo-devsrc \
+	dave2d-demo-devsrc \
 "
 
 TOOLCHAIN_TARGET_TASK:append = "\
