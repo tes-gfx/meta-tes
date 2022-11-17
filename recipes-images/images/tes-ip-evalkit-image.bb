@@ -27,10 +27,8 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL:append:dave2d = " \
         dave2d-demo \
         dave2d-drivertest \
+        dave2d-tutorial-di \
 "
-#	smartwatch-demo
-#	guiliani-demo
-#	warping-demo
 
 #
 # Add DaveHD stuff
@@ -99,12 +97,13 @@ TOOLCHAIN_TARGET_TASK += " \
 	davehd-openvg-staticdev \
 "
 
-TOOLCHAIN_TARGET_TASK:append = "\
+TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 	smartwatch-demo-devsrc \
 	dave2d-demo-devsrc \
+	dave2d-tutorial-di-devsrc \
 "
 
-TOOLCHAIN_TARGET_TASK:append = "\
+TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
 "
