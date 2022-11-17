@@ -27,6 +27,7 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL:append:dave2d = " \
         dave2d-demo \
         dave2d-drivertest \
+        dave2d-smartwatch-demo \
         dave2d-tutorial-di \
 "
 
@@ -98,7 +99,7 @@ TOOLCHAIN_TARGET_TASK += " \
 "
 
 TOOLCHAIN_TARGET_TASK:append:dave2d = "\
-	smartwatch-demo-devsrc \
+	dave2d-smartwatch-demo-devsrc \
 	dave2d-demo-devsrc \
 	dave2d-tutorial-di-devsrc \
 "
