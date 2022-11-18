@@ -14,11 +14,11 @@ SRC_URI = "\
         git://github.com/tes-gfx/generic-ip-mod.git;branch=5.4.124-lts;protocol=https \
 "
 SRC_URI:tesintern = "\
-        ${TES_TOOLS_SVN_PATH};module=ipcore_driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_EVALKIT_SVN_PATH}/drivers;module=genip;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 S = "${WORKDIR}/git"
-S:tesintern = "${WORKDIR}/ipcore_driver"
+S:tesintern = "${WORKDIR}/genip"
 
 do_install:append() {
     install -d ${D}${includedir}

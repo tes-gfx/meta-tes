@@ -16,19 +16,20 @@ SRC_URI =  " \
 PV:tesintern = "1.0+svnr${SRCPV}"
 SRCREV:tesintern = "${AUTOREV}"
 SRC_URI:tesintern =  " \
-	${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_EVALKIT_SVN_PATH}/drivers;module=di;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/display_interface/build/linux_genip"
+S = "${WORKDIR}/di"
+B = "${WORKDIR}/di/build/linux_genip"
 
 inherit pkgconfig
 
 do_install () {
   install -d ${D}${includedir} 
-  install -m 0644 ${S}/../../inc/di*.h ${D}${includedir}
-  install -m 0644 ${S}/../../src/linux_genip/di_platform.h ${D}${includedir}
+  install -m 0644 ${S}/inc/di*.h ${D}${includedir}
+  install -m 0644 ${S}/src/linux_genip/di_platform.h ${D}${includedir}
   install -d ${D}${libdir} 
-  install ${S}/libdi.a ${D}${libdir}
+  install ${B}/libdi.a ${D}${libdir}
 }
 
 ALLOW_EMPTY:${PN} = "1"
