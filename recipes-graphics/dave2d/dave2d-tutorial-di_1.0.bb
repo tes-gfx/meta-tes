@@ -28,7 +28,7 @@ do_install () {
   install -d ${D}${srcdir}/${PN}/build/linux_genip
   install -d ${D}${srcdir}/${PN}/code
   install -m 0644 ${S}/code/di_*.c ${D}${srcdir}/${PN}/code
-  install -m 0644 ${S}/build/linux_genip/Makefile ${D}${srcdir}/${PN}/build/linux
+  install -m 0644 ${S}/build/linux_genip/Makefile ${D}${srcdir}/${PN}/build/linux_genip
 }
 
 #
