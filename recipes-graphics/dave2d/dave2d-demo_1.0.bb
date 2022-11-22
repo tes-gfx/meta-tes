@@ -1,7 +1,7 @@
 DESCRIPTION = "D/AVE 2D Demo"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
-DEPENDS = "libdave2d libdrm"
+DEPENDS = "libdave2d libdrm ncurses"
 
 inherit pkgconfig
 
