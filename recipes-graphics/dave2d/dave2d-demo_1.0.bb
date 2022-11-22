@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=demo;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-B = "${WORKDIR}/demo/build/linux"
+B = "${WORKDIR}/demo/build/linux-genip"
 S = "${WORKDIR}/demo"
 srcdir = "${prefix}/src"
 
