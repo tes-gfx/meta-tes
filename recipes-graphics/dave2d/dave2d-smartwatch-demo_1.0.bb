@@ -25,7 +25,7 @@ do_install () {
   install -d ${D}${datadir}/${PN}
   install -m 0755 smartwatch ${D}${datadir}/${PN}/
   cp -R --no-dereference --preserve=mode,links -v ${S}/../../gfx ${D}${datadir}/${PN}/gfx
-  install -d ${D}${srcdir}/${PN}/src/linux_genip
+  install -d ${D}${srcdir}/${PN}/src/linux
   install -d ${D}${srcdir}/${PN}/build/linux_genip
   install -m 0644 ${S}/../../src/*.c ${D}${srcdir}/${PN}/src
   install -m 0644 ${S}/../../src/*.h ${D}${srcdir}/${PN}/src
