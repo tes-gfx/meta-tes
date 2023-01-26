@@ -16,11 +16,11 @@ SRC_URI =  " \
 PV:tesintern = "1.0+svnr${SRCPV}"
 SRCREV:tesintern = "${AUTOREV}"
 SRC_URI:tesintern =  " \
-	${TES_EVALKIT_SVN_PATH}/drivers;module=di;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/di"
-B = "${WORKDIR}/di/build/linux_genip"
+S = "${WORKDIR}/display_interface"
+B = "${WORKDIR}/display_interface/build/linux_genip"
 
 inherit pkgconfig
 

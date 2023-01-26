@@ -23,18 +23,18 @@ SRCREV_di = "${AUTOREV}"
 
 SRC_URI = "\
 	git://github.com/tes-gfx/drm-gman.git;branch=master;protocol=https;name=gman \
-        ${TES_EVALKIT_SVN_PATH}/drivers;module=di;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 SRC_URI:tesintern = "\
 	${TES_EVALKIT_SVN_PATH}/drivers;module=gman;protocol=https;name=gman;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
-        ${TES_EVALKIT_SVN_PATH}/drivers;module=di;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;name=di;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
 S = "${WORKDIR}/git"
 S:tesintern = "${WORKDIR}/gman"
 
-export DI_PATH := "${WORKDIR}/di"
+export DI_PATH := "${WORKDIR}/display_interface"
 
 do_install () {
   install -d ${D}${includedir}
