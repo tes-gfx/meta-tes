@@ -1,9 +1,11 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}:"
 
-KERNEL_PROT = "git"
-KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
+KERNEL_PROT = "https"
+KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git;name=kernel"
 
-SRCREV = "904a98c86e351c9a4fe4fd3d45fc566a89e06e96"
+SRCREV_FORMAT = "gitkernel-rinterface"
+SRCREV_kernel = "904a98c86e351c9a4fe4fd3d45fc566a89e06e96"
+SRCREV_interface = "${AUTOREV}"
 
 #KBUILD_DEFCONFIG_stratix10 = "s10_devkit_defconfig"
 KBRANCH:append = "-drm"
@@ -40,8 +42,6 @@ ADDSOURCES:tesdavenx = " \
 	file://drm-dnx \
 "
 
-SRCREV:interface = "${AUTOREV}"
-#SRCREV_FORMAT = "default_dnx-rinterface"
 ADDSOURCES:tesdavenx:tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
