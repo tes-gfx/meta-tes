@@ -9,11 +9,13 @@ DEPENDS = "u-boot-tools-native dtc-native"
 
 FILESEXTRAPATHS:prepend := "${TES_BIN}/u-boot:"
 
-SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf"
-SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf"
 SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
 SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
 
+SRC_URI:append:tesintern:tesdavenx = " \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.core.rbf \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.periph.rbf \
+"
 
 S = "${WORKDIR}"
 
