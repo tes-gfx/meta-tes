@@ -22,9 +22,3 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 #
 PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
 PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
-
-#
-# Generate an SD card image with wic
-#
-IMAGE_FSTYPES = "wic.xz"
-
