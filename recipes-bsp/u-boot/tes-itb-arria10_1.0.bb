@@ -7,6 +7,8 @@ PR = "r0"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 
+BB_STRICT_CHECKSUM = "ignore"
+
 FILESEXTRAPATHS:prepend := "${TES_BIN}/u-boot:"
 
 SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr"
