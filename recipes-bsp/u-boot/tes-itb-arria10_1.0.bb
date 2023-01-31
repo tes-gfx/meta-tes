@@ -15,8 +15,8 @@ SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr
 SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
 
 SRC_URI:append:tesintern:tesdavenx = " \
-	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.core.rbf \
-	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.periph.rbf \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.core.rbf;subdir=arria10/dreamchip_arria10som \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.periph.rbf;subdir=arria10/dreamchip_arria10som \
 "
 
 S = "${WORKDIR}"
