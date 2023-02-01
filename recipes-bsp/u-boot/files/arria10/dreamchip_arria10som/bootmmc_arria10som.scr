@@ -20,8 +20,8 @@ setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115
 #at24mac
 
 # load kernel and DT
-ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
-ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
+ext4load mmc 0:3 ${kerneladdr} /boot/${bootimage}
+ext4load mmc 0:3 ${fdtaddr} /boot/${fdtimage}
 
 # setup bridges
 mw ${u-boot_swstate_reg} ${u-boot_image_valid}
