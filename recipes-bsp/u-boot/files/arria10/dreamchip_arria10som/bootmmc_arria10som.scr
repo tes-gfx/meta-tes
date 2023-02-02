@@ -3,7 +3,7 @@
 setenv serverip 192.168.252.1
 setenv fdtimage dreamchip_arria10som_tes.dtb
 setenv bootimage zImage
-setenv root /dev/mmcblk0p2
+setenv root /dev/mmcblk0p3
 
 setenv fpga 0
 setenv fdtaddr 0x100
