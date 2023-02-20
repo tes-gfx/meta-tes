@@ -2,7 +2,7 @@ DESCRIPTION = "CDC userspace library"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "CLOSED"
 
-DEPENDS = "libdrm-gman generic-ip-mod-uapi"
+DEPENDS = "libdrm-gman generic-ip-mod-uapi libfbd"
 
 FILESEXTRAPATHS:prepend := "${TES_CDC_SRC_PATH}/software:"
 

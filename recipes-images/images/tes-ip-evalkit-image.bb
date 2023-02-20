@@ -85,6 +85,8 @@ TOOLCHAIN_TARGET_TASK += " \
 	kernel-devsrc \
 	libdrm-dev \
 	libdrm-gman-dev \
+	libfbd-dev \
+	libfbd-staticdev \
 	libcdc-dev \
 	libcdc-staticdev \
 	libdave2d-dev \
