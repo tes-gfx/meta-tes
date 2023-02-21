@@ -12,14 +12,30 @@ SRC_URI:tesintern = "\
 "
 
 S = "${WORKDIR}/tutorial"
+B = "${WORKDIR}/tutorial/build"
 srcdir = "${prefix}/src"
 
 do_install () {
   install -d ${D}${datadir}/${PN}
-  install -m 0755 dhd_tutorial ${D}${datadir}/${PN}/
-  install -d ${D}${srcdir}/${PN}
-  install -m 0644 ${S}/*.c ${D}${srcdir}/${PN}/
-  install -m 0644 ${S}/Makefile ${D}${srcdir}/${PN}/
+  install -m 0755 dhd_tutorial_01 ${D}${datadir}/${PN}/
+  install -m 0755 dhd_tutorial_02 ${D}${datadir}/${PN}/
+  install -m 0755 dhd_tutorial_03 ${D}${datadir}/${PN}/
+
+  install -d ${D}${datadir}/${PN}/res
+  install -m 0644 ${S}/res/welding.dds ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/welding.png ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/welding.tga ${D}${datadir}/${PN}/res/
+
+  install -d ${D}${srcdir}/${PN}/src
+  install -m 0644 ${S}/src/*.c ${D}${srcdir}/${PN}/src/
+
+  install -d ${D}${srcdir}/${PN}/build
+  install -m 0644 ${S}/build/Makefile ${D}${srcdir}/${PN}/build/
+
+  install -d ${D}${srcdir}/${PN}/res
+  install -m 0644 ${S}/res/welding.dds ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/welding.png ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/welding.tga ${D}${srcdir}/${PN}/res/
 }
 
 #
