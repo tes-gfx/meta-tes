@@ -6,7 +6,7 @@ PROVIDES = "libdi-dev"
 
 DEPENDS = "libdrm libcdc"
 
-FILESEXTRAPATHS:prepend := "${TES_TOOLS_SRC_PATH}:"
+FILESEXTRAPATHS:prepend := "${TES_LIBRARIES_SRC_PATH}:"
 
 PV = "1.0"
 SRC_URI =  " \
@@ -16,11 +16,11 @@ SRC_URI =  " \
 PV:tesintern = "1.0+svnr${SRCPV}"
 SRCREV:tesintern = "${AUTOREV}"
 SRC_URI:tesintern =  " \
-        ${TES_TOOLS_SVN_PATH};module=display_interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+        ${TES_LIBRARIES_SVN_PATH}/display_interface;module=${TES_SVN_BRANCH};protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/display_interface"
-B = "${WORKDIR}/display_interface/build/linux_genip"
+S = "${WORKDIR}/${TES_SVN_BRANCH}"
+B = "${WORKDIR}/${TES_SVN_BRANCH}/build/linux_genip"
 
 inherit pkgconfig
 
