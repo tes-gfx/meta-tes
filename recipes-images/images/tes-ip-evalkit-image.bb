@@ -39,6 +39,7 @@ IMAGE_INSTALL:append:davehd = " \
     davehd-drivertest \
     davehd-tutorial \
     davehd-performance \
+    fbd-demo \
 "
 
 #
