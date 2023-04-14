@@ -34,12 +34,14 @@ IMAGE_INSTALL:append:dave2d = " \
 #
 # Add DaveHD stuff
 #
+#
+#    fbd-demo \
+#
 IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
     davehd-performance \
-    fbd-demo \
 "
 
 #
