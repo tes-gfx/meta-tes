@@ -36,13 +36,13 @@ IMAGE_INSTALL:append:dave2d = " \
 #
 #
 #    fbd-demo \
-#    cdc-tutorial \
 #
 IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
     davehd-performance \
+    cdc-tutorial \
 "
 
 #

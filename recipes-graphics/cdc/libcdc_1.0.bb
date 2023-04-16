@@ -26,6 +26,7 @@ do_install () {
   install -d ${D}${includedir}/linux 
   install -m 0644 ${S}/include/cdc.h ${D}${includedir}
   install -m 0644 ${S}/include/cdc_config.h ${D}${includedir}
+  install -m 0644 ${S}/include/cdc_base.h ${D}${includedir}
   install -m 0644 ${S}/include/linux/cdc_linux.h ${D}${includedir}/linux
   install -d ${D}${libdir} 
   install ${B}/libcdc.a ${D}${libdir}
