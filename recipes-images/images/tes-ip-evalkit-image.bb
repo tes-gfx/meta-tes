@@ -111,7 +111,8 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 "
 
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
-        davehd-cdc-tutorial-devsrc \
+        davehd-tutorial-devsrc \
+        cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
 "
 
