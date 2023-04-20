@@ -34,15 +34,13 @@ IMAGE_INSTALL:append:dave2d = " \
 #
 # Add DaveHD stuff
 #
-#
-#    fbd-demo \
-#
 IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
     davehd-performance \
     cdc-tutorial \
+    fbd-demo \
 "
 
 #
@@ -113,6 +111,7 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-tutorial-devsrc \
         cdc-tutorial-devsrc \
+        fbd-demo-devsrc \
         davehd-drivertest-devsrc \
 "
 
