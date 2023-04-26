@@ -15,8 +15,8 @@ SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr
 SRC_URI:append = " file://${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its"
 
 SRC_URI:append:tesintern:tesdavenx = " \
-	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.core.rbf;subdir=arria10/dreamchip_arria10som \
-	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes.periph.rbf;subdir=arria10/dreamchip_arria10som \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes_2x16.core.rbf;subdir=arria10/dreamchip_arria10som \
+	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes_2x16.periph.rbf;subdir=arria10/dreamchip_arria10som \
 "
 
 S = "${WORKDIR}"
@@ -24,6 +24,8 @@ S = "${WORKDIR}"
 
 do_compile () {
 	echo PWD = $(pwd)
+	cp ${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes_2x16.core.rbf   ${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.core.rbf
+	cp ${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes_2x16.periph.rbf ${MACHINE}/dreamchip_arria10som/dreamchip_arria10som_tes.periph.rbf
 	mkimage -E -p 400 -f ${MACHINE}/dreamchip_arria10som/fit_spl_arria10som.its fit_spl_arria10som.itb
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/dreamchip_arria10som/bootmmc_arria10som.scr ${B}/bootmmc_arria10som.img
 }
