@@ -40,6 +40,12 @@ IMAGE_INSTALL:append:davehd = " \
     davehd-tutorial \
     davehd-performance \
     cdc-tutorial \
+"
+
+#
+# Add Framebuffer Decompressor (only add if DaveHD) stuff
+#
+IMAGE_INSTALL:append:davehd:tesfbd = " \
     fbd-demo \
 "
 
@@ -111,9 +117,15 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-tutorial-devsrc \
         cdc-tutorial-devsrc \
-        fbd-demo-devsrc \
         davehd-drivertest-devsrc \
 "
+
+TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
+        fbd-demo-devsrc \
+"
+
+
+TOOLCHAIN_TARGET_TASK:append:davehd = "\
 
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
