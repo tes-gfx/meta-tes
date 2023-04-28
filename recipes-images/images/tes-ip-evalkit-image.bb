@@ -124,9 +124,6 @@ TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
         fbd-demo-devsrc \
 "
 
-
-TOOLCHAIN_TARGET_TASK:append:davehd = "\
-
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
 WKS_FILE = "sdimage-tes-cyclone5-de10-nano.wks"
