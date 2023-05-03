@@ -9,12 +9,18 @@ FILESEXTRAPATHS:prepend := "${TES_DHD_SRC_PATH}:"
 PV = "1.0"
 SRC_URI =  " \
 	file://driver \
+	file://tools \
 "
 
 PV:tesintern = "1.0+svnr${SRCPV}"
-SRCREV = "${AUTOREV}"
+
+SRCREV_FORMAT = "driver"
+SRCREV_driver = "${AUTOREV}"
+SRCREV_tools  = "${AUTOREV}"
+
 SRC_URI:tesintern =  " \
-	${TES_DHD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
+	${TES_DHD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
+	${TES_DHD_SVN_PATH}/tools;module=generators;path_spec=./tools/generators;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}/driver"
