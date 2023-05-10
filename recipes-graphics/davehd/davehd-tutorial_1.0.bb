@@ -17,17 +17,13 @@ srcdir = "${prefix}/src"
 
 do_install () {
   install -d ${D}${datadir}/${PN}
-  install -m 0755 dhd_tutorial_01 ${D}${datadir}/${PN}/
-  install -m 0755 dhd_tutorial_02 ${D}${datadir}/${PN}/
-  install -m 0755 dhd_tutorial_03 ${D}${datadir}/${PN}/
-  install -m 0755 dhd_tutorial_04 ${D}${datadir}/${PN}/
-  install -m 0755 dhd_tutorial_05 ${D}${datadir}/${PN}/
+  install -m 0755 dhd_tutorial_* ${D}${datadir}/${PN}/
 
   install -d ${D}${datadir}/${PN}/res
-  install -m 0644 ${S}/res/welding.dds ${D}${datadir}/${PN}/res/
-  install -m 0644 ${S}/res/welding.png ${D}${datadir}/${PN}/res/
-  install -m 0644 ${S}/res/welding.tga ${D}${datadir}/${PN}/res/
-  install -m 0644 ${S}/res/gamut_512x512.bmp ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/*.dds ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/*.png ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/*.tga ${D}${datadir}/${PN}/res/
+  install -m 0644 ${S}/res/*.bmp ${D}${datadir}/${PN}/res/
 
   install -d ${D}${srcdir}/${PN}/src
   install -m 0644 ${S}/src/*.c ${D}${srcdir}/${PN}/src/
@@ -36,10 +32,10 @@ do_install () {
   install -m 0644 ${S}/build/Makefile ${D}${srcdir}/${PN}/build/
 
   install -d ${D}${srcdir}/${PN}/res
-  install -m 0644 ${S}/res/welding.dds ${D}${srcdir}/${PN}/res/
-  install -m 0644 ${S}/res/welding.png ${D}${srcdir}/${PN}/res/
-  install -m 0644 ${S}/res/welding.tga ${D}${srcdir}/${PN}/res/
-  install -m 0644 ${S}/res/gamut_512x512.bmp ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/*.dds ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/*.png ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/*.tga ${D}${srcdir}/${PN}/res/
+  install -m 0644 ${S}/res/*.bmp ${D}${srcdir}/${PN}/res/
 }
 
 #
