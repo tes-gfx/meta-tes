@@ -35,7 +35,6 @@ IMAGE_INSTALL:append:dave2d = " \
 # Add DaveHD stuff
 #
 IMAGE_INSTALL:append:davehd = " \
-    davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
     davehd-performance \
@@ -104,8 +103,6 @@ TOOLCHAIN_TARGET_TASK += " \
 	libdavehd-staticdev \
 	libdi-dev \
 	libdi-staticdev \
-	davehd-openvg-dev \
-	davehd-openvg-staticdev \
 "
 
 TOOLCHAIN_TARGET_TASK:append:dave2d = "\
