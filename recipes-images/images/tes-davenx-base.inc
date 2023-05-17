@@ -6,11 +6,11 @@
 #
 # Adding TES CDC KMS and DNX driver
 #
-#IMAGE_INSTALL += "cdc-mod dnx-mod"
-IMAGE_INSTALL += "haveged"
+IMAGE_INSTALL += "cdc-mod dnx-mod"
+IMAGE_INSTALL += "haveged-service"
 IMAGE_INSTALL:append:arria10 = " tes-itb-arria10"
 IMAGE_INSTALL:append:stratix10 = " tes-u-boot-script-stratix10"
-#MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 
 
 #
