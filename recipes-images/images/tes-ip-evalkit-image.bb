@@ -118,6 +118,7 @@ TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-tutorial-devsrc \
         cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
+        davehd-openvg-demos-devsrc \
 "
 
 TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
