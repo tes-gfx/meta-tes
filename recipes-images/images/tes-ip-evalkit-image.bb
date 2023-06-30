@@ -38,7 +38,6 @@ IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
-    davehd-stream-demo \
     davehd-performance \
     cdc-tutorial \
 "
@@ -48,6 +47,7 @@ IMAGE_INSTALL:append:davehd = " \
 #
 IMAGE_INSTALL:append:davehd:tesfbd = " \
     fbd-demo \
+    davehd-stream-demo \
 "
 
 #
@@ -117,7 +117,6 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-tutorial-devsrc \
-        davehd-stream-demo-devsrc \
         cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
         davehd-openvg-demos-devsrc \
@@ -125,6 +124,7 @@ TOOLCHAIN_TARGET_TASK:append:davehd = "\
 
 TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
         fbd-demo-devsrc \
+        davehd-stream-demo-devsrc \
 "
 
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
