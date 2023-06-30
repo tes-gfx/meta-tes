@@ -38,6 +38,7 @@ IMAGE_INSTALL:append:davehd = " \
     davehd-openvg-demos \
     davehd-drivertest \
     davehd-tutorial \
+    davehd-stream-demo \
     davehd-performance \
     cdc-tutorial \
 "
@@ -116,6 +117,7 @@ TOOLCHAIN_TARGET_TASK:append:dave2d = "\
 
 TOOLCHAIN_TARGET_TASK:append:davehd = "\
         davehd-tutorial-devsrc \
+        davehd-stream-demo-devsrc \
         cdc-tutorial-devsrc \
         davehd-drivertest-devsrc \
         davehd-openvg-demos-devsrc \
