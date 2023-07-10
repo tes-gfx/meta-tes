@@ -56,7 +56,8 @@
 			ranges = <0x00000000 0xff200000 0x004000
 				  0x00004000 0xff204000 0x002000
 				  0x00006000 0xff206000 0x000200
-				  0x00007000 0xff207000 0x000100>;
+				  0x00007000 0xff207000 0x000100
+				  0x00008000 0xff208000 0x000100>;
 
 			tes_dhd_0: gpu@0 {
 				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
@@ -101,6 +102,14 @@
 				
 				interrupt-parent = <&intc>;
 				interrupts = <0 42 4>;
+			};
+
+			tes_dsw_0: video@7000 {
+				compatible = "tes,tes_dsw-1.0", "tes,dsw-1.0";
+				reg = <0x00008000 0x00000100>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 44 4>;
 			};
 
 			pixel_clock: oscillator {
