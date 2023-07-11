@@ -104,12 +104,12 @@
 				interrupts = <0 42 4>;
 			};
 
-			tes_dsw_0: video@7000 {
+			tes_dsw_0: video@8000 {
 				compatible = "tes,tes_dsw-1.0", "tes,dsw-1.0";
 				reg = <0x00008000 0x00000100>;
 				
 				interrupt-parent = <&intc>;
-				interrupts = <0 44 4>;
+				interrupts = <0 45 4>;
 			};
 
 			pixel_clock: oscillator {
