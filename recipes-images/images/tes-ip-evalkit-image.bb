@@ -96,6 +96,8 @@ TOOLCHAIN_TARGET_TASK += " \
 	libdrm-gman-dev \
 	libfbd-dev \
 	libfbd-staticdev \
+	libdsw-dev \
+	libdsw-staticdev \
 	libcdc-dev \
 	libcdc-staticdev \
 	libdave2d-dev \
