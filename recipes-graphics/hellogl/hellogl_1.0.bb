@@ -5,13 +5,13 @@ LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=9f04cb94394d96c310de03ac8328449
 DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://demos/hellogl \	
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/demos;module=hellogl;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
@@ -36,7 +36,7 @@ do_install () {
 # Sources, resources and project file have to be added to the package.
 #
 PACKAGES += "${PN}-devsrc"
-FILES_${PN}-devsrc += "\
+FILES:${PN}-devsrc += "\
 	${srcdir}/${PN} \
 "
 RDEPENDS_${PN}-devsrc = "${PN}"

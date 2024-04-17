@@ -9,13 +9,13 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425
 PR = "r0"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://tools/mkpimage \
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/tools;module=mkpimage;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 

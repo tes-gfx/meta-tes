@@ -9,7 +9,7 @@ PR = "r0"
 DEPENDS = "u-boot-tools-native"
 
 
-SRC_URI_append = " file://${MACHINE}/socdk/bootmmc.scr"
+SRC_URI:append = " file://${MACHINE}/socdk/bootmmc.scr"
 
 S = "${WORKDIR}"
 
@@ -30,7 +30,7 @@ do_deploy () {
 addtask deploy after do_install before do_build
 
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	boot/boot*.scr \
 	boot/boot*.img \
 "

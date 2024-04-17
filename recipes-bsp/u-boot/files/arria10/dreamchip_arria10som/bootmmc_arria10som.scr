@@ -3,7 +3,7 @@
 setenv serverip 192.168.252.1
 setenv fdtimage dreamchip_arria10som_tes.dtb
 setenv bootimage zImage
-setenv root /dev/mmcblk0p2
+setenv root /dev/mmcblk0p3
 
 setenv fpga 0
 setenv fdtaddr 0x100
@@ -20,8 +20,8 @@ setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115
 #at24mac
 
 # load kernel and DT
-ext4load mmc 0:2 ${kerneladdr} /boot/${bootimage}
-ext4load mmc 0:2 ${fdtaddr} /boot/${fdtimage}
+ext4load mmc 0:3 ${kerneladdr} /boot/${bootimage}
+ext4load mmc 0:3 ${fdtaddr} /boot/${fdtimage}
 
 # setup bridges
 mw ${u-boot_swstate_reg} ${u-boot_image_valid}

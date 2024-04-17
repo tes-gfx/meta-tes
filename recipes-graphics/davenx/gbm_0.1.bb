@@ -3,19 +3,19 @@ HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "MIT"
 DEPENDS = "davenx"
 
-PV_tesintern = "0.1+svnr${SRCPV}"
+PV:tesintern = "0.1+svnr${SRCPV}"
 
 LIC_FILES_CHKSUM = "\
         file://main/gbm.c;endline=26;md5=b871c7f2f477df29ee4c0ec437b187f7 \
 "
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = "\
 	file://gbm;subdir=driver/kernel/linux \
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 

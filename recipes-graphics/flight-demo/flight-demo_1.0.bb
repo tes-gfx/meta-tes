@@ -4,13 +4,13 @@ LICENSE = "CLOSED"
 RDEPENDS_${PN} = "tks"
 
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI = " \
 	file://demos/flight_demo \
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/demos;module=flight_demo;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 

@@ -1,8 +1,8 @@
 # short-description: Create an SD card image for the Dreamchip Arria 10 SoM TES EvalKit.
 # long-description: Create an SD card image for the Dreamchip Arria 10 SoM TES EvalKit.
 # Boot files are located in the first vfat partition and u-Boot is located in
-# the third partition.
+# the second partition.
 
 part --source bootimg-partition --ondisk mmcblk --fstype=vfat --label boot --active --align 1024 --size 64M
-part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4 --size 1024
 part --source rawcopy --sourceparams="file=u-boot-with-spl.sfp-arria10-dreamchip-arria10som" --ondisk mmcblk --system-id=a2 --align 4 --fixed-size 10M
+part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4 --size 1024

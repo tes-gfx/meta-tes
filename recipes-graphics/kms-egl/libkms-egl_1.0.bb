@@ -4,12 +4,12 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=1155026ea94fa1196103afa557260a1e"
 
 DEPENDS = "libdrm libegl-tes-dev"
-PROVIDES_append = "${PN}-dev"
+PROVIDES:append = "${PN}-dev"
 
 PV = "1.0+gitr${SRCPV}"
 
 SRCREV = "${AUTOREV}"
-SRC_URI =  "git://github.com/tes-gfx/libkms-egl.git;protocol=https"
+SRC_URI =  "git://github.com/tes-gfx/libkms-egl.git;branch=master;protocol=https"
 
 S = "${WORKDIR}/git"
 
@@ -22,10 +22,10 @@ do_install () {
   oe_soinstall ${S}/libkms_egl.so.*.* ${D}${libdir}
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	${libdir}/libkms_egl.so* \
 "
 
-FILES_${PN}-dev += " \
+FILES:${PN}-dev += " \
 	${includedir}/kms_egl.h \
 "

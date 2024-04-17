@@ -8,11 +8,11 @@ LIC_FILES_CHKSUM = "file://integration_test.c;endline=20;md5=94748e61e7b69bb10cd
 PR = "r0"
 PV = "1.0"
 
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
+FILESEXTRAPATHS:prepend := "${TES_SRC}:"
 SRC_URI =  "file://demos/integration_test"
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}"
+SRC_URI:tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}"
 
 S = "${WORKDIR}/demos/integration_test"
 srcdir = "${prefix}/src"
@@ -32,7 +32,7 @@ do_install () {
 # Sources, resources and project file have to be added to the package.
 #
 PACKAGES += "${PN}-devsrc"
-FILES_${PN}-devsrc += "\
+FILES:${PN}-devsrc += "\
 	${srcdir}/${PN} \
 "
 RDEPENDS_${PN}-devsrc += "${PN}"

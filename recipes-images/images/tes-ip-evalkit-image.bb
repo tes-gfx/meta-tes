@@ -2,11 +2,11 @@ DESCRIPTION = "An image for easy evaluation of the TES IP Cores, including a ful
 
 include tes-base.inc
 
-IMAGE_INSTALL_append_cyclone5 = " tes-itb-cyclone5"
+IMAGE_INSTALL:append:cyclone5 = " tes-rbf-cyclone5"
 
 # Add TES kernel modules
-IMAGE_INSTALL += "cdc-mod d2d-mod"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc kernel-module-d2d"
+IMAGE_INSTALL += "generic-ip-mod gman-mod libdrm-gman"
+MACHINE_EXTRA_RDEPENDS += "kernel-module-genip kernel-module-gman"
 
 #
 # Add very handy development tools
@@ -22,11 +22,32 @@ IMAGE_INSTALL += " \
 "
 
 #
-# Add the TES tutorials and tests
+# Add Dave2D stuff
 #
-#	dnx-integration-test
-IMAGE_INSTALL += " \
-	smartwatch-demo \
+IMAGE_INSTALL:append:dave2d = " \
+        dave2d-demo \
+        dave2d-drivertest \
+        dave2d-smartwatch-demo \
+        dave2d-tutorial-di \
+"
+
+#
+# Add DaveHD stuff
+#
+IMAGE_INSTALL:append:davehd = " \
+    davehd-openvg-demos \
+    davehd-drivertest \
+    davehd-tutorial \
+    davehd-performance \
+    cdc-tutorial \
+"
+
+#
+# Add Framebuffer Decompressor (only add if DaveHD) stuff
+#
+IMAGE_INSTALL:append:davehd:tesfbd = " \
+    fbd-demo \
+    davehd-stream-demo \
 "
 
 #
@@ -40,13 +61,13 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 # Add debugging and developer utilities
 #
 EXTRA_IMAGE_FEATURES += "debug-tweaks"
-EXTRA_IMAGE_FEATURES_tesdebug += "tools-profile dbg-pkgs"
-PACKAGE_DEBUG_SPLIT_STYLE_tesdebug = "debug-file-directory"
+EXTRA_IMAGE_FEATURES:append:tesdebug = " tools-profile dbg-pkgs"
+PACKAGE_DEBUG_SPLIT_STYLE:tesdebug = "debug-file-directory"
 
 #
 # Inhibit striping (to enable readable profiling tool outputs)
 #
-INHIBIT_PACKAGE_STRIP_tesdebug = "1"
+INHIBIT_PACKAGE_STRIP:tesdebug = "1"
 
 #
 # Add smart package manager
@@ -72,7 +93,42 @@ export IMAGE_BASENAME="tes-ip-evalkit-image"
 TOOLCHAIN_TARGET_TASK += " \
 	kernel-devsrc \
 	libdrm-dev \
-	smartwatch-demo-devsrc \
+	libdrm-gman-dev \
+	libfbd-dev \
+	libfbd-staticdev \
+	libdsw-dev \
+	libdsw-staticdev \
+	libcdc-dev \
+	libcdc-staticdev \
+	libdave2d-dev \
+	libdave2d-l1-dev \
+	libdave2d-l1-staticdev \
+	libdavehd-dev \
+	libdavehd-staticdev \
+	libdi-dev \
+	libdi-staticdev \
+	davehd-openvg-dev \
+	davehd-openvg-staticdev \
 "
+
+TOOLCHAIN_TARGET_TASK:append:dave2d = "\
+	dave2d-smartwatch-demo-devsrc \
+	dave2d-demo-devsrc \
+	dave2d-tutorial-di-devsrc \
+"
+
+TOOLCHAIN_TARGET_TASK:append:davehd = "\
+        davehd-tutorial-devsrc \
+        cdc-tutorial-devsrc \
+        davehd-drivertest-devsrc \
+        davehd-openvg-demos-devsrc \
+"
+
+TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
+        fbd-demo-devsrc \
+        davehd-stream-demo-devsrc \
+"
+
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 
+WKS_FILE = "sdimage-tes-cyclone5-de10-nano.wks"

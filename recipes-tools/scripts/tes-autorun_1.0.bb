@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 PR = "r0"
 
 
-RDEPENDS_${PN} = "bash kb-poll"
+RDEPENDS:${PN} = "bash kb-poll"
 
 
 SRC_URI =  "file://autorun"
@@ -23,7 +23,7 @@ do_install () {
 }
 
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 home/root/autorun \
 ${sysconfdir}/rc5.d/S99tes_autorun \
 "

@@ -45,19 +45,26 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 	libdrm-tests \
 "
 
+#
+# TES internal development settings, scripts, etc.
+#
+IMAGE_INSTALL:append:tesdevel = " \
+    tes-boardinfo \
+"
+
 
 #
 # Add debugging and developer utilities
 #
 EXTRA_IMAGE_FEATURES += "debug-tweaks"
-EXTRA_IMAGE_FEATURES_tesdebug += "tools-profile dbg-pkgs"
-PACKAGE_DEBUG_SPLIT_STYLE_tesdebug = "debug-file-directory"
+EXTRA_IMAGE_FEATURES:tesdebug += "tools-profile dbg-pkgs"
+PACKAGE_DEBUG_SPLIT_STYLE:tesdebug = "debug-file-directory"
 
 
 #
 # Inhibit striping (to enable readable profiling tool outputs)
 #
-INHIBIT_PACKAGE_STRIP_tesdebug = "1"
+INHIBIT_PACKAGE_STRIP:tesdebug = "1"
 
 
 #
@@ -72,6 +79,8 @@ IMAGE_ROOTFS_SIZE = "2097152"
 
 export IMAGE_BASENAME="tes-davenx-evalkit-image"
 
+WKS_FILE_stratix10 = "sdimage-tes-stratix10-socdk.wks"
+WKS_FILE_arria10 = "sdimage-tes-dreamchip-arria10som.wks"
 
 ###############################################################################
 # SDK section
@@ -90,5 +99,4 @@ TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"
 #        dnx-integration-test-devsrc
 TOOLCHAIN_TARGET_TASK += " \
         hellogl-devsrc \
-        egles-test-devsrc \
 "

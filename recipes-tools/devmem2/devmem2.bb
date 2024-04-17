@@ -5,24 +5,20 @@ HOMEPAGE = "http://www.lartmaker.nl/lartware/port/devmem2.c"
 
 SECTION = "developement"
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0;md5=801f80980d171dd6425610833a22dbe6"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
 PR = "r0"
 
-
-FILESEXTRAPATHS_prepend := "${TES_SRC}:"
 SRC_URI = " \
-	file://tools/devmem2 \
+	file://devmem2;subdir=tools \
 "
 
 SRCREV = "${AUTOREV}"
-SRC_URI_tesintern = "\
+SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/tools;module=devmem2;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-
 S = "${WORKDIR}/tools/devmem2"
 B = "${WORKDIR}/tools/devmem2"
-
 
 do_install () {
 	install -d ${D}${bindir}
