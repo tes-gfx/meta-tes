@@ -1,3 +1,4 @@
+# Copy DTS files to kernel sources.
 do_install:append() {
     cd ${S}
     if [ "${ARCH}" = "arm" ]; then

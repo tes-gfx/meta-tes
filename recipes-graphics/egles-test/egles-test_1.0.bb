@@ -2,11 +2,11 @@ DESCRIPTION = "TES EGLES 2.0 test"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
-DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev libpng"
+DEPENDS = "virtual/libgles2 virtual/egl libpng"
 
 PV:tesintern = "1.0+svnr${SRCPV}"
 
-RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
+RDEPENDS_${PN} = "libdrm libgles2-tes libegl-tes libpng"
 
 inherit pkgconfig
 

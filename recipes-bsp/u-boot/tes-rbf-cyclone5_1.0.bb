@@ -4,6 +4,8 @@ SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
 
+COMPATIBLE_MACHINE = "(cyclone5)"
+
 DEPENDS = "u-boot-tools-native dtc-native"
 
 BB_STRICT_CHECKSUM = "ignore"

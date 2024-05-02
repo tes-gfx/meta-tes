@@ -6,11 +6,11 @@
 #
 # Adding TES CDC KMS and DNX driver
 #
-IMAGE_INSTALL += "cdc-mod dnx-mod"
+#IMAGE_INSTALL += "cdc-mod dnx-mod"
 IMAGE_INSTALL += "haveged-service"
 IMAGE_INSTALL:append:arria10 = " tes-itb-arria10"
 IMAGE_INSTALL:append:stratix10 = " tes-u-boot-script-stratix10"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
+#MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 
 
 #
@@ -31,5 +31,9 @@ PREFERRED_PROVIDER_virtual/egl = "davenx"
 #
 CORE_IMAGE_EXTRA_INSTALL += " \
 	libdrm \
-	libdrm-kms \
 "
+
+#
+# Add setuptools to enable manual U-Boot builds with the SDK
+#
+TOOLCHAIN_HOST_TASK += "nativesdk-python3-setuptools nativesdk-swig"

@@ -4,6 +4,7 @@ SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
 
+COMPATIBLE_MACHINE = "(arria10)"
 
 DEPENDS = "u-boot-tools-native dtc-native"
 

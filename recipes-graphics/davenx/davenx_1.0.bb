@@ -22,7 +22,7 @@ LIC_FILES_CHKSUM = "\
 	file://../display/docs/LICENSE.txt;md5=d3a882ddb01ed28435692f93f33dd252 \
 "
 
-DEPENDS = "libdrm"
+DEPENDS = "libdrm libpng"
 
 inherit pkgconfig
 
@@ -40,6 +40,7 @@ SRC_URI = "\
 	file://build \
 	file://interface \
 	file://tools/kms_helper \
+	file://tools/nxvclient \
 "
 
 SRCREV_FORMAT = "display_gles_bagl_egl_driver_glslang_nxasm_build_interface_tools"
@@ -67,6 +68,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
 	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_SVN_PATH}/tools;module=nxvclient;path_spec=./tools/nxvclient;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 	file://tools \
 "
 
@@ -75,6 +77,7 @@ S:tesintern = "${WORKDIR}/build"
 
 # Prevent DNX module from being built
 EXTRA_OEMAKE += "NOMODULE=1 YOCTO_BUILD=1 BUILD=release GLES_USE_NXVC=0"
+EXTRA_OEMAKE:append:agilex5 = " DNX_DISPLAY=stub"
 
 DEPENDS_libgles2-tes = "libdrm-dnx-dev"
 DEPENDS_libdisplay-dnx = "libdrm-dnx-dev"
@@ -82,7 +85,7 @@ DEPENDS_libegl-tes = "libdisplay-dnx-dev"
 
 RDEPENDS_libgles2-tes = "libdrm-dnx zlib libpng"
 RDEPENDS_libegl-tes = "libgles2-tes"
-RDEPENDS_libdrm-dnx = "libdrm libdrm-kms"
+RDEPENDS_libdrm-dnx = "libdrm"
 RDEPENDS_libgles2-tes-dev = "libgles2-tes"
 RDEPENDS_libegl-tes-dev = "libegl-tes"
 RDEPENDS_libdrm-dnx-dev = "libdrm-dnx"

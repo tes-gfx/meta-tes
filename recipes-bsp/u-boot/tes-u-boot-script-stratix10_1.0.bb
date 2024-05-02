@@ -5,6 +5,7 @@ SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
 
+COMPATIBLE_MACHINE = "(stratix10)"
 
 DEPENDS = "u-boot-tools-native"
 

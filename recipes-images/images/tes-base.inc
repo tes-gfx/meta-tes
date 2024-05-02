@@ -14,11 +14,4 @@ IMAGE_INSTALL += "kernel kernel-devicetree"
 #
 CORE_IMAGE_EXTRA_INSTALL += " \
 	libdrm \
-	libdrm-kms \
 "
-
-#
-# Use linux-altera-ltsi 5.4 kernel
-#
-PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
-PREFERRED_VERSION_linux-altera-ltsi = "5.4%"

@@ -4,6 +4,8 @@ SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
 
+COMPATIBLE_MACHINE = "(cyclone5)"
+
 DEPENDS = "u-boot-tools-native dtc-native"
 
 FILESEXTRAPATHS:prepend := "${TES_D2D_SRC_PATH}/hardware/work/quartus/dave2/socfpga_cyclone5_de0_nano_tes:"

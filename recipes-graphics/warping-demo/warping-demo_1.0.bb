@@ -12,6 +12,10 @@ SRC_URI = " \
 	file://image_warper.tar.xz \
 "
 
+SRC_URI:tesintern = " \
+	http://build-linux/jenkins_artifacts/ip_cores/dave2d/warping/image_warper.tar.xz \
+"
+
 S = "${WORKDIR}"
 
 do_install () {
