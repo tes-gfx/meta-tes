@@ -4,16 +4,19 @@ KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
 KERNEL_REPO:tesintern = "git:///home/hh04074/projects/ip/linux_agilex/yocto_build/repos/linux-socfpga"
 KERNEL_PROT:tesintern = "file"
 #KERNEL_REPO = "git://github.com/ArrowElectronics/linux-socfpga.git"
-KBRANCH = "socfpga-axe5-eagle-tes"
+KBRANCH:agilex5 = "socfpga-axe5-eagle-tes"
 
-LINUX_VERSION = "6.1.38"
-LINUX_VERSION_SUFFIX = "-lts"
+#LINUX_VERSION = "6.1.38"
+LINUX_VERSION_SUFFIX:agilex5 = "-lts-tes"
+LINUX_VERSION_SUFFIX = "-lts-tes"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
-SRCREV = "adb270aeb8a3f276d7a901e4c4a51fb322d742d2"
+SRCREV:agilex5 = "adb270aeb8a3f276d7a901e4c4a51fb322d742d2"
+SRCREV = "7254dc23be5e6d0b0d07cb3b9b34f0bb67729cfc"
 
-KBUILD_DEFCONFIG = "socfpga_agilex5_axe5_eagle_defconfig"
+KBUILD_DEFCONFIG:agilex5 = "socfpga_agilex5_axe5_eagle_defconfig"
+#KBUILD_DEFCONFIG:arria10 = "socfpga_defconfig"
 
 # Add kernel config fragment for DNX
 SRC_URI:append = " \
@@ -33,6 +36,10 @@ SRC_URI:append = " ${ADDSOURCES}"
 
 # Device tree handling
 SRC_URI:append:agilex5 = " file://${BPN}/6.1/dts/socfpga_agilex5_axe5_eagle_dnx.dts"
+SRC_URI:append:arria10 = " \
+	file://${BPN}/6.1/dts/dreamchip_arria10som_tes.dts \
+	file://${BPN}/6.1/dts/dreamchip_arria10som.dtsi \
+"
 
 
 #
@@ -64,6 +71,11 @@ addtask copy after do_configure before do_compile
 do_copy_dnx() {
 	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
+}
+
+do_copy_a10() {
+	cp ${WORKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${WORKDIR}/${BPN}/6.1/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_copy_agx5() {

@@ -28,7 +28,7 @@ IMAGE_INSTALL += " \
 #
 # Add DNX kernel module
 #
-IMAGE_INSTALL += "dnx-mod"
+#IMAGE_INSTALL += "dnx-mod"
 
 #
 # Add the TES tutorials and tests
