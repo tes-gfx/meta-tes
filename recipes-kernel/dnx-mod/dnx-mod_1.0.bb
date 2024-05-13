@@ -16,3 +16,11 @@ S = "${WORKDIR}"
 B:tesintern = "${WORKDIR}/driver/kernel/linux/module"
 
 KERNEL_MODULE_AUTOLOAD += "dnx"
+
+# Workaround for issue with including kernel headers in Yocto builds and repo builds.
+# The source should include dnx_drm.h with square brackets (<>) isntead of double quotes.
+do_copy_header() {
+	cp ${STAGING_KERNEL_DIR}/include/uapi/drm/dnx_drm.h ${B}
+}
+
+addtask copy_header after do_fetch before do_compile
