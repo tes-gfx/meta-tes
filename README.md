@@ -13,3 +13,6 @@ This is the TES meta layer for all TES eval kits.
 
 - tesclosed
   Include proprietary/restricted sources.
+
+- tesdemo
+  Boot target to automatic demo mode instead of command line.
