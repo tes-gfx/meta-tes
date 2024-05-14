@@ -32,18 +32,18 @@ SRCREV_tools   = "${AUTOREV}"
 
 SRCREV = "${AUTOREV}"
 SRC_URI:tesintern = "\
-	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
-	${TES_SVN_PATH};module=display;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
-	${TES_SVN_PATH};module=bagl;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
-	${TES_SVN_PATH};module=gles;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
-	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
-	${TES_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
-	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./svn/demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
+	${TES_SVN_PATH};module=display;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
+	${TES_SVN_PATH};module=bagl;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
+	${TES_SVN_PATH};module=gles;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
+	${TES_SVN_PATH};module=build;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
+	${TES_SVN_PATH};module=driver;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
+	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./svn/tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
-S = "${WORKDIR}"
+S = "${WORKDIR}/svn"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/demos/egles_test/build/linux"
+B = "${WORKDIR}/svn/demos/egles_test/build/linux"
 
 EXTRA_OEMAKE += "GLES_USE_NXVC=0"
 EXTRA_OEMAKE:append:tesclosed = " CFG=${MACHINE} SHADERTOY=1"
