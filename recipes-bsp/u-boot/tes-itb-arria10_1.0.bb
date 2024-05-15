@@ -30,6 +30,7 @@ do_compile () {
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
 
+
 inherit deploy
 do_deploy() {
 	install -m 0755 ${B}/*.itb ${DEPLOYDIR}
@@ -37,8 +38,4 @@ do_deploy() {
 }
 addtask deploy after do_install before do_build
 
-
-FILES:${PN} = " \
-	boot/*.rbf \
-"
-
+ALLOW_EMPTY:${PN} = "1"

@@ -15,3 +15,8 @@ IMAGE_INSTALL += "kernel kernel-devicetree"
 CORE_IMAGE_EXTRA_INSTALL += " \
 	libdrm \
 "
+
+#
+# Add setuptools to enable manual U-Boot builds with the SDK
+#
+TOOLCHAIN_HOST_TASK += "nativesdk-python3-setuptools nativesdk-swig"

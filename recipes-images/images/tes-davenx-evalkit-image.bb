@@ -1,8 +1,9 @@
 DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TES OpenGL ES 2.0 implementation, including a full command line, Qt5 (Debug) and handy development tools."
 
+COMPATIBLE_MACHINE = "(arria10|agilex5)"
 
-include tes-davenx-evalkit-base.inc
-
+require tes-davenx-base.inc
+#include tes-qt-base.inc
 
 #
 # Qt dependencies
@@ -11,7 +12,6 @@ include tes-davenx-evalkit-base.inc
 # target, ...
 #
 IMAGE_INSTALL += " pkgconfig gdbserver openssh-sftp-server gdb"
-
 
 #
 # Add very handy development tools
@@ -25,7 +25,6 @@ IMAGE_INSTALL += " \
 	rsync \
 "
 
-
 #
 # Add the TES tutorials and tests
 #
@@ -36,7 +35,6 @@ IMAGE_INSTALL += " \
 	flight-demo \
 	tes-autorun \
 "
-
 
 #
 # Add KMS library test to image (modetest, ...)
@@ -52,7 +50,6 @@ IMAGE_INSTALL:append:tesdevel = " \
     tes-boardinfo \
 "
 
-
 #
 # Add debugging and developer utilities
 #
@@ -60,12 +57,10 @@ EXTRA_IMAGE_FEATURES += "debug-tweaks"
 EXTRA_IMAGE_FEATURES:tesdebug += "tools-profile dbg-pkgs"
 PACKAGE_DEBUG_SPLIT_STYLE:tesdebug = "debug-file-directory"
 
-
 #
 # Inhibit striping (to enable readable profiling tool outputs)
 #
 INHIBIT_PACKAGE_STRIP:tesdebug = "1"
-
 
 #
 # Add smart package manager
@@ -79,13 +74,13 @@ IMAGE_ROOTFS_SIZE = "2097152"
 
 export IMAGE_BASENAME="tes-davenx-evalkit-image"
 
-WKS_FILE_stratix10 = "sdimage-tes-stratix10-socdk.wks"
-WKS_FILE_arria10 = "sdimage-tes-dreamchip-arria10som.wks"
+WKS_FILE:stratix10 = "sdimage-tes-stratix10-socdk.wks"
+WKS_FILE:arria10 = "sdimage-tes-dreamchip-arria10som.wks"
+WKS_FILE:agilex5 = "sdimage-tes-arrow-axe5-eagle.wks"
 
 ###############################################################################
 # SDK section
 #
-
 
 #
 # Add Linux Kernel sources to SDK

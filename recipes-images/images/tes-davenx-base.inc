@@ -2,40 +2,19 @@
 # Add all what we need for OpenGL apps based on DNX and CDC
 #
 
+require tes-base.inc
 
 #
 # Adding TES CDC KMS and DNX driver
 #
 #IMAGE_INSTALL += "cdc-mod dnx-mod"
 IMAGE_INSTALL += "dnx-mod"
-IMAGE_INSTALL += "haveged-service googletest"
-#IMAGE_INSTALL:append:arria10 = " tes-itb-arria10"
-IMAGE_INSTALL:append:stratix10 = " tes-u-boot-script-stratix10"
+IMAGE_INSTALL += "googletest"
 #MACHINE_EXTRA_RDEPENDS += "kernel-module-cdc"
 MACHINE_EXTRA_RDEPENDS += "kernel-module-dnx"
-
-
-#
-# Adding the kernel image and firmware files (Device tree)
-#
-IMAGE_INSTALL += "kernel kernel-devicetree"
-
 
 #
 # Set TES GLES2 and EGL implementation as preferred GLES2 and EGL providers
 #
 PREFERRED_PROVIDER_virtual/libgles2 = "davenx"
 PREFERRED_PROVIDER_virtual/egl = "davenx"
-
-
-#
-# Add KMS library to image
-#
-CORE_IMAGE_EXTRA_INSTALL += " \
-	libdrm \
-"
-
-#
-# Add setuptools to enable manual U-Boot builds with the SDK
-#
-TOOLCHAIN_HOST_TASK += "nativesdk-python3-setuptools nativesdk-swig"

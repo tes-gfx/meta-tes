@@ -1,8 +1,6 @@
 DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TES OpenGL ES 2.0 implementation, including a full command line, Qt5 (Debug) and handy development tools."
 
-
-include tes-davenx-evalkit-base.inc
-
+require tes-davenx-base.inc
 
 #
 # Qt dependencies
