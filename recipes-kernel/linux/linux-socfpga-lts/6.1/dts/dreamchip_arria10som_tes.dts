@@ -56,7 +56,7 @@
 				   0x00008000 0xff208000 0x0900 >;
 		
 			tes_cdc_0: lcd_controller@8000 {
-				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				compatible = "tes,tes_cdc-3.0", "tes,cdc-3.0";
                 		#address-cells = <1>;
                 		#size-cells = <1>;
 				ranges;
