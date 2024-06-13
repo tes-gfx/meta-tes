@@ -77,8 +77,9 @@ S:tesintern = "${WORKDIR}/build"
 
 # Prevent DNX module from being built
 EXTRA_OEMAKE += "NOMODULE=1 YOCTO_BUILD=1 BUILD=release"
-EXTRA_OEMAKE:append:agilex5 = " DNX_DISPLAY=stub GLES_USE_NXVC=1"
-EXTRA_OEMAKE:append = " DNX_DISPLAY=stub GLES_USE_NXVC=1"
+EXTRA_OEMAKE:append = " DNX_DISPLAY=cdc GLES_USE_NXVC=1"
+EXTRA_OEMAKE:append:arria10 = " CFG=arria10"
+EXTRA_OEMAKE:append:agilex5 = " CFG=agilex5"
 
 DEPENDS_libgles2-tes = "libdrm-dnx-dev"
 DEPENDS_libdisplay-dnx = "libdrm-dnx-dev"
