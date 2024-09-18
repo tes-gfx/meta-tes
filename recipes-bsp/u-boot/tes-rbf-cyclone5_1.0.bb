@@ -1,5 +1,5 @@
 SUMMARY = "TES RBF for U-Boot (Cyclone 5)"
-DESCRIPTION = "This recipe copies the RBF files for DHD and D2D evalkit."
+DESCRIPTION = "This recipe copies the RBF files for DHD, D2D and CDC."
 SECTION = "bootloaders"
 LICENSE = "CLOSED"
 PR = "r0"
@@ -20,6 +20,10 @@ SRC_URI:append:tesintern:dave2d = " \
 
 SRC_URI:append:tesintern:davehd = " \
 	http://build-linux/jenkins_artifacts/ip_cores/evalkit/de10nano/davehd/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_dhd.rbf \
+"
+
+SRC_URI:append:tesintern:tescdc = " \
+	http://build-linux/jenkins_artifacts/projects/stm_cdc_puma//hw/terasic_de10nano/r4386/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_cdc.rbf \
 "
 
 S = "${WORKDIR}"
