@@ -5,8 +5,8 @@ include tes-base.inc
 IMAGE_INSTALL:append:cyclone5 = " tes-rbf-cyclone5"
 
 # Add TES kernel modules
-IMAGE_INSTALL += "generic-ip-mod gman-mod libdrm-gman"
-MACHINE_EXTRA_RDEPENDS += "kernel-module-genip kernel-module-gman"
+#IMAGE_INSTALL += "generic-ip-mod gman-mod libdrm-gman"
+#MACHINE_EXTRA_RDEPENDS += "kernel-module-genip kernel-module-gman"
 
 #
 # Add very handy development tools

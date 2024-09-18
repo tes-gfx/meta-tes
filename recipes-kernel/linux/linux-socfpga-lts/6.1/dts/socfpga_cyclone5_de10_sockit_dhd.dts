@@ -1,0 +1,228 @@
+/*
+ * Copyright Altera Corporation (C) 2015. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms and conditions of the GNU General Public License,
+ * version 2, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU General Public License along with
+ * this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "socfpga_cyclone5.dtsi"
+
+/ {
+	model = "Terasic DE-0(Atlas)";
+	compatible = "terasic,de0-atlas", "altr,socfpga-cyclone5", "altr,socfpga";
+
+	chosen {
+		bootargs = "earlyprintk";
+		stdout-path = "serial0:115200n8";
+	};
+
+	memory@0 {
+		name = "memory";
+		device_type = "memory";
+		reg = <0x0 0x40000000>; /* 1GB */
+	};
+
+	aliases {
+		ethernet0 = &gmac1;
+	};
+
+	regulator_3_3v: 3-3-v-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "3.3V";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		hps0 {
+			label = "hps_led0";
+			gpios = <&portb 24 0>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+
+	soc{
+		base-fpga-region {
+			ranges = <0x00000000 0xff200000 0x004000
+				  0x00004000 0xff204000 0x002000
+				  0x00006000 0xff206000 0x000200
+				  0x00007000 0xff207000 0x000100
+				  0x00008000 0xff208000 0x000100>;
+
+			tes_dhd_0: gpu@0 {
+				compatible = "tes,tes_dhd-1.0", "tes,dhd-1.0";
+				reg = <0x00000000 0x00004000>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 41 4>;
+			};
+
+			tes_cdc_0: lcd_controller@4000 {
+				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
+				reg = <0x00004000 0x00002000>;
+
+				interrupt-parent = <&intc>;
+				interrupts = <0 40 4>;
+				//stream_dev = <&tes_fbd_0 0>;
+				stream_dev = <&tes_dsw_0 0>;
+				clocks = <&pixel_clock>;
+
+				max-clock-frequency = <108000000>;
+				
+				ports {
+					port@0 {
+						cdc_out_rgb: endpoint {
+							remote-endpoint = <&adv7513_in>;
+						};
+					};
+				};
+			}; //end lcd_controller@0x00000000 (tes_cdc_0)
+
+
+			tes_warp_0: video@6000 {
+				compatible = "tes,tes_warp-1.0", "tes,warp-1.0";
+				reg = <0x00006000 0x00000200>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 43 4>;
+			};
+
+			tes_fbd_0: video@7000 {
+				compatible = "tes,tes_fbd-1.0", "tes,fbd-1.0";
+				reg = <0x00007000 0x00000100>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 42 4>;
+			};
+
+			tes_dsw_0: video@8000 {
+				compatible = "tes,tes_dsw-1.0", "tes,dsw-1.0";
+				reg = <0x00008000 0x00000100>;
+				
+				interrupt-parent = <&intc>;
+				interrupts = <0 45 4>;
+			};
+
+			pixel_clock: oscillator {
+				compatible = "fixed-clock";
+				#clock-cells = <0>;
+				clock-frequency = <65000000>;
+			};
+		};
+	};
+
+	hdmi0: connector {
+		compatible = "hdmi-connector";
+		type = "a";
+		port {
+			hdmi_connector_in: endpoint {
+				remote-endpoint = <&adv7513_out>;
+			};
+		};
+	};
+};
+
+&gmac1 {
+	status = "okay";
+	phy-mode = "rgmii";
+
+	txd0-skew-ps = <0>; /* -420ps */
+	txd1-skew-ps = <0>; /* -420ps */
+	txd2-skew-ps = <0>; /* -420ps */
+	txd3-skew-ps = <0>; /* -420ps */
+	rxd0-skew-ps = <420>; /* 0ps */
+	rxd1-skew-ps = <420>; /* 0ps */
+	rxd2-skew-ps = <420>; /* 0ps */
+	rxd3-skew-ps = <420>; /* 0ps */
+	txen-skew-ps = <0>; /* -420ps */
+	txc-skew-ps = <1860>; /* 960ps */
+	rxdv-skew-ps = <420>; /* 0ps */
+	rxc-skew-ps = <1680>; /* 780ps */
+
+	max-frame-size = <3800>;
+};
+
+&gpio0 {
+	status = "okay";
+};
+
+&gpio1 {
+	status = "okay";
+};
+
+&gpio2 {
+	status = "okay";
+};
+
+&i2c0 {
+	status = "okay";
+	clock-frequency = <100000>;
+
+	adxl345: adxl345@0 {
+		compatible = "adi,adxl345";
+		reg = <0x53>;
+
+		interrupt-parent = <&portc>;
+		interrupts = <3 2>;
+	};
+};
+
+&i2c2 {
+	status = "okay";
+	speed-mode = <0>;
+
+	hdmi@39 {
+		compatible = "adi,adv7513";
+		reg = <0x39>;
+		//interrupt-parent = <&portb>;
+		//interrupts = <15 IRQ_TYPE_EDGE_FALLING>;
+		
+		adi,input-depth = <8>;
+		adi,input-colorspace = "rgb";
+		adi,input-clock = "1x";
+		adi,input-style = <1>;
+		
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+		
+			port@0 {
+				reg = <0>;
+				adv7513_in: endpoint {
+					remote-endpoint = <&cdc_out_rgb>;
+				};
+			};
+		
+			port@1 {
+				reg = <1>;
+				adv7513_out: endpoint {
+					remote-endpoint = <&hdmi_connector_in>;
+				};
+			};
+		};
+	};
+};
+
+&mmc0 {
+	vmmc-supply = <&regulator_3_3v>;
+	vqmmc-supply = <&regulator_3_3v>;
+	status = "okay";
+};
+
+&uart0 {
+	status = "okay";
+};
+
+&usb1 {
+	status = "okay";
+};
