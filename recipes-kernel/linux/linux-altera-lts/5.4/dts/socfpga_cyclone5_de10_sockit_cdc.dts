@@ -53,15 +53,15 @@
 
 	soc{
 		base-fpga-region {
-			ranges = <0x00000000 0xff200000 0x002000
-				  0x00002000 0xff202000 0x000100
-				  0x00002100 0xff202100 0x000100>;
+			ranges = <0x00004000 0xff204000 0x002000
+				  0x00006000 0xff206000 0x000100
+				  0x00006100 0xff206100 0x000100>;
 
-			tes_cdc_0: lcd_controller@4000 {
+			tes_cdc_0: lcd-controller@4000 {
 				compatible = "tes,tes_cdc-4.2", "tes,cdc-4.2";
-				reg = <0x00000000 0x00002000>;
+				reg = <0x00004000 0x00002000>;
 				interrupt-parent = <&intc>;
-				interrupts = <0 40 4>;
+				interrupts = <0 41 4>;
 				
 				clocks = <&pixel_clock>;
 
@@ -82,20 +82,17 @@
 				clock-frequency = <65000000>;
 			};
 
-			tes_virtual_display_0: video@7000 {
-				compatible = "tes,tes_vd-1.0", "tes,vd-1.0";
-				reg = <0x00002000 0x00000100>;
-				
-				interrupt-parent = <&intc>;
-				interrupts = <0 41 4>;
+			tes_axi_choke_0: bus@6000 {
+				compatible = "tes,tes_ac-1.0", "tes,ac-1.0";
+				reg = <0x00006000 0x00000100>;
 			};
 
-			tes_axi_choke_0: video@7000 {
-				compatible = "tes,tes_ac-1.0", "tes,ac-1.0";
-				reg = <0x00002100 0x00000100>;
+			tes_virtual_display_0: video@6100 {
+				compatible = "tes,tes_vd-1.0", "tes,vd-1.0";
+				reg = <0x00006100 0x00000100>;
 				
 				interrupt-parent = <&intc>;
-				interrupts = <0 42 4>;
+				interrupts = <0 40 4>;
 			};
 		};
 	};
