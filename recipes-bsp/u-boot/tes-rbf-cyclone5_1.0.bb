@@ -23,7 +23,7 @@ SRC_URI:append:tesintern:davehd = " \
 "
 
 SRC_URI:append:tesintern:tescdc = " \
-	http://build-linux/jenkins_artifacts/projects/stm_cdc_puma//hw/terasic_de10nano/r4386/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_cdc.rbf \
+	http://build-linux/jenkins_artifacts/projects/stm_cdc_puma//hw/terasic_de10nano/r4455/terasic_de10_nano_rev_b.rbf;downloadfilename=socfpga_cyclone5_de10_nano_cdc.rbf \
 "
 
 S = "${WORKDIR}"
