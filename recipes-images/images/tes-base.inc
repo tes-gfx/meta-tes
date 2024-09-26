@@ -22,3 +22,9 @@ CORE_IMAGE_EXTRA_INSTALL += " \
 #
 PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
 PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
+
+#
+# Add googletest to image and SDK (required by some of our validation test)
+#
+IMAGE_INSTALL += "haveged-service googletest"
+TOOLCHAIN_TARGET_TASK += "googletest-dev" 
