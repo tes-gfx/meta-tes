@@ -51,6 +51,13 @@ IMAGE_INSTALL:append:davehd:tesfbd = " \
 "
 
 #
+# Add stuff for TES validaation IP
+#
+IMAGE_INSTALL:append:tescdc = " \
+    packagegroup-tes-validation \
+"
+
+#
 # Add KMS library test to image (modetest, ...)
 #
 CORE_IMAGE_EXTRA_INSTALL += " \
@@ -127,6 +134,10 @@ TOOLCHAIN_TARGET_TASK:append:davehd = "\
 TOOLCHAIN_TARGET_TASK:append:davehd:tesfbd = "\
         fbd-demo-devsrc \
         davehd-stream-demo-devsrc \
+"
+
+TOOLCHAIN_TARGET_TASK:append:tescdc = "\
+        packagegroup-tes-validation-toolchain-target \
 "
 
 TOOLCHAIN_HOST_TASK += "nativesdk-kernel-devsrc-env"

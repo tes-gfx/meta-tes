@@ -24,7 +24,8 @@ PREFERRED_PROVIDER_virtual/kernel = "linux-altera-lts"
 PREFERRED_VERSION_linux-altera-ltsi = "5.4%"
 
 #
-# Add googletest to image and SDK (required by some of our validation test)
+# Add haveged for faster boot.
+# Otherwise the boot process stops until the system has collected enough
+# entropy for /dev/random.
 #
-IMAGE_INSTALL += "haveged-service googletest"
-TOOLCHAIN_TARGET_TASK += "googletest-dev" 
+IMAGE_INSTALL += "haveged-service"
