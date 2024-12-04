@@ -71,8 +71,8 @@
 
 				interrupt-parent = <&intc>;
 				interrupts = <0 40 4>;
-				//stream_dev = <&tes_fbd_0 0>;
-				stream_dev = <&tes_dsw_0 0>;
+				stream_dev = <&tes_fbd_0 0>;
+				//stream_dev = <&tes_dsw_0 0>;
 				clocks = <&pixel_clock>;
 
 				max-clock-frequency = <108000000>;
