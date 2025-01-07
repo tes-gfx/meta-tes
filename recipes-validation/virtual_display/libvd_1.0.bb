@@ -29,3 +29,5 @@ do_install () {
 # We only have a static lib here, so the main package will be empty.
 # But there are still dependencies on it. Therefore, we keep it as an empty package.
 ALLOW_EMPTY:${PN} = "1"
+
+RDEPENDS:${PN}-staticdev = "libgenip-staticdev"
