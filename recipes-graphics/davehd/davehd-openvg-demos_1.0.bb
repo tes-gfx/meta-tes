@@ -38,15 +38,6 @@ do_install () {
   install -m 0644 ${S}/src/testcases/*.h ${D}${srcdir}/${PN}/src/testcases/
   install -d ${D}${srcdir}/${PN}/src/egl_framework
   install -m 0644 ${S}/src/egl_framework/*.c ${D}${srcdir}/${PN}/src/egl_framework/
-  install -d ${D}${srcdir}/${PN}/src/ree_tests/performance
-  install -m 0644 ${S}/src/ree_tests/performance/*.c ${D}${srcdir}/${PN}/src/ree_tests/performance/
-  install -d ${D}${srcdir}/${PN}/src/ree_tests/test1
-  install -m 0644 ${S}/src/ree_tests/test1/*.c ${D}${srcdir}/${PN}/src/ree_tests/test1/
-  install -m 0644 ${S}/src/ree_tests/test1/*.h ${D}${srcdir}/${PN}/src/ree_tests/test1/
-  install -d ${D}${srcdir}/${PN}/src/ree_tests/test2
-  install -m 0644 ${S}/src/ree_tests/test2/*.c ${D}${srcdir}/${PN}/src/ree_tests/test2/
-  install -d ${D}${srcdir}/${PN}/src/ree_tests/test3
-  install -m 0644 ${S}/src/ree_tests/test3/*.c ${D}${srcdir}/${PN}/src/ree_tests/test3/
   install -d ${D}${srcdir}/${PN}/external_src
   install -m 0644 ${WORKDIR}/driver/test/platform/stdlib/*.c ${D}${srcdir}/${PN}/external_src/
   install -m 0644 ${WORKDIR}/driver/test/src/framework/*.c ${D}${srcdir}/${PN}/external_src/
