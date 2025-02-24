@@ -1,7 +1,7 @@
 DESCRIPTION = "TES OpenGL 2.0 ES example"
 HOMEPAGE = "http://www.tes-dst.com"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=9f04cb94394d96c310de03ac83284493"
+LIC_FILES_CHKSUM = "file://main.c;endline=20;md5=f59da969d3bfe07da4fae1d11c2554bf"
 DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev"
 
 
