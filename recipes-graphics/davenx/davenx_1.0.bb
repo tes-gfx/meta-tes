@@ -22,7 +22,7 @@ LIC_FILES_CHKSUM = "\
 	file://../display/docs/LICENSE.txt;md5=d3a882ddb01ed28435692f93f33dd252 \
 "
 
-DEPENDS = "libdrm"
+DEPENDS = "libdrm libpng"
 
 inherit pkgconfig
 
