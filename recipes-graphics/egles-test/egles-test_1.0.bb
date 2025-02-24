@@ -6,7 +6,7 @@ DEPENDS = "virtual/libgles2 virtual/egl libkms-egl-dev libpng"
 
 PV:tesintern = "1.0+svnr${SRCPV}"
 
-RDEPENDS_${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng"
+RDEPENDS:${PN} = "libdrm libkms-egl libgles2-tes libegl-tes libpng bash"
 
 inherit pkgconfig
 
@@ -45,9 +45,9 @@ S = "${WORKDIR}"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/egles_test/build/linux"
 
-EXTRA_OEMAKE += "GLES_USE_NXVC=0"
-EXTRA_OEMAKE:append:tesclosed = " CFG=${MACHINE} SHADERTOY=1"
-EXTRA_OEMAKE:append:tesmms = " CFG=${MACHINE} SHADERTOY=0"
+EXTRA_OEMAKE += "CFG=${MACHINE} GLES_USE_NXVC=0 TES_INCLUDE_NON_REDISTRIBUTABLE_CODE=0"
+EXTRA_OEMAKE:tesclosed += " CFG=${MACHINE} SHADERTOY=1 TES_INCLUDE_NON_REDISTRIBUTABLE_CODE=1"
+EXTRA_OEMAKE:tesmms += " CFG=${MACHINE} SHADERTOY=0"
 
 python do_shadertoy() {
     if "tesclosed" not in d.getVar("OVERRIDES"):
