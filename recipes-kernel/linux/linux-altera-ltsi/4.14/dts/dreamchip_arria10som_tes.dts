@@ -52,18 +52,19 @@
 	soc{
 		base_fpga_region {
 		
-			ranges = < 0x00000000 0xff200000 0x2000
-				   0x00008000 0xff208000 0x0900 >;
+			ranges = < 0x00004000 0xff204000 0x0800
+			           0x00005400 0xff205400 0x0040
+				   0x00008000 0xff208000 0x8000 >;
 		
-			tes_cdc_0: lcd_controller@8000 {
+			tes_cdc_0: lcd_controller@4000 {
 				compatible = "tes,tes_cdc-2.1", "tes,cdc-2.1";
                 		#address-cells = <1>;
                 		#size-cells = <1>;
 				ranges;
 
-				reg = <0x00008000 0x00000200>;
+				reg = <0x00004000 0x00000800>;
 				interrupt-parent = <&intc>;
-				interrupts = <0 20 4>;
+				interrupts = <0 19 4>;
 				
 				memory-region = <&gfx_reserved>;
 
@@ -77,13 +78,13 @@
 					};
 				};
 
-				//tes_deswizzle_0: video-codec@8800 {
-				//	compatible = "tes,dswz";
-				//	reg = <0x00008800 0x00000100>;
-				//	interrupt-parent = <&intc>;
-				//	interrupts = <0 21 4>;
-				//};
-			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+				tes_deswizzle_0: video-codec@5400 {
+					compatible = "tes,dswz";
+					reg = <0x00005400 0x00000040>;
+					interrupt-parent = <&intc>;
+					interrupts = <0 24 4>;
+				};
+			}; //end lcd_controller@0x00004000 (tes_cdc_0)
 
 		
 			pixel_clock: oscillator {
@@ -124,14 +125,14 @@
 				};
 			};
 		
-			tes_dnx_0: gpu@0 {
+			tes_dnx_0: gpu@8000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
-				reg = <0x00000000 0x00006000>;
+				reg = <0x00008000 0x00008000>;
 				
 				memory-region = <&gfx_reserved>;
 
 				interrupt-parent = <&intc>;
-				interrupts = <0 19 4>;
+				interrupts = <0 27 4>;
 			};
 		};
 	};
