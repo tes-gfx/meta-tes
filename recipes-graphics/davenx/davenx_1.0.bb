@@ -43,7 +43,7 @@ SRC_URI = "\
 	file://tools/nxvclient \
 "
 
-SRCREV_FORMAT = "display_gles_bagl_egl_driver_glslang_nxasm_build_interface_tools"
+SRCREV_FORMAT = "display_gles_bagl_egl_driver_glslang_nxasm_build_interface_kms_nxv"
 SRCREV_display   = "${AUTOREV}"
 SRCREV_gles      = "${AUTOREV}"
 SRCREV_bagl      = "${AUTOREV}"
@@ -53,7 +53,8 @@ SRCREV_glslang   = "${AUTOREV}"
 SRCREV_nxasm     = "${AUTOREV}"
 SRCREV_build     = "${AUTOREV}"
 SRCREV_interface = "${AUTOREV}"
-SRCREV_tools     = "${AUTOREV}"
+SRCREV_kms       = "${AUTOREV}"
+SRCREV_nxv       = "${AUTOREV}"
 
 SRC_URI:tesintern = "\
 	file://egl.pc \
@@ -67,8 +68,8 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=nxasm;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=nxasm \
 	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
-	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
-	${TES_SVN_PATH}/tools;module=nxvclient;path_spec=./tools/nxvclient;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=kms \
+	${TES_SVN_PATH}/tools;module=nxvclient;path_spec=./tools/nxvclient;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=nxv \
 	file://tools \
 "
 
