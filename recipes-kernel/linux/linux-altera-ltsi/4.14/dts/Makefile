@@ -12,3 +12,10 @@ all : dreamchip_arria10som_tes.dtb
 .PHONY:
 clean:
 	rm *.dtb
+
+.PHONY:
+deploy: dreamchip_arria10som_tes.dtb
+	ssh root@$(BOARD_IP) 'mount /dev/mmcblk0p1 /mnt/'
+	scp $< root@$(BOARD_IP):/mnt/dreamchip_arria10som_tes.dtb
+	ssh root@$(BOARD_IP) 'umount /mnt/'
+
