@@ -17,7 +17,7 @@ SRCREV:agilex5 = "adb270aeb8a3f276d7a901e4c4a51fb322d742d2"
 SRCREV = "e9428cbd99911700bd94f0647c8bba2f2326922e"
 
 KBUILD_DEFCONFIG:agilex5 = "socfpga_agilex5_axe5_eagle_defconfig"
-#KBUILD_DEFCONFIG:arria10 = "socfpga_defconfig"
+KBUILD_DEFCONFIG:arria10 = "socfpga_defconfig"
 
 # Add kernel config fragment for DNX
 SRC_URI:append = " \
