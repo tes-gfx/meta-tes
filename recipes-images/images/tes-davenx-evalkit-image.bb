@@ -3,7 +3,6 @@ DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TE
 COMPATIBLE_MACHINE = "(arria10|agilex5)"
 
 require tes-davenx-base.inc
-#include tes-qt-base.inc
 
 #
 # Qt dependencies
