@@ -1,5 +1,5 @@
 .PHONY:
-all : fit_spl_fpga.itb
+all : fit_spl_arria10som.itb
 
 %.itb : %.its
 	mkimage -E -p 400 -f $< $@
@@ -9,7 +9,7 @@ clean:
 	rm *.itb
 
 .PHONY:
-deploy: all
+deploy: fit_spl_arria10som.itb
 	ssh root@$(BOARD_IP) 'mount /dev/mmcblk0p1 /mnt/'
-	scp fit_spl_fpga.itb root@$(BOARD_IP):/mnt/
+	scp $< root@$(BOARD_IP):/mnt/fit_spl_fpga.itb
 	ssh root@$(BOARD_IP) 'umount /mnt/'
