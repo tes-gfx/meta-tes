@@ -49,44 +49,22 @@
 		};
         };
 
-		
-//	lvds-encoder {
-//		compatible = "lvds-encoder";
-//		
-//		ports {
-//        	        #address-cells = <1>;
-//	                #size-cells = <0>;
-//
-//			port@0 {
-//				reg = <0>;
-//				lvdsenc_in: endpoint {
-//					remote-endpoint = <&cdc_out_rgb>;
-//				};
-//			};
-//			port@1 {
-//				reg = <1>;
-//				lvds_connector: endpoint {
-//					remote-endpoint = <&panel_in>;
-//				};
-//			};
-//		};
-//	};
-
 	soc{
 		base_fpga_region {
 		
-			ranges = < 0x00000000 0xff200000 0x2000
-				   0x00008000 0xff208000 0x0900 >;
+			ranges = < 0x00004000 0xff204000 0x0800
+			           0x00005400 0xff205400 0x0040
+				   0x00008000 0xff208000 0x6000 >;
 		
-			tes_cdc_0: lcd_controller@8000 {
-				compatible = "tes,tes_cdc-3.0", "tes,cdc-3.0";
+			tes_cdc_0: lcd_controller@4000 {
+				compatible = "tes,tes_cdc-3.3", "tes,cdc-3.3";
                 		#address-cells = <1>;
                 		#size-cells = <1>;
 				ranges;
 
-				reg = <0x00008000 0x00000200>;
+				reg = <0x00004000 0x00000800>;
 				interrupt-parent = <&intc>;
-				interrupts = <0 20 4>;
+				interrupts = <0 19 4>;
 				
 				memory-region = <&gfx_reserved>;
 
@@ -98,42 +76,42 @@
 					};
 				};
 
-				//tes_deswizzle_0: video-codec@8800 {
-				//	compatible = "tes,dswz";
-				//	reg = <0x00008800 0x00000100>;
-				//	interrupt-parent = <&intc>;
-				//	interrupts = <0 21 4>;
-				//};
-			}; //end lcd_controller@0x00008000 (tes_cdc_0)
+				tes_deswizzle_0: video-codec@5400 {
+					compatible = "tes,dswz";
+					reg = <0x00005400 0x00000040>;
+					interrupt-parent = <&intc>;
+					interrupts = <0 24 4>;
+				};
+			}; //end lcd_controller@0x00004000 (tes_cdc_0)
 
-	panel {
-		compatible = "panel-dpi";
-
-		width-mm = <216>;
-		height-mm = <162>;
+			panel {
+				compatible = "panel-dpi";
 		
-		panel-timing {
-			clock-frequency = <154000000>;
-			hactive = <1920>;
-			vactive = <1200>;
-			hfront-porch = <48>;
-			hback-porch = <80>;
-			hsync-len = <32>;
-			vback-porch = <26>;
-			vfront-porch = <3>;
-			vsync-len = <6>;
-		
-			hsync-active = <0>;
-			vsync-active = <0>;
-			de-active = <1>;
-			pixelclk-active = <1>;
-		};	
-		port {
-			panel_in: endpoint {
-				remote-endpoint = <&cdc_out_rgb>;
+				width-mm = <216>;
+				height-mm = <162>;
+				
+				panel-timing {
+					clock-frequency = <154000000>;
+					hactive = <1920>;
+					vactive = <1200>;
+					hfront-porch = <48>;
+					hback-porch = <80>;
+					hsync-len = <32>;
+					vback-porch = <26>;
+					vfront-porch = <3>;
+					vsync-len = <6>;
+				
+					hsync-active = <0>;
+					vsync-active = <0>;
+					de-active = <1>;
+					pixelclk-active = <1>;
+				};	
+				port {
+					panel_in: endpoint {
+						remote-endpoint = <&cdc_out_rgb>;
+					};
+		                };
 			};
-                };
-	};
 
 		
 			pixel_clock: oscillator {
@@ -141,16 +119,15 @@
 				#clock-cells = <0>;
 				clock-frequency = <154000000>;
 			};
-
 		
-			tes_dnx_0: gpu@0 {
+			tes_dnx_0: gpu@8000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
-				reg = <0x00000000 0x00006000>;
+				reg = <0x00008000 0x00006000>;
 				
 				memory-region = <&gfx_reserved>;
 
 				interrupt-parent = <&intc>;
-				interrupts = <0 19 4>;
+				interrupts = <0 27 4>;
 			};
 		};
 	};
