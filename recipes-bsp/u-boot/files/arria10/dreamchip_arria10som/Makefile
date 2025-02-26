@@ -6,7 +6,7 @@ all : fit_spl_fpga.itb
 
 .PHONY:
 clean:
-	rm *.itb
+	-rm -f *.itb
 
 .PHONY:
 deploy: fit_spl_fpga.itb
