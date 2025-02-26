@@ -26,11 +26,12 @@ SRC_URI:append = " \
 
 ADDSOURCES = ""
 
-SRCREV_FORMAT = "default_interface"
+SRCREV_FORMAT = "interface_driver"
 SRCREV_interface = "${AUTOREV}"
+SRCREV_driver = "${AUTOREV}"
 ADDSOURCES:tesdavenx:tesintern = "\
 	${TES_SVN_PATH};module=interface;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD} \
-	${TES_SVN_PATH}/driver/kernel/linux;module=drm-dnx;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD} \
+	${TES_SVN_PATH};module=driver;name=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD} \
 "
 
 SRC_URI:append = " ${ADDSOURCES}"
@@ -76,7 +77,7 @@ python do_copy() {
 addtask copy after do_configure before do_compile
 
 do_copy_dnx() {
-	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
+	cp ${WORKDIR}/driver/kernel/linux/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 }
 
