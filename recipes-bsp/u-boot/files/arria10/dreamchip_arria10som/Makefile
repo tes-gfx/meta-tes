@@ -6,7 +6,7 @@ all : fit_spl_arria10som.itb
 
 .PHONY:
 clean:
-	-rm -f *.itb
+	rm *.itb
 
 .PHONY:
 deploy: fit_spl_arria10som.itb
