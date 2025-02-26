@@ -8,7 +8,7 @@ MODULE_VERSION = "6.1"
 
 SRCREV_FORMAT = "module_interface"
 SRCREV_module = "${AUTOREV}"
-SRCREV_interface = "${AUTOREV}"
+SCREV_interface = "${AUTOREV}"
 SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/driver/kernel/linux/module;module=${MODULE_VERSION};protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=driver/kernel/linux/module/${MODULE_VERSION};name=module \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
@@ -24,5 +24,6 @@ KERNEL_MODULE_AUTOLOAD += "dnx"
 do_copy_header() {
 	cp ${STAGING_KERNEL_DIR}/include/uapi/drm/dnx_drm.h ${B}
 }
+do_copy_header[depends] += "virtual/kernel:do_shared_workdir"
 
 addtask copy_header after do_fetch before do_compile
