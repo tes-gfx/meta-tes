@@ -13,8 +13,8 @@ SRCREV_perf = "${AUTOREV}"
 SRCREV_dhdtest = "${AUTOREV}"
 
 SRC_URI:tesintern =  " \
-	${TES_DHD_SVN_PATH}/demos;module=performance;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=demos/performance;name=perf; \
-	${TES_DHD_SVN_PATH}/driver;module=test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;path_spec=driver/test/;name=dhdtest; \
+	${TES_DHD_SVN_PATH};module=demos/performance;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=perf; \
+	${TES_DHD_SVN_PATH};module=driver/test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;name=dhdtest; \
 "
 
 S = "${WORKDIR}/demos/performance"

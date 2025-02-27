@@ -20,7 +20,7 @@ SRCREV_tools  = "${AUTOREV}"
 
 SRC_URI:tesintern =  " \
 	${TES_DHD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
-	${TES_DHD_SVN_PATH}/tools;module=generators;path_spec=./tools/generators;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_DHD_SVN_PATH};module=tools/generators;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}/driver"

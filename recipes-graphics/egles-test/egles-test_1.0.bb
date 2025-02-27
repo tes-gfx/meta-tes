@@ -32,13 +32,13 @@ SRCREV_tools   = "${AUTOREV}"
 
 SRCREV = "${AUTOREV}"
 SRC_URI:tesintern = "\
-	${TES_SVN_PATH}/demos;module=egles_test;path_spec=./svn/demos/egles_test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
+	${TES_SVN_PATH};module=demos/egles_test;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=test \
 	${TES_SVN_PATH};module=display;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=display \
 	${TES_SVN_PATH};module=bagl;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=bagl \
 	${TES_SVN_PATH};module=gles;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=gles \
 	${TES_SVN_PATH};module=build;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
 	${TES_SVN_PATH};module=driver;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
-	${TES_SVN_PATH}/tools;module=kms_helper;path_spec=./svn/tools/kms_helper;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_SVN_PATH};module=tools/kms_helper;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}/svn"

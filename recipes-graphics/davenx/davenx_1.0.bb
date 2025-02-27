@@ -67,7 +67,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=nxasm;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=nxasm \
 	${TES_SVN_PATH};module=build;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=build \
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
-	${TES_SVN_PATH};module=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_SVN_PATH};module=tools;externals=nowarn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 	file://tools \
 "
 

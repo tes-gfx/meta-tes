@@ -23,7 +23,7 @@ SRCREV_tools  = "${AUTOREV}"
 SRC_URI:tesintern =  " \
 	${TES_FBD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver \
 	${TES_FBD_SVN_PATH};module=th_fbd;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=th_fbd \
-	${TES_TOOLS_SVN_PATH};module=greg;path_spec=./tools/greg;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
+	${TES_TOOLS_SVN_PATH};module=greg;path_spec=tools/greg;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
 S = "${WORKDIR}/driver"

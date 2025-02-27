@@ -13,8 +13,8 @@ SRCREV_demos = "${AUTOREV}"
 SRCREV_dhdtest = "${AUTOREV}"
 
 SRC_URI:tesintern =  " \
-	${TES_DHD_SVN_PATH}/ovg_test;module=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=ovg_test/demos/;name=demos; \
-	${TES_DHD_SVN_PATH}/driver;module=test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;path_spec=driver/test/;name=dhdtest; \
+	${TES_DHD_SVN_PATH};module=ovg_test/demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=demos; \
+	${TES_DHD_SVN_PATH};module=driver/test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;name=dhdtest; \
 "
 
 S = "${WORKDIR}/ovg_test/demos"

@@ -8,9 +8,9 @@ MODULE_VERSION = "6.1"
 
 SRCREV = "${AUTOREV}"
 SRC_URI:tesintern = "\
-	${TES_CDC_SVN_PATH}/software/linux/kms;module=${MODULE_VERSION};protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=svn \
+	${TES_CDC_SVN_PATH};module=/software/linux/kms;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=kms_modules \
 "
 
-S = "${WORKDIR}/svn"
+S = "${WORKDIR}/kms_modules/${MODULE_VERSION}"
 
 KERNEL_MODULE_AUTOLOAD += "cdc"
