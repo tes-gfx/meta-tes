@@ -1,7 +1,13 @@
+python() {
+  overrides = d.getVar("OVERRIDES").split(":")
+
+  if "tesdavenx" not in overrides:
+    bb.fatal("Building a DaveNX image but override 'tesdavenx' is not set.")
+}
+
 #
 # Add all what we need for OpenGL apps based on DNX and CDC
 #
-
 require tes-base.inc
 
 #
