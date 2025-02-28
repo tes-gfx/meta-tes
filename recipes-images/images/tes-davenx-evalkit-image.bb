@@ -1,6 +1,6 @@
-DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TES OpenGL ES 2.0 implementation, including a full command line, Qt5 (Debug) and handy development tools."
+DESCRIPTION = "An image for easy evaluation of the TES DaveNX IP Core and the TES OpenGL ES 2.0 implementation, including a full command line and handy development tools."
 
-COMPATIBLE_MACHINE = "(arria10|agilex5)"
+COMPATIBLE_MACHINE = "(arria10|agilex5|stratix10)"
 
 require tes-davenx-base.inc
 
