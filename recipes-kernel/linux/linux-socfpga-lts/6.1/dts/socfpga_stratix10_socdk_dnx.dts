@@ -18,6 +18,7 @@
 
 / {
 	model = "SoCFPGA Stratix 10 SoCDK";
+	compatible = "altr,socfpga-stratix10-socdk", "altr,socfpga-stratix10";
 
 	aliases {
 		serial0 = &uart0;
@@ -74,9 +75,7 @@
 	};
 
 	soc {
-
 		base_fpga_region {
-
 			ranges = < 0x00000000 0xf9000000 0x5000
 				   0x00008000 0xf9008000 0x0800 >;
 
@@ -147,11 +146,32 @@
 			};
 		};
 
-		clocks {
-			osc1 {
-				clock-frequency = <25000000>;
+		eccmgr {
+			sdmmca-ecc@ff8c8c00 {
+				compatible = "altr,socfpga-s10-sdmmc-ecc",
+					     "altr,socfpga-sdmmc-ecc";
+				reg = <0xff8c8c00 0x100>;
+				altr,ecc-parent = <&mmc>;
+				interrupts = <14 4>,
+					     <15 4>;
 			};
 		};
+	};
+};
+
+&pinctrl0 {
+	i2c1_pmx_func: i2c1-pmx-func {
+		pinctrl-single,pins = <
+			0x78   0x4   /* I2C1_SDA (IO6-B) PIN30SEL) */
+			0x7c   0x4   /* I2C1_SCL (IO7-B) PIN31SEL */
+		>;
+	};
+
+	i2c1_pmx_func_gpio: i2c1-pmx-func-gpio {
+		pinctrl-single,pins = <
+			0x78   0x8   /* I2C1_SDA (IO6-B) PIN30SEL) */
+			0x7c   0x8   /* I2C1_SCL (IO7-B) PIN31SEL */
+		>;
 	};
 };
 
@@ -191,10 +211,14 @@
 
 &mmc {
 	status = "okay";
-	num-slots = <1>;
 	cap-sd-highspeed;
+	cap-mmc-highspeed;
 	broken-cd;
 	bus-width = <4>;
+};
+
+&osc1 {
+	clock-frequency = <25000000>;
 };
 
 &uart0 {
@@ -245,36 +269,36 @@
 };
 
 &qspi {
-	flash@0 {
+	status = "disabled";
+};
+
+&temp_volt {
+	voltage {
 		#address-cells = <1>;
-		#size-cells = <1>;
-		compatible = "n25q00a";
-		reg = <0>;
-		spi-max-frequency = <50000000>;
+		#size-cells = <0>;
+		input@2 {
+			label = "0.8V VCC";
+			reg = <2>;
+		};
 
-		m25p,fast-read;
-		cdns,page-size = <256>;
-		cdns,block-size = <16>;
-		cdns,read-delay = <1>;
-		cdns,tshsl-ns = <50>;
-		cdns,tsd2d-ns = <50>;
-		cdns,tchsh-ns = <4>;
-		cdns,tslch-ns = <4>;
+		input@3 {
+			label = "1.0V VCCIO";
+			reg = <3>;
+		};
 
-		partitions {
-			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
+		input@6 {
+			label = "0.9V VCCERAM";
+			reg = <6>;
+		};
+	};
 
-			qspi_boot: partition@0 {
-				label = "Boot and fpga data";
-				reg = <0x0 0x034B0000>;
-			};
+	temperature {
+		#address-cells = <1>;
+		#size-cells = <0>;
 
-			qspi_rootfs: partition@4000000 {
-				label = "Root Filesystem - JFFS2";
-				reg = <0x034B0000 0x0EB50000>;
-			};
+		input@0 {
+			label = "Main Die SDM";
+			reg = <0x0>;
 		};
 	};
 };

@@ -52,7 +52,7 @@ SRC_URI:append:arria10 = " \
 	file://${BPN}/6.1/dts/dreamchip_arria10som.dtsi \
 "
 SRC_URI:append:stratix10 = " \
-	file://${BPN}/6.1/dts/socfpga_stratix10_socdk_tes.dts \
+	file://${BPN}/6.1/dts/socfpga_stratix10_socdk_dnx.dts \
 "
 
 

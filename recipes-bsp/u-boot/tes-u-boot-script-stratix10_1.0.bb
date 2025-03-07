@@ -15,23 +15,14 @@ SRC_URI:append = " file://${MACHINE}/socdk/bootmmc.scr"
 S = "${WORKDIR}"
 
 do_compile () {
-	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/bootmmc_socdk.img
+	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/u-boot.scr
 }
 do_compile[depends] += " u-boot-mkimage-native:do_populate_sysroot"
 
-do_install () {
-	install -d ${D}/boot
-	install -m 0755 ${B}/boot*.img ${D}/boot
-}
-
 inherit deploy
 do_deploy () {
-	install -m 0755 ${B}/boot*.img ${DEPLOYDIR}
+	install -m 0755 ${B}/u-boot.scr ${DEPLOYDIR}
 }
 addtask deploy after do_install before do_build
 
-
-FILES:${PN} = " \
-	boot/boot*.scr \
-	boot/boot*.img \
-"
+ALLOW_EMPTY:${PN} = "1"
