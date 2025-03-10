@@ -4,10 +4,13 @@ setenv fdtimage socfpga_stratix10_socdk_${evalkit}.dtb
 setenv bootimage Image
 setenv root /dev/mmcblk0p2
 
-#load binary blobs of kernel and device tree
+# enable the FPGA bridges
+bridge enable
+
+# load binary blobs of kernel and device tree
 fatload mmc 0:1 ${kerneladdr} ${bootimage}
 fatload mmc 0:1 ${fdtaddr} ${fdtimage}
 
-#boot kernel
+# boot kernel
 setenv bootargs console=ttyS0,115200 debug ignore_loglevel earlyprintk=ttyS0,115200 break=y root=${root} rootwait rw ${runlevel}
 booti ${kerneladdr} - ${fdtaddr}
