@@ -1,7 +1,7 @@
 .PHONY:
 all : fit_spl_fpga.itb
 
-%.itb : %.its
+fit_spl_fpga.itb : fit_spl_fpga.its dreamchip_arria10som_tes.core.rbf dreamchip_arria10som_tes.periph.rbf
 	mkimage -E -p 400 -f $< $@
 
 .PHONY:
