@@ -2,8 +2,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}:"
 
 KERNEL_REPO = "git://github.com/tes-gfx/linux-socfpga.git"
 
-KERNEL_REPO:tesintern = "git:///home/hh04074/projects/ip/linux_agilex/yocto_build/repos/linux-socfpga"
-KERNEL_PROT:tesintern = "file"
+KERNEL_REPO:localkernel = "git:///home/hh04074/projects/ip/linux_agilex/yocto_build/repos/linux-socfpga"
+KERNEL_PROT:localkernel = "file"
 
 KBRANCH = "socfpga-6.1.68-lts"
 KBRANCH:stratix10 = "socfpga-6.1.68-lts-tes"

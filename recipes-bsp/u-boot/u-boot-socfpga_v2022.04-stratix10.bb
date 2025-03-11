@@ -3,8 +3,8 @@ require u-boot-socfpga-common.inc
 COMPATIBLE_MACHINE = "stratix10"
 
 UBOOT_REPO = "git://github.com/tes-gfx/u-boot-socfpga.git"
-UBOOT_REPO:tesintern = "git:////home/hh04074/projects/ip/linux_agilex/yocto_build/repos/u-boot-socfpga"
-UBOOT_PROT:tesintern = "file"
+UBOOT_REPO:localuboot = "git:////home/hh04074/projects/ip/linux_agilex/yocto_build/repos/u-boot-socfpga"
+UBOOT_PROT:localuboot = "file"
 
 UBOOT_VERSION = "v2022.04_stratix10"
 
