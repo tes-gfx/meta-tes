@@ -80,7 +80,8 @@
                         #size-cells = <0x1>;
 
 			ranges = < 0x00000000 0xf9000000 0x6000
-				   0x00008000 0xf9008000 0x0800 >;
+				   0x00008000 0xf9008000 0x0800 
+				   0x00008800 0xf9008800 0x0040>;
 
 			tes_dnx_0: gpu@0x00000000 {
 				compatible = "tes,tes_dnx-1.0", "tes,dnx-1.0";
@@ -106,6 +107,13 @@
 					cdc_out_rgb: endpoint {
 						remote-endpoint = <&panel_in>;
 					};
+				};
+				
+				tes_deswizzle_0: video-codec@0x00008800 {
+					compatible = "tes,dswz";
+					reg = <0x00008800 0x00000040>;
+					interrupt-parent = <&intc>;
+					interrupts = <0 20 4>;
 				};
 			}; //end lcd_controller@0x00008000 (tes_cdc_0)
 		
