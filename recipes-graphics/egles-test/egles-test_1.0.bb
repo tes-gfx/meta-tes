@@ -44,6 +44,7 @@ SRC_URI:tesintern = "\
 S = "${WORKDIR}/svn"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/svn/demos/egles_test/build/linux"
+installdir = "/home/root"
 
 EXTRA_OEMAKE += "CFG=${MACHINE} GLES_USE_NXVC=0 TES_INCLUDE_NON_REDISTRIBUTABLE_CODE=0 DEBUG=1"
 EXTRA_OEMAKE:tesclosed += " CFG=${MACHINE} SHADERTOY=1 TES_INCLUDE_NON_REDISTRIBUTABLE_CODE=1 DEBUG=1"
@@ -74,9 +75,11 @@ remove_mms_source() {
 addtask mms after do_unpack before do_patch
 
 do_install() {
-  install -d ${D}${datadir}/${PN}
-  install -d ${D}${datadir}/${PN}/shader_dumps
-  cp -r ${S}/demos/egles_test/bin ${D}${datadir}/${PN}/bin
-  install -m 0755 ${B}/egles_test ${D}${datadir}/${PN}/bin
+  install -d ${D}${installdir}/${PN}
+  install -d ${D}${installdir}/${PN}/shader_dumps
+  cp -r ${S}/demos/egles_test/bin ${D}${installdir}/${PN}/bin
+  install -m 0755 ${B}/egles_test ${D}${installdir}/${PN}/bin
 }
+
+FILES:${PN} += "/home/root"
 
