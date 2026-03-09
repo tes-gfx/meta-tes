@@ -31,6 +31,7 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL += " \
 	hellogl \
 	egles-test \
+	minnie \
 	flight-demo \
 	tes-autorun \
 "
