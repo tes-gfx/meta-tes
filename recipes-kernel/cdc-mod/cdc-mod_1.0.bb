@@ -12,5 +12,6 @@ SRC_URI:tesintern = "\
 "
 
 S = "${WORKDIR}/kms_modules/${MODULE_VERSION}"
+S:ambiq = "${WORKDIR}/kms_modules/${MODULE_VERSION}_ambiq"
 
 KERNEL_MODULE_AUTOLOAD += "cdc"
