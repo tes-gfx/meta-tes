@@ -19,7 +19,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/driver/kernel/linux/gbm"
+S = "${UNPACKDIR}/driver/kernel/linux/gbm"
 
 inherit pkgconfig
 

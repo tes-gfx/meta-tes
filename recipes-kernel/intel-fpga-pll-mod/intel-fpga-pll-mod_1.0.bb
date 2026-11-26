@@ -11,6 +11,6 @@ SRC_URI = "\
 	git://github.com/tes-gfx/intel-fpga-pll.git;protocol=https;branch=4.14.130-ltsi \
 "
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 KERNEL_MODULE_AUTOLOAD += "intel-pll"

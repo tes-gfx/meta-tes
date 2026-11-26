@@ -14,7 +14,7 @@ SRC_URI =  "file://demos/integration_test"
 SRCREV = "${AUTOREV}"
 SRC_URI:tesintern =  "${TES_SVN_PATH}/demos;module=integration_test;subdir=demos;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}"
 
-S = "${WORKDIR}/demos/integration_test"
+S = "${UNPACKDIR}/demos/integration_test"
 srcdir = "${prefix}/src"
 
 inherit pkgconfig

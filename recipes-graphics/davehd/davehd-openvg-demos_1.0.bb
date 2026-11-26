@@ -17,7 +17,7 @@ SRC_URI:tesintern =  " \
 	${TES_DHD_SVN_PATH};module=driver/test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;name=dhdtest; \
 "
 
-S = "${WORKDIR}/ovg_test/demos"
+S = "${UNPACKDIR}/ovg_test/demos"
 B = "${WORKDIR}/ovg_test/demos/build/linux"
 srcdir = "${prefix}/src"
 

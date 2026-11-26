@@ -19,7 +19,7 @@ SRC_URI:tesintern = "\
 "
 
 B = "${WORKDIR}/demo/build/linux_genip"
-S = "${WORKDIR}/demo"
+S = "${UNPACKDIR}/demo"
 srcdir = "${prefix}/src"
 
 do_install () {

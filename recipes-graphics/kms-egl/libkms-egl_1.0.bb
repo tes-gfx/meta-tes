@@ -11,7 +11,7 @@ PV = "1.0+gitr${SRCPV}"
 SRCREV = "${AUTOREV}"
 SRC_URI =  "git://github.com/tes-gfx/libkms-egl.git;branch=master;protocol=https"
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 inherit pkgconfig
 

@@ -12,6 +12,6 @@ SRC_URI = "file://Makefile \
            file://COPYING \
           "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 KERNEL_MODULE_AUTOLOAD += "mtl_touch"

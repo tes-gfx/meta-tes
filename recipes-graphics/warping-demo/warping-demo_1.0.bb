@@ -16,7 +16,7 @@ SRC_URI:tesintern = " \
 	http://build-linux/jenkins_artifacts/ip_cores/dave2d/warping/image_warper.tar.xz \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_install () {
   tar -xf ${YOCTOROOT}/repos/meta-tes/recipes-graphics/warping-demo/files/image_warper.tar.xz -C ${S}

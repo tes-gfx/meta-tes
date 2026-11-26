@@ -11,7 +11,7 @@ SRC_URI:tesintern = "\
 	${TES_DHD_SVN_PATH}/demos;module=tutorial;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/tutorial"
+S = "${UNPACKDIR}/tutorial"
 B = "${WORKDIR}/tutorial/build"
 srcdir = "${prefix}/src"
 

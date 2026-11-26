@@ -15,7 +15,7 @@ SRC_URI:tesintern = "\
 "
 
 
-S = "${WORKDIR}/demos/flight_demo"
+S = "${UNPACKDIR}/demos/flight_demo"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/flight_demo"
 

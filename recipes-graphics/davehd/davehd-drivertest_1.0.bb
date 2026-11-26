@@ -16,7 +16,7 @@ SRC_URI:tesintern = "\
 	${TES_DHD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/driver/test"
+S = "${UNPACKDIR}/driver/test"
 B = "${WORKDIR}/driver/test/build/linux_genip"
 srcdir = "${prefix}/src"
 

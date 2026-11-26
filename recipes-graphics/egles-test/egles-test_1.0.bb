@@ -41,7 +41,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=tools/kms_helper;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
-S = "${WORKDIR}/svn"
+S = "${UNPACKDIR}/svn"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/svn/demos/egles_test/build/linux"
 installdir = "/home/root"

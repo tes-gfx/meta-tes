@@ -11,6 +11,6 @@ SRC_URI = "\
         git://github.com/tes-gfx/cdc-mod-prelim.git;branch=5.4.124-lts;protocol=https \
 "
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 
 KERNEL_MODULE_AUTOLOAD += "cdc"

@@ -11,7 +11,7 @@ SRC_URI:tesintern = "\
 	${TES_CDC_SVN_PATH};module=/software/linux/kms;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};path_spec=kms_modules \
 "
 
-S = "${WORKDIR}/kms_modules/${MODULE_VERSION}"
+S = "${UNPACKDIR}/kms_modules/${MODULE_VERSION}"
 S:ambiq = "${WORKDIR}/kms_modules/${MODULE_VERSION}_ambiq"
 
 KERNEL_MODULE_AUTOLOAD += "cdc"

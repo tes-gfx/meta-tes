@@ -12,7 +12,7 @@ DEPENDS = "u-boot-tools-native"
 
 SRC_URI:append = " file://${MACHINE}/socdk/bootmmc.scr"
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_compile () {
 	mkimage -T script -C none -n "bootmmc" -d ${S}/${MACHINE}/socdk/bootmmc.scr ${B}/u-boot.scr

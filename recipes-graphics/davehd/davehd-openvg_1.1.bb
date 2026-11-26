@@ -24,7 +24,7 @@ SRC_URI:tesintern =  " \
 	${TES_DHD_SVN_PATH};module=driver;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=driver; \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_compile() {
 

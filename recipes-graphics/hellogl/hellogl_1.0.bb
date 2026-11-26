@@ -16,7 +16,7 @@ SRC_URI:tesintern = "\
 "
 
 
-S = "${WORKDIR}/demos/hellogl"
+S = "${UNPACKDIR}/demos/hellogl"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/demos/hellogl"
 

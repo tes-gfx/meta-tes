@@ -12,7 +12,7 @@ RDEPENDS:${PN} = "bash kb-poll"
 SRC_URI =  "file://autorun"
 
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 
 do_install () {

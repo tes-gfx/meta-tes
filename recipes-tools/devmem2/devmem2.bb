@@ -17,7 +17,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/tools;module=devmem2;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/tools/devmem2"
+S = "${UNPACKDIR}/tools/devmem2"
 B = "${WORKDIR}/tools/devmem2"
 
 do_install () {

@@ -20,7 +20,7 @@ SRC_URI:tesintern = "\
 "
 
 
-S = "${WORKDIR}/tools/mkpimage"
+S = "${UNPACKDIR}/tools/mkpimage"
 B = "${WORKDIR}/tools/mkpimage"
 
 

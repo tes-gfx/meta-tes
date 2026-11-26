@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=drivertest;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/drivertest"
+S = "${UNPACKDIR}/drivertest"
 B = "${WORKDIR}/drivertest/build/linux_genip"
 
 do_install () {

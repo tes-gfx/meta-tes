@@ -14,16 +14,16 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=interface;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=interface \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 B:tesintern = "${WORKDIR}/kernel_module/${MODULE_VERSION}"
 
 KERNEL_MODULE_AUTOLOAD += "dnx"
 
 # Workaround for issue with including kernel headers in Yocto builds and repo builds.
 # The source should include dnx_drm.h with square brackets (<>) isntead of double quotes.
-do_copy_header() {
-	cp ${STAGING_KERNEL_DIR}/include/uapi/drm/dnx_drm.h ${B}
-}
-do_copy_header[depends] += "virtual/kernel:do_copy"
+#do_copy_header() {
+#	cp ${STAGING_KERNEL_DIR}/include/uapi/drm/dnx_drm.h ${B}
+#}
+#do_copy_header[depends] += "virtual/kernel:do_copy"
 
 addtask copy_header after do_fetch before do_compile

@@ -20,7 +20,7 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH};module=minnie;subdir=svn;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=minnie \
 "
 
-S = "${WORKDIR}/svn/minnie"
+S = "${UNPACKDIR}/svn/minnie"
 srcdir = "${prefix}/src"
 B = "${WORKDIR}/svn/minnie/native/build/linux_poky"
 installdir = "/home/root"

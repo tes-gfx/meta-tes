@@ -17,7 +17,7 @@ SRC_URI:tesintern =  " \
 	${TES_DHD_SVN_PATH};module=driver/test;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};externals=nowarn;name=dhdtest; \
 "
 
-S = "${WORKDIR}/demos/performance"
+S = "${UNPACKDIR}/demos/performance"
 B = "${WORKDIR}/demos/performance/build/linux_genip"
 
 do_install () {

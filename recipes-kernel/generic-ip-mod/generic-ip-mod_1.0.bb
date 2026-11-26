@@ -17,7 +17,7 @@ SRC_URI:tesintern = "\
         ${TES_EVALKIT_SVN_PATH}/drivers;module=genip;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/git"
+S = "${UNPACKDIR}/git"
 S:tesintern = "${WORKDIR}/genip"
 
 do_install:append() {

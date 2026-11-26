@@ -19,7 +19,7 @@ SRC_URI:tesintern =  " \
         ${TES_LIBRARIES_SVN_PATH}/display_interface;module=${TES_SVN_BRANCH};protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/${TES_SVN_BRANCH}"
+S = "${UNPACKDIR}/${TES_SVN_BRANCH}"
 B = "${WORKDIR}/${TES_SVN_BRANCH}/build/linux_genip"
 
 inherit pkgconfig

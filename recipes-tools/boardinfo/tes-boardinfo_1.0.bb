@@ -10,7 +10,7 @@ SRC_URI =  " \
     file://boardinfo.sh \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_install () {
 	install -d ${D}${sysconfdir}/profile.d

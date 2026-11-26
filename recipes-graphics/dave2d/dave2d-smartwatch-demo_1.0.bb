@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 	${TES_D2D_SVN_PATH}/software;module=smartwatch;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/smartwatch/build/linux_genip"
+S = "${UNPACKDIR}/smartwatch/build/linux_genip"
 srcdir = "${prefix}/src"
 
 do_install () {

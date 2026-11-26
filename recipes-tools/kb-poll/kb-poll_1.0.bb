@@ -15,7 +15,7 @@ SRC_URI:tesintern = "\
 "
 
 
-S = "${WORKDIR}/tools/kb_poll"
+S = "${UNPACKDIR}/tools/kb_poll"
 B = "${WORKDIR}/tools/kb_poll"
 
 

@@ -15,7 +15,7 @@ SRC_URI:append = " \
 "
 # file://socfpga_cyclone5_de10_nano_tes_lcd.rbf;subdir=${MACHINE}/de10_nano 
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_compile () {
 	echo PWD = $(pwd)

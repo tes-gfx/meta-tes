@@ -21,7 +21,7 @@ SRC_URI:append:tesintern:tesdavenx = " \
 	http://build-linux/jenkins_artifacts/ip_cores/evalkit/dreamchip_arria10som/davenx/dreamchip_arria10som_tes_${DNX_CONFIG}.periph.rbf;subdir=arria10/dreamchip_arria10som \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 
 do_compile () {

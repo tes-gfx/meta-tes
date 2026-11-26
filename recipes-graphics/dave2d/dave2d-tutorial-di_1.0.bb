@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 	${TES_D2D_SVN_PATH}/tutorial;module=software;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/software"
+S = "${UNPACKDIR}/software"
 B = "${WORKDIR}/software/build/linux_genip"
 srcdir = "${prefix}/src"
 

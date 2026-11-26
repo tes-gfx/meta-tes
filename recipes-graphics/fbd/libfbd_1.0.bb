@@ -26,7 +26,7 @@ SRC_URI:tesintern =  " \
 	${TES_TOOLS_SVN_PATH};module=greg;path_spec=tools/greg;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
-S = "${WORKDIR}/driver"
+S = "${UNPACKDIR}/driver"
 B = "${WORKDIR}/driver/build/linux"
 
 do_install () {

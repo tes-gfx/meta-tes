@@ -16,7 +16,7 @@ SRC_URI:tesintern = " \
 	http://build-linux/jenkins_artifacts/ip_cores/dave2d/guiliani/guiliani_demos-2.3.tar.xz \
 "
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_install () {
   tar -xf ${YOCTOROOT}/repos/meta-tes/recipes-graphics/guiliani-demo/files/guiliani_demos-2.3.tar.xz -C ${S}

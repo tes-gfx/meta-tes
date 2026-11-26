@@ -23,7 +23,7 @@ SRC_URI:tesintern =  " \
 	${TES_DHD_SVN_PATH};module=tools/generators;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD};name=tools \
 "
 
-S = "${WORKDIR}/driver"
+S = "${UNPACKDIR}/driver"
 B = "${WORKDIR}/driver/user/build/linux_genip"
 
 inherit pkgconfig

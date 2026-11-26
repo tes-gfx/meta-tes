@@ -71,7 +71,7 @@ SRC_URI:tesintern = "\
 	file://tools \
 "
 
-S = "${WORKDIR}/build"
+S = "${UNPACKDIR}/build"
 S:tesintern = "${WORKDIR}/build"
 
 # Prevent DNX module from being built

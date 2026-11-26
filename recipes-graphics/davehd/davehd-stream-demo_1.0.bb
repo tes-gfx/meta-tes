@@ -11,7 +11,7 @@ SRC_URI:tesintern = "\
 	${TES_DHD_SVN_PATH}/demos;module=dhd_stream;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/dhd_stream"
+S = "${UNPACKDIR}/dhd_stream"
 B = "${WORKDIR}/dhd_stream/build"
 srcdir = "${prefix}/src"
 

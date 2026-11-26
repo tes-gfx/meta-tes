@@ -11,7 +11,7 @@ SRC_URI:tesintern = "\
 	${TES_EVALKIT_SVN_PATH}/demos/dhd_cdc;module=tutorial;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S = "${WORKDIR}/tutorial"
+S = "${UNPACKDIR}/tutorial"
 srcdir = "${prefix}/src"
 
 do_install () {
