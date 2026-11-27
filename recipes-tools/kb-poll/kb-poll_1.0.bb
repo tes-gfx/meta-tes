@@ -16,10 +16,10 @@ SRC_URI:tesintern = "\
 
 
 S = "${UNPACKDIR}/tools/kb_poll"
-B = "${WORKDIR}/tools/kb_poll"
+B = "${S}"
 
 
 do_install () {
   install -d ${D}${bindir}
-  install -m 0755 kb_poll ${D}${bindir}
+  install -m 0755 ${B}/kb_poll ${D}${bindir}
 }

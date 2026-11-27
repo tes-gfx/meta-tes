@@ -15,7 +15,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}"
-B:tesintern = "${WORKDIR}/kernel_module/${MODULE_VERSION}"
+B:tesintern = "${UNPACKDIR}/kernel_module/${MODULE_VERSION}"
 
 KERNEL_MODULE_AUTOLOAD += "dnx"
 
@@ -25,5 +25,5 @@ KERNEL_MODULE_AUTOLOAD += "dnx"
 #	cp ${STAGING_KERNEL_DIR}/include/uapi/drm/dnx_drm.h ${B}
 #}
 #do_copy_header[depends] += "virtual/kernel:do_copy"
-
-addtask copy_header after do_fetch before do_compile
+#
+#addtask copy_header after do_fetch before do_compile

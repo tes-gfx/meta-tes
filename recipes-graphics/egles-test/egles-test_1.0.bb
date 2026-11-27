@@ -43,7 +43,7 @@ SRC_URI:tesintern = "\
 
 S = "${UNPACKDIR}/svn"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/svn/demos/egles_test/build/linux"
+B = "${UNPACKDIR}/svn/demos/egles_test/build/linux"
 installdir = "/home/root"
 
 EXTRA_OEMAKE += "CFG=${MACHINE} GLES_USE_NXVC=0 TES_INCLUDE_NON_REDISTRIBUTABLE_CODE=0 DEBUG=1"

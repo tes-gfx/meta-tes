@@ -19,7 +19,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/drivertest"
-B = "${WORKDIR}/drivertest/build/linux_genip"
+B = "${UNPACKDIR}/drivertest/build/linux_genip"
 
 do_install () {
   install -d ${D}${datadir}/${PN}

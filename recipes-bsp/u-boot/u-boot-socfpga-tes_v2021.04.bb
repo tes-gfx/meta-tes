@@ -15,6 +15,6 @@ SRC_URI:append = " \
 "
 
 do_configure:append() {
-    sed -i "s/\$EVALKIT/${EVALKIT}/" ${WORKDIR}/env.txt
-    cp ${WORKDIR}/env.txt ${S}
+    sed -i "s/\$EVALKIT/${EVALKIT}/" ${UNPACKDIR}/env.txt
+    cp ${UNPACKDIR}/env.txt ${S}
 }

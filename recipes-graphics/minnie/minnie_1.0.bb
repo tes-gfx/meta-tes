@@ -22,7 +22,7 @@ SRC_URI:tesintern = "\
 
 S = "${UNPACKDIR}/svn/minnie"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/svn/minnie/native/build/linux_poky"
+B = "${UNPACKDIR}/svn/minnie/native/build/linux_poky"
 installdir = "/home/root"
 
 EXTRA_OEMAKE += "\

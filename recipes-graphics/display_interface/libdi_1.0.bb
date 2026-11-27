@@ -20,7 +20,7 @@ SRC_URI:tesintern =  " \
 "
 
 S = "${UNPACKDIR}/${TES_SVN_BRANCH}"
-B = "${WORKDIR}/${TES_SVN_BRANCH}/build/linux_genip"
+B = "${UNPACKDIR}/${TES_SVN_BRANCH}/build/linux_genip"
 
 inherit pkgconfig
 

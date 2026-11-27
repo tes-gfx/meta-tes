@@ -15,8 +15,8 @@ SRC_URI = "\
 	${UBOOT_REPO};protocol=${UBOOT_PROT};branch=${UBOOT_BRANCH} \
 	"
 
-S = "${WORKDIR}/git"
-B = "${WORKDIR}/build"
+S = "${UNPACKDIR}/git"
+B = "${UNPACKDIR}/build"
 
 RPROVIDES_${PN} += "u-boot" 
 

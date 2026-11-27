@@ -18,7 +18,7 @@ SRC_URI:tesintern =  " \
 "
 
 S = "${UNPACKDIR}/driver"
-B = "${WORKDIR}/driver/build/linux"
+B = "${UNPACKDIR}/driver/build/linux"
 
 inherit pkgconfig
 

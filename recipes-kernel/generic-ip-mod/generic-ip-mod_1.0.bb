@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/git"
-S:tesintern = "${WORKDIR}/genip"
+S:tesintern = "${UNPACKDIR}/genip"
 
 do_install:append() {
     install -d ${D}${includedir}

@@ -12,7 +12,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/dhd_stream"
-B = "${WORKDIR}/dhd_stream/build"
+B = "${UNPACKDIR}/dhd_stream/build"
 srcdir = "${prefix}/src"
 
 do_install () {

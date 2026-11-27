@@ -24,7 +24,7 @@ SRC_URI:tesintern =  " \
 "
 
 S = "${UNPACKDIR}/driver"
-B = "${WORKDIR}/driver/user/build/linux_genip"
+B = "${UNPACKDIR}/driver/user/build/linux_genip"
 
 inherit pkgconfig
 

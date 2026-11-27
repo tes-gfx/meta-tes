@@ -15,14 +15,14 @@ SRC_URI:tesintern = "\
 	${TES_SVN_PATH}/tools;module=tks;subdir=tools;protocol=https;user=${TES_SVN_USER};pswd=${TES_SVN_PASSWORD}; \
 "
 
-S:arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
-B:arria10 = "${WORKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
+S:arria10 = "${UNPACKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
+B:arria10 = "${UNPACKDIR}/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021"
 
-S:stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
-B:stratix10 = "${WORKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
+S:stratix10 = "${UNPACKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
+B:stratix10 = "${UNPACKDIR}/tks-bin-aarch64-poky-linux-stratix10-17Mar2021"
 
 do_unpack_tarball () {
-  cd ${WORKDIR}
+  cd ${UNPACKDIR}
   tar xf ./tools/tks/tks-bin-aarch64-poky-linux-stratix10-17Mar2021.tar.gz
   tar xf ./tools/tks/tks-bin-arm-poky-linux-gnueabi-arria10-17Mar2021.tar.gz
 }

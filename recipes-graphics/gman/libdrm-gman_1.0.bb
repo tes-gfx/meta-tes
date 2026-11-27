@@ -32,9 +32,9 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/git"
-S:tesintern = "${WORKDIR}/gman"
+S:tesintern = "${UNPACKDIR}/gman"
 
-export DI_PATH := "${WORKDIR}/display_interface"
+export DI_PATH := "${UNPACKDIR}/display_interface"
 
 do_install () {
   install -d ${D}${includedir}

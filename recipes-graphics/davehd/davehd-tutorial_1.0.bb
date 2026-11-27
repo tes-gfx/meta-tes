@@ -12,7 +12,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/tutorial"
-B = "${WORKDIR}/tutorial/build"
+B = "${UNPACKDIR}/tutorial/build"
 srcdir = "${prefix}/src"
 
 do_install () {

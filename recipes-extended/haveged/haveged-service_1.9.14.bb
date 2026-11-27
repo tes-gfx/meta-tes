@@ -9,7 +9,6 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 SRCREV = "4da3080ad4587860e5da73072d6ed54d0052938c"
 SRC_URI = "git://github.com/jirka-h/haveged.git;branch=master;protocol=https \
 "
-S = "${UNPACKDIR}/git"
 
 UPSTREAM_CHECK_URI = "https://github.com/jirka-h/haveged/releases"
 

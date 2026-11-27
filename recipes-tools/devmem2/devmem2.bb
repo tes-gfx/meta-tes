@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/tools/devmem2"
-B = "${WORKDIR}/tools/devmem2"
+B = "${UNPACKDIR}/tools/devmem2"
 
 do_install () {
 	install -d ${D}${bindir}

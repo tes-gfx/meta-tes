@@ -12,7 +12,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/tutorial_linux"
-B = "${WORKDIR}/tutorial_linux/build"
+B = "${UNPACKDIR}/tutorial_linux/build"
 srcdir = "${prefix}/src"
 
 inherit pkgconfig

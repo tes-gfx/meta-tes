@@ -18,7 +18,7 @@ SRC_URI:tesintern = "\
 
 S = "${UNPACKDIR}/demos/hellogl"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/demos/hellogl"
+B = "${UNPACKDIR}/demos/hellogl"
 
 
 do_install () {

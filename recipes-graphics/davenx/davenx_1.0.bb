@@ -72,7 +72,7 @@ SRC_URI:tesintern = "\
 "
 
 S = "${UNPACKDIR}/build"
-S:tesintern = "${WORKDIR}/build"
+S:tesintern = "${UNPACKDIR}/build"
 
 # Prevent DNX module from being built
 EXTRA_OEMAKE += "NOMODULE=1 YOCTO_BUILD=1 DEBUG=1"

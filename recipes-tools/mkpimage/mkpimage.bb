@@ -21,7 +21,7 @@ SRC_URI:tesintern = "\
 
 
 S = "${UNPACKDIR}/tools/mkpimage"
-B = "${WORKDIR}/tools/mkpimage"
+B = "${UNPACKDIR}/tools/mkpimage"
 
 
 do_install () {

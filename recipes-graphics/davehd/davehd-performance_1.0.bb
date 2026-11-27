@@ -18,7 +18,7 @@ SRC_URI:tesintern =  " \
 "
 
 S = "${UNPACKDIR}/demos/performance"
-B = "${WORKDIR}/demos/performance/build/linux_genip"
+B = "${UNPACKDIR}/demos/performance/build/linux_genip"
 
 do_install () {
   install -d ${D}${datadir}/${PN}

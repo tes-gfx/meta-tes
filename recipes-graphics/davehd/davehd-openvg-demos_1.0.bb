@@ -18,7 +18,7 @@ SRC_URI:tesintern =  " \
 "
 
 S = "${UNPACKDIR}/ovg_test/demos"
-B = "${WORKDIR}/ovg_test/demos/build/linux"
+B = "${UNPACKDIR}/ovg_test/demos/build/linux"
 srcdir = "${prefix}/src"
 
 do_install () {
@@ -48,9 +48,9 @@ do_install () {
   install -d ${D}${srcdir}/${PN}/src/ree_tests/test3
   install -m 0644 ${S}/src/ree_tests/test3/*.c ${D}${srcdir}/${PN}/src/ree_tests/test3/
   install -d ${D}${srcdir}/${PN}/external_src
-  install -m 0644 ${WORKDIR}/driver/test/platform/stdlib/*.c ${D}${srcdir}/${PN}/external_src/
-  install -m 0644 ${WORKDIR}/driver/test/src/framework/*.c ${D}${srcdir}/${PN}/external_src/
-  install -m 0644 ${WORKDIR}/driver/test/src/framework/*.h ${D}${srcdir}/${PN}/external_src/
+  install -m 0644 ${UNPACKDIR}/driver/test/platform/stdlib/*.c ${D}${srcdir}/${PN}/external_src/
+  install -m 0644 ${UNPACKDIR}/driver/test/src/framework/*.c ${D}${srcdir}/${PN}/external_src/
+  install -m 0644 ${UNPACKDIR}/driver/test/src/framework/*.h ${D}${srcdir}/${PN}/external_src/
 }
 
 #

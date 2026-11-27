@@ -83,31 +83,31 @@ python do_copy() {
 addtask copy after do_configure before do_compile
 
 do_copy_dnx() {
-	cp ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
-	cp ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
+	cp ${UNPACKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
+	cp ${UNPACKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
 }
 
 do_copy_c5() {
-        cp ${WORKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+        cp ${UNPACKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_copy_a10() {
-	cp ${WORKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
-	cp ${WORKDIR}/${BPN}/6.1/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${UNPACKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
+	cp ${UNPACKDIR}/${BPN}/6.1/dts/*.dtsi ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/
 }
 
 do_copy_s10() {
-	cp ${WORKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
+	cp ${UNPACKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/altera/
 }
 
 do_copy_agx5() {
-	cp ${WORKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/arrow/
+	cp ${UNPACKDIR}/${BPN}/6.1/dts/*.dts ${STAGING_KERNEL_DIR}/arch/${ARCH}/boot/dts/arrow/
 }
 
 #
 # Copy required header files into kernel staging directory (required for building module)
 #
 do_install:append:tesdavenx() {
-	install -m 0644 ${WORKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
-	install -m 0644 ${WORKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
+	install -m 0644 ${UNPACKDIR}/interface/src/*.h ${STAGING_KERNEL_DIR}/include/
+	install -m 0644 ${UNPACKDIR}/drm-dnx/dnx_drm.h ${STAGING_KERNEL_DIR}/include/uapi/drm/
 }

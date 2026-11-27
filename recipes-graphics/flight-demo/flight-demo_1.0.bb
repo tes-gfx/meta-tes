@@ -17,7 +17,7 @@ SRC_URI:tesintern = "\
 
 S = "${UNPACKDIR}/demos/flight_demo"
 srcdir = "${prefix}/src"
-B = "${WORKDIR}/demos/flight_demo"
+B = "${UNPACKDIR}/demos/flight_demo"
 
 
 do_install () {
