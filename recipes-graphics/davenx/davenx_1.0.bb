@@ -12,14 +12,14 @@ LICENSE_libdrm-dnx = "MIT"
 LICENSE_libdrm-dnx-dev = "MIT"
 LICENSE_libdisplay-dnx-dev = "MIT"
 LIC_FILES_CHKSUM = "\
-	file://../gles/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
-	file://../bagl/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
-	file://../egl/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
-	file://../nxasm/docs/LICENSE.txt;md5=dccd4a0fb4baa9ea80d0bcfd93c4ef7e \
-	file://../driver/kernel/linux/drm-dnx/LICENSE;md5=b3cff5eb85b2d0681a59405204a0a831 \
-	file://../driver/user/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
-	file://../glslang/LICENSE.txt;md5=918e668376010a04448a312fb37ae69b \
-	file://../display/docs/LICENSE.txt;md5=d3a882ddb01ed28435692f93f33dd252 \
+	file://${UNPACKDIR}/gles/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
+	file://${UNPACKDIR}/bagl/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
+	file://${UNPACKDIR}/egl/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
+	file://${UNPACKDIR}/nxasm/docs/LICENSE.txt;md5=dccd4a0fb4baa9ea80d0bcfd93c4ef7e \
+	file://${UNPACKDIR}/driver/kernel/linux/drm-dnx/LICENSE;md5=b3cff5eb85b2d0681a59405204a0a831 \
+	file://${UNPACKDIR}/driver/user/docs/LICENSE.txt;md5=875d108c43e661a3610686e2a42dc826 \
+	file://${UNPACKDIR}/glslang/LICENSE.txt;md5=918e668376010a04448a312fb37ae69b \
+	file://${UNPACKDIR}/display/docs/LICENSE.txt;md5=d3a882ddb01ed28435692f93f33dd252 \
 "
 
 DEPENDS = "libdrm libpng"
@@ -71,14 +71,21 @@ SRC_URI:tesintern = "\
 	file://tools \
 "
 
-S = "${UNPACKDIR}/build"
-S:tesintern = "${UNPACKDIR}/build"
+S = "${UNPACKDIR}"
+S:tesintern = "${UNPACKDIR}"
+B = "${UNPACKDIR}/build"
+
+# The sub-makefiles reset CFLAGS/CXXFLAGS, which drops the prefix maps that
+# keep TMPDIR out of the debug info. CC/CXX are not reset, so pass them there.
+CC:append = " ${DEBUG_PREFIX_MAP}"
+CXX:append = " ${DEBUG_PREFIX_MAP}"
 
 # Prevent DNX module from being built
 EXTRA_OEMAKE += "NOMODULE=1 YOCTO_BUILD=1 DEBUG=1"
 EXTRA_OEMAKE:append = " DNX_DISPLAY=cdc GLES_USE_NXVC=1"
 EXTRA_OEMAKE:append:arria10 = " CFG=arria10"
 EXTRA_OEMAKE:append:agilex5 = " CFG=agilex5"
+EXTRA_OEMAKE:append:agilex5_mk_a5e065bb32aes1 = " CFG=agilex5"
 
 DEPENDS_libgles2-tes = "libdrm-dnx-dev"
 DEPENDS_libdisplay-dnx = "libdrm-dnx-dev"
@@ -108,32 +115,32 @@ do_compile:prepend () {
 }
 
 do_unpack:append:tesintern () {
-    S = d.getVar('S', True)
-    os.system("cp " + S + "/../tools/svnver/davenx_svnver.* " + S + "/../driver/user/src/")
-    os.system("cp " + S + "/../tools/svnver/gles_svnver.* " + S + "/../gles/src/")
-    os.system("cp " + S + "/../tools/svnver/egl_svnver.* " + S + "/../egl/src/")
+    unpackdir = d.getVar('UNPACKDIR')
+    os.system(f"cp {unpackdir}/tools/svnver/davenx_svnver.* {unpackdir}/driver/user/src/")
+    os.system(f"cp {unpackdir}/tools/svnver/gles_svnver.*   {unpackdir}/gles/src/")
+    os.system(f"cp {unpackdir}/tools/svnver/egl_svnver.*    {unpackdir}/egl/src/")
 }
 
 do_install () {
 	install -m 0755 -d ${D}${libdir}
-	oe_soinstall ${S}/../gles/build/linux/libGLESv2.so.*.* ${D}${libdir}
-	oe_soinstall ${S}/../egl/build/linux/libEGL.so.*.* ${D}${libdir}
-	oe_soinstall ${S}/../driver/kernel/linux/drm-dnx/libdrm_dnx.so.*.* ${D}${libdir}
-	oe_soinstall ${S}/../display/build/linux/libdisplay.so.*.* ${D}${libdir}
+	oe_soinstall ${S}/gles/build/linux/libGLESv2.so.*.* ${D}${libdir}
+	oe_soinstall ${S}/egl/build/linux/libEGL.so.*.* ${D}${libdir}
+	oe_soinstall ${S}/driver/kernel/linux/drm-dnx/libdrm_dnx.so.*.* ${D}${libdir}
+	oe_soinstall ${S}/display/build/linux/libdisplay.so.*.* ${D}${libdir}
 
 	install -m 0755 -d ${D}${libdir}/pkgconfig
-	install -m 0644 ${S}/../*.pc ${D}${libdir}/pkgconfig/
+	install -m 0644 ${S}/*.pc ${D}${libdir}/pkgconfig/
 
 	install -m 0755 -d ${D}${includedir}/GLES2
 	install -m 0755 -d ${D}${includedir}/GLES3
 	install -m 0755 -d ${D}${includedir}/EGL
 	install -m 0755 -d ${D}${includedir}/KHR
-	install -m 0644 ${S}/../gles/inc/GLES2/* ${D}${includedir}/GLES2
-	install -m 0644 ${S}/../gles/inc/GLES3/* ${D}${includedir}/GLES3
-	install -m 0644 ${S}/../gles/inc/EGL/* ${D}${includedir}/EGL
-	install -m 0644 ${S}/../gles/inc/KHR/* ${D}${includedir}/KHR
-	install -m 0644 ${S}/../driver/kernel/linux/drm-dnx/dnx_drm*h ${D}${includedir}
-	install -m 0644 ${S}/../display/inc/* ${D}${includedir}
+	install -m 0644 ${S}/gles/inc/GLES2/* ${D}${includedir}/GLES2
+	install -m 0644 ${S}/gles/inc/GLES3/* ${D}${includedir}/GLES3
+	install -m 0644 ${S}/gles/inc/EGL/* ${D}${includedir}/EGL
+	install -m 0644 ${S}/gles/inc/KHR/* ${D}${includedir}/KHR
+	install -m 0644 ${S}/driver/kernel/linux/drm-dnx/dnx_drm*h ${D}${includedir}
+	install -m 0644 ${S}/display/inc/* ${D}${includedir}
 }
 
 
